@@ -9,7 +9,7 @@
 ## Mô tả tóm tắt đề tài
 
 - Đăng nhập, đăng xuất website
-- Phân quyền người dùng dành cho admin
+- Phân quyền người dùng, vai trò dành cho admin
 - Quản lý hồ sơ nhân viên
 - Quản lý tiền lương
 - Quản lý chấm công

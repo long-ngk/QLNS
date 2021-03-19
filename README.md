@@ -8,7 +8,7 @@
 
 ## Mô tả tóm tắt đề tài
 
-- Đây là website giúp người trưởng phòng nhân sự có thể quản lý nhân viên của mình.
+- Đây là website giúp người trưởng phòng nhân sự hoặc những người quản lí cấp cao có thể quản lý nhân viên của mình.
 - Người dùng cần có tài khoản, mật khẩu riêng để có thể đăng nhập/đăng xuất website.
 - Gồm các chức năng chính dành riêng cho trưởng phòng nhân sự:
 	- Quản lý hồ sơ nhân viên (thêm, xóa, sửa, xem danh sách)

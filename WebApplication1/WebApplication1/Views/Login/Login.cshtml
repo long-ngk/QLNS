@@ -1,0 +1,103 @@
+﻿@model WebApplication1.Models.TaiKhoan
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<style>
+    .field-validation-error {
+        color: red;
+    }
+</style>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <title>Login</title>
+</head>
+
+<body>
+    <!-- login form -->
+    <section class="w3l-login">
+        <div class="overlay">
+            <div class="wrapper">
+                <div class="form-section">
+                    <h3><span class="fas fa-users mr-3"></span>Đăng nhập</h3>
+                    @using (Html.BeginForm("CheckLogin", "Login"))
+                    {
+
+                        @Html.AntiForgeryToken();
+                        <p class="form-input">@Html.TextBoxFor(model => model.TenTK, new { style = "field-validation-error", placeholder = "Nhập tên tài khoản" })</p>
+                        <p>@Html.ValidationMessageFor(model => model.TenTK)</p>
+                        <p class="form-input">@Html.PasswordFor(model => model.MatKhau, new { style = "field-validation-error", placeholder = "Nhập mật khẩu" })</p>
+                        <p>@Html.ValidationMessageFor(model => model.MatKhau)</p>
+
+                        <label class="check-remaind">
+                            <input type="checkbox" name="showPassword" id="showPassword">
+                            <span class="checkmark"></span>
+                            <p class="remember">Hiện mật khẩu</p>
+                        </label>
+                        <input type="submit" class="btn btn-primary theme-button mt-4" value="Đăng nhập" />
+                        <div class="new-signup">
+                            <a href="#" class="signuplink" data-toggle="modal" data-target="#myModal">Quên mật khẩu?</a>
+                            @*@Html.ActionLink("Quên mật khẩu?", "ForgotPassword", "Login")*@
+                        </div>
+                    }
+                    <!--popup Quên mật khẩu-->
+                    <div class="container" style="width:auto; margin-top:2%">
+
+                        <div class="modal fade" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+
+                                        <h3 class="modal-title">Quên mật khẩu</h3>
+
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <!--<form id="myForm">-->
+                                        @*@Html.TextBoxFor(model => model.TenTK, new { @class = "form-control", @placeholder = "Nhập tên tài khoản" })
+                                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Nhập email" })*@
+                                        <!--</form>-->
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <a href="#" class="btn btn-danger" data-dismiss="modal">Hủy</a>
+                                        <input type="reset" value="Gửi mail" class="btn btn-success" id="btnSendEmail" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id='stars'></div>
+        <div id='stars2'></div>
+        <div id='stars3'></div>
+    </section>
+    <!-- /login form -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Xử lý checkbok hiện mật khẩu -->
+    <script>
+        $(function () {
+
+            $("#showPassword").change(function () {
+                var checked = document.getElementById('showPassword').checked;
+                if (checked) {
+                    $("#MatKhau").attr("type", "text");
+                } else {
+                    $("#MatKhau").attr("type", "password");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

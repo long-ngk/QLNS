@@ -1,0 +1,207 @@
+﻿* {
+    margin: 0;
+    font-size: 14px;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.navbar {
+    background-color: #06cc28;
+    border: none;
+    margin-bottom: 0 !important;
+    border-radius: 0 !important;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+.right-navbar {
+    min-width: 80%;
+    flex-wrap: wrap;
+}
+
+#sidebar {
+    min-width: 20%;
+    max-width: 20%;
+    background-color: black;
+    padding-bottom: 50%;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+    #sidebar.active {
+        margin-left: 10%;
+    }
+
+    #sidebar .sidebar-header {
+        padding: 20px;
+        background-color: black;
+    }
+
+        #sidebar .sidebar-header h3 {
+            font-size: 2rem;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        #sidebar .sidebar-header label {
+            display: inline-block;
+            font-size: 1.5rem;
+            margin-left: 5%;
+        }
+
+    #sidebar ul.components {
+        padding: 20px 0;
+        border-bottom: 1px solid #47748b;
+    }
+
+    #sidebar ul p {
+        color: #fff;
+        padding: 10px;
+    }
+
+    #sidebar ul li a {
+        padding: 10px;
+        font-size: 1.1em;
+        display: block;
+        color: white;
+        text-decoration: none;
+    }
+
+        #sidebar ul li a:hover {
+            color: #7386D5;
+            background: #fff;
+        }
+
+        #sidebar ul li a.click,
+        a[aria-expanded="true"] {
+            color: #fff;
+            background: #00b116;
+            font-weight: bold;
+        }
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+#homeSubmenu, #pageSubmenu {
+    padding-left: 20px;
+}
+
+.list-employee .add-employee {
+    background-color: #0ABC1C;
+    border: none;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 10px;
+}
+
+.list-detail {
+    margin-left: 3%;
+    margin-top: 2%;
+}
+
+.list-employee > h1 {
+    font-size: 3rem;
+    font-weight: 400;
+    background-color: #8080808c;
+    text-align: center;
+    padding: 1.5rem 0;
+    background: linear-gradient(to bottom, #71f3f9, #2193d6);
+}
+
+.list-employee .all-choose {
+    background-color: #90ADF8;
+    border-radius: 5px;
+}
+
+.list-employee .unchoose {
+    background-color: #4BE275;
+    border-radius: 5px;
+    margin-left: 2rem;
+}
+
+.list-detail .input-search {
+    width: 30%;
+    margin: 0 2rem;
+    padding: 0 1rem;
+    border-radius: 5px;
+}
+
+.list-detail .btn-search {
+    background-color: #FFF50C;
+    border-radius: 5px;
+    margin-right: 2rem;
+}
+
+.list-detail .btn-reload {
+    background-color: #90ADF8;
+    padding: 0 2rem;
+}
+
+.list-detail .form-check {
+    align-items: center;
+}
+
+    .list-detail .form-check input {
+        margin-left: 1rem;
+    }
+
+.list-employee .detail-employee {
+    background-color: #06cc28;
+    color: white;
+    font-weight: bold;
+    padding: 1rem 0;
+    margin-left: .5%;
+    margin-top: 3%;
+}
+.list-employee .radio-inline {
+    margin: .5rem 1rem;
+}
+.list-employee .left-button
+.btn-delete_employee {
+    background-color: #F91414;
+    color: white;
+    padding: 0.5rem 1rem;
+}
+.list-employee .button-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:auto;
+    margin:2rem;
+}
+.list-employee .left-button .btn-add_award {
+    background-color: #5884F6;
+    color: white;
+    padding: 0.5rem 1rem;
+}
+.list-employee .left-button .btn-add_discipline {
+    background-color: #AE7E02;
+    color: white;
+    padding: 0.5rem 1rem;
+}
+.list-employee .right-button .btn-adsent {
+    background-color: #e717ad;
+    color: white;
+    padding: 0.5rem 1.5rem;
+}

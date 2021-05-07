@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>@ViewBag.Title</title>
+    <link href="~/Style/CSS/style.css" rel="stylesheet" />
+    @*<link href="~/Content/Site.css" rel="stylesheet" />*@
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-left">
+        <ul class="navbar-nav">
+            <li class="nav-item text-right">
+                <a class="nav-link text-white" href="#"><span class="fas fa-sign-out-alt"></span> Thoát</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="body d-flex">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Quản lý nhân sự</h3>
+                <label>Chào : </label><input type="text" name="name" value="" />
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="fas fa-user-tie mr-3"></span>Quản lý nhân viên</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            @Html.ActionLink("Danh sách nhân viên","ListEmployee","Home")
+                            @*<a href="~/Views/Home/ListEmployee.cshtml">Danh sách nhân viên</a>*@
+                        </li>
+                        <li>
+                            <a href="#">Danh sách khen thưởng nhân viên</a>
+                        </li>
+                        <li>
+                            <a href="#">Danh mục khen thưởng</a>
+                        </li>
+                        <li>
+                            <a href="#">Danh sách kỷ luật nhân viên</a>
+                        </li>
+                        <li>
+                            <a href="#">Danh mục kỷ luật</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <span class="far fa-edit mr-3"></span>Quản lý chấm công
+                    </a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">Danh sách chấm công</a>
+                        </li>
+                        <li>
+                            <a href="#">Danh sách nhân viên nghỉ việc</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><span class="fab fa-buromobelexperte mr-3"></span> Quản lý phòng ban</a>
+                </li>
+                <li>
+                    <a href="#"><span class="far fa-id-card mr-3"></span>Quảm lý chức vụ</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="right-navbar">
+            @RenderBody()
+        </div>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+
+</body>
+</html>

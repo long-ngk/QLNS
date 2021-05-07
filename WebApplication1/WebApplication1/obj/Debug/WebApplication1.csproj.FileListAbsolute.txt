@@ -1,0 +1,482 @@
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\WebApplication1.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\WebApplication1.pdb
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\csc.exe
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\csc.exe.config
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\csc.rsp
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\csi.exe
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\csi.exe.config
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\csi.rsp
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Managed.Core.targets
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Win32.Primitives.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.AppContext.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Collections.Immutable.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Console.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Globalization.Calendars.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.IO.Compression.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.IO.Compression.ZipFile.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.IO.FileSystem.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Net.Http.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Net.Sockets.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Reflection.Metadata.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.Encoding.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.Primitives.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Text.Encoding.CodePages.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Threading.Tasks.Extensions.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.ValueTuple.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Xml.ReaderWriter.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Xml.XmlDocument.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Xml.XPath.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Xml.XPath.XDocument.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\vbc.exe
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\vbc.exe.config
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\vbc.rsp
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe.config
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\Antlr3.Runtime.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\Microsoft.Web.Infrastructure.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\Newtonsoft.Json.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.Helpers.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.Mvc.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.Optimization.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.Razor.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\WebGrease.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.Helpers.xml
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.Mvc.xml
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.Optimization.xml
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.Razor.xml
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.xml
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.xml
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.xml
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\Newtonsoft.Json.xml
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\Antlr3.Runtime.pdb
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojAssemblyReference.cache
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CoreCompileInputs.cache
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CopyComplete
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
+F:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\WebApplication1.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\WebApplication1.pdb
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\csc.exe
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\csc.exe.config
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\csc.rsp
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\csi.exe
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\csi.exe.config
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\csi.rsp
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.AppContext.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Collections.Immutable.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Console.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Globalization.Calendars.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.IO.Compression.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.IO.FileSystem.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Net.Http.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Net.Sockets.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Reflection.Metadata.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.ValueTuple.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Xml.XPath.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\vbc.exe
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\vbc.exe.config
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\vbc.rsp
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe.config
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\Antlr3.Runtime.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\Microsoft.Web.Infrastructure.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\Newtonsoft.Json.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.Helpers.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.Mvc.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.Optimization.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.Razor.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\WebGrease.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.Helpers.xml
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.Mvc.xml
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.Optimization.xml
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.Razor.xml
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.xml
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.xml
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.xml
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\Newtonsoft.Json.xml
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\Antlr3.Runtime.pdb
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojAssemblyReference.cache
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CoreCompileInputs.cache
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CopyComplete
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
+D:\Học kì 2 năm 3\web_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\WebApplication1.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\WebApplication1.pdb
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\csc.exe
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Collections.Immutable.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.IO.FileSystem.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Reflection.Metadata.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\Antlr3.Runtime.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\Microsoft.Web.Infrastructure.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\Newtonsoft.Json.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Helpers.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Mvc.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Optimization.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Razor.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\WebGrease.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Helpers.xml
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Mvc.xml
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Optimization.xml
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Razor.xml
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.xml
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.xml
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.xml
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\Newtonsoft.Json.xml
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\Antlr3.Runtime.pdb
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CoreCompileInputs.cache
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CopyComplete
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\WebApplication1.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\WebApplication1.pdb
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\csc.exe
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\csc.exe.config
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\csc.rsp
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\csi.exe
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\csi.exe.config
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\csi.rsp
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.AppContext.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Console.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.IO.Compression.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Net.Http.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Net.Sockets.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.ValueTuple.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Xml.XPath.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\vbc.exe
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\vbc.exe.config
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\vbc.rsp
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\Antlr3.Runtime.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\Newtonsoft.Json.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Helpers.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Mvc.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Optimization.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Razor.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\WebGrease.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Helpers.xml
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Mvc.xml
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Optimization.xml
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Razor.xml
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.xml
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.xml
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.xml
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\Newtonsoft.Json.xml
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\Antlr3.Runtime.pdb
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CoreCompileInputs.cache
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CopyComplete
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+C:\Users\tanlo\Source\Repos\TanLocIT200600\WEB_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojAssemblyReference.cache
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\WebApplication1.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\WebApplication1.pdb
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\csc.exe
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\csc.exe.config
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\csc.rsp
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\csi.exe
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\csi.exe.config
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\csi.rsp
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.AppContext.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Collections.Immutable.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Console.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Globalization.Calendars.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.IO.Compression.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.IO.FileSystem.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Net.Http.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Net.Sockets.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Reflection.Metadata.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.ValueTuple.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Xml.XPath.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\vbc.exe
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\vbc.exe.config
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\vbc.rsp
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe.config
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\Antlr3.Runtime.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\Microsoft.Web.Infrastructure.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\Newtonsoft.Json.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Helpers.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Mvc.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Optimization.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Razor.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\WebGrease.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Helpers.xml
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Mvc.xml
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Optimization.xml
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.Razor.xml
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.xml
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.xml
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.xml
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\Newtonsoft.Json.xml
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\Antlr3.Runtime.pdb
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojAssemblyReference.cache
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CoreCompileInputs.cache
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CopyComplete
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
+D:\Học kì 2 năm 3\Web-HRM\WEB_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\csc.exe.config
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\csc.rsp
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\csi.exe
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\csi.exe.config
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\csi.rsp
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Managed.Core.targets
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.AppContext.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Console.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Globalization.Calendars.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.IO.Compression.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Net.Http.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Net.Sockets.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.ValueTuple.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Xml.XmlDocument.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Xml.XPath.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\vbc.exe
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\vbc.exe.config
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\vbc.rsp
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe.config
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojAssemblyReference.cache
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\EntityFramework.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.dll
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\EntityFramework.xml
+D:\GitHub\WEB_HRM\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.xml
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\WebApplication1.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\WebApplication1.pdb
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\csc.exe
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\csc.exe.config
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\csc.rsp
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\csi.exe
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\csi.exe.config
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\csi.rsp
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Managed.Core.targets
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.AppContext.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.Collections.Immutable.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.Console.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.Globalization.Calendars.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.IO.Compression.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.IO.FileSystem.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.Net.Http.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.Net.Sockets.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.Reflection.Metadata.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.ValueTuple.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.Xml.XmlDocument.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.Xml.XPath.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\vbc.exe
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\vbc.exe.config
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\vbc.rsp
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe.config
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\Antlr3.Runtime.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\EntityFramework.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\Microsoft.Web.Infrastructure.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\Newtonsoft.Json.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\System.Web.Helpers.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\System.Web.Mvc.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\System.Web.Optimization.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\System.Web.Razor.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\System.Web.WebPages.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\WebGrease.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\EntityFramework.xml
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.xml
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\System.Web.Helpers.xml
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\System.Web.Mvc.xml
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\System.Web.Optimization.xml
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\System.Web.Razor.xml
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\System.Web.WebPages.xml
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.xml
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.xml
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\Newtonsoft.Json.xml
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\Antlr3.Runtime.pdb
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\GitHub\QLNS\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojAssemblyReference.cache
+D:\GitHub\QLNS\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CoreCompileInputs.cache
+D:\GitHub\QLNS\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CopyComplete
+D:\GitHub\QLNS\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb

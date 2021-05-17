@@ -14,10 +14,10 @@ namespace WebApplication1.Models
     
     public partial class Ct_Thuong
     {
-        public int MaCT_Thuong { get; set; }
-        public Nullable<int> MaNhanVien { get; set; }
-        public Nullable<int> MaThuong { get; set; }
-        public Nullable<System.DateTime> Ngay { get; set; }
+        public int MaCTThuong { get; set; }
+        public int MaNhanVien { get; set; }
+        public int MaThuong { get; set; }
+        public System.DateTime Ngay { get; set; }
     
         public virtual NhanVien NhanVien { get; set; }
         public virtual LoaiThuong LoaiThuong { get; set; }

@@ -23,7 +23,9 @@ namespace WebApplication1.Models
         public int MaQuyen { get; set; }
         public string TenQuyen { get; set; }
         public string GhiChu { get; set; }
-    
+
+        public bool IsChecked { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TaiKhoan> TaiKhoans { get; set; }
     }

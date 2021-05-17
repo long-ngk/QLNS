@@ -128,7 +128,18 @@ a[data-toggle="collapse"] {
     padding: 1.5rem 0;
     background: linear-gradient(to bottom, #71f3f9, #2193d6);
 }
+h1.function-page-title {
+    font-size: 3rem;
+    font-weight: 400;
+    background-color: #8080808c;
+    text-align: center;
+    padding: 1.5rem 0;
+    background: linear-gradient(to bottom, #71f3f9, #2193d6);
+}
 
+.footer-function {
+    margin-left: 2rem;
+}
 .list-employee .all-choose {
     background-color: #90ADF8;
     border-radius: 5px;
@@ -160,6 +171,7 @@ a[data-toggle="collapse"] {
 
 .list-detail .form-check {
     align-items: center;
+    min-width:100%;
 }
 
     .list-detail .form-check input {
@@ -205,3 +217,4 @@ a[data-toggle="collapse"] {
     color: white;
     padding: 0.5rem 1.5rem;
 }
+

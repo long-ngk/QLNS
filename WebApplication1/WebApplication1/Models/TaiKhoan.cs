@@ -11,20 +11,17 @@ namespace WebApplication1.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class TaiKhoan
     {
         public int MaNhanVien { get; set; }
-        [Display(Name = "Tên tài khoản")]
-        [Required(ErrorMessage = "Tài khoản không được để trống...")]
+        [Required(ErrorMessage = "Tên tài khoản không được để trống...")]
         public string TenTK { get; set; }
-        [Display(Name = "Mật khẩu")]
         [Required(ErrorMessage = "Mật khẩu không được để trống...")]
         public string MatKhau { get; set; }
         public int MaQuyen { get; set; }
+        public string ResetPasswordCode { get; set; }
     
         public virtual NhanVien NhanVien { get; set; }
         public virtual PhanQuyen PhanQuyen { get; set; }

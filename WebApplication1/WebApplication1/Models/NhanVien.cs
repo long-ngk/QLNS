@@ -36,10 +36,8 @@ namespace WebApplication1.Models
         public string HinhAnh { get; set; }
         public int MaChucVu { get; set; }
         public Nullable<int> MaPB { get; set; }
-        public string MaBaoHiem { get; set; }
-        public string TrangThai { get; set; }
+        public Nullable<bool> TrangThai { get; set; }
     
-        public virtual BaoHiem BaoHiem { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChamCong> ChamCongs { get; set; }
         public virtual ChucVu ChucVu { get; set; }

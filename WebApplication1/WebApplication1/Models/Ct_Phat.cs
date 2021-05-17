@@ -14,7 +14,7 @@ namespace WebApplication1.Models
     
     public partial class Ct_Phat
     {
-        public int MaCT_Phat { get; set; }
+        public int MaCTPhat { get; set; }
         public int MaNhanVien { get; set; }
         public int MaPhat { get; set; }
         public System.DateTime Ngay { get; set; }

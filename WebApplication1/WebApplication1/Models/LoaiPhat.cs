@@ -20,8 +20,8 @@ namespace WebApplication1.Models
             this.Ct_Phat = new HashSet<Ct_Phat>();
         }
     
-        public int MaPhat { get; set; }
-        public string TenTienPhat { get; set; }
+        public int MaLoaiPhat { get; set; }
+        public string TenLoaiPhat { get; set; }
         public int GiaTri { get; set; }
         public Nullable<bool> TrangThai { get; set; }
     

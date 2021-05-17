@@ -20,8 +20,8 @@ namespace WebApplication1.Models
             this.Ct_Thuong = new HashSet<Ct_Thuong>();
         }
     
-        public int MaThuong { get; set; }
-        public string TenTienThuong { get; set; }
+        public int MaLoaiThuong { get; set; }
+        public string TenLoaiThuong { get; set; }
         public int GiaTri { get; set; }
         public Nullable<bool> TrangThai { get; set; }
     

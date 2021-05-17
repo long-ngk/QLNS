@@ -21,7 +21,8 @@
     <div class="body d-flex">
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Quản lý nhân sự</h3>
+                <img src="~/images/hrm.png" style="width: 70px; height:70px; color:white; display: block;margin: 0 auto;" />
+                <br />
                 <label>Chào : </label><input type="text" name="name" value="" />
             </div>
 
@@ -31,7 +32,7 @@
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
                             @Html.ActionLink("Danh sách nhân viên","ListEmployee","Home")
-                            @*<a href="~/Views/Home/ListEmployee.cshtml">Danh sách nhân viên</a>*@
+                        
                         </li>
                         <li>
                             <a href="#">Danh sách khen thưởng nhân viên</a>

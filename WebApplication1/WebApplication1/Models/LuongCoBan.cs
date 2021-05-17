@@ -21,9 +21,10 @@ namespace WebApplication1.Models
         }
     
         public int MaLuongCoBan { get; set; }
-        public int LuongCoBan1 { get; set; }
-        public int PhuCap { get; set; }
+        public int TienLuongCoBan { get; set; }
         public int MaNhanVien { get; set; }
+        public Nullable<System.DateTime> NgayHieuLuc { get; set; }
+        public Nullable<bool> TrangThai { get; set; }
     
         public virtual NhanVien NhanVien { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

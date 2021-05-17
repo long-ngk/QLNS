@@ -18,7 +18,6 @@ namespace WebApplication1.Models
         public System.DateTime ThangNam { get; set; }
         public int TongGioLamViec { get; set; }
         public int TongGioTangCa { get; set; }
-        public int TienBaoHiem { get; set; }
         public int TongThuong { get; set; }
         public int TongPhat { get; set; }
         public int MaLuongCoBan { get; set; }

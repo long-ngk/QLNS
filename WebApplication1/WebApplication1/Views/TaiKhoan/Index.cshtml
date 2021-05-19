@@ -1,0 +1,79 @@
+﻿@model IEnumerable<WebApplication1.Models.TaiKhoan>
+
+@*@model List<WebApplication1.Models.TaiKhoanViewModel>*@
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutQuanTri.cshtml";
+}
+
+<h1 class="function-page-title">DANH SÁCH NGƯỜI DÙNG</h1>
+
+<html>
+<body>
+    <div class="list-employee">
+        <div class="list-detail">
+            <div class="row">
+                <div class="form-check d-flex">
+                    <span>Chọn : </span>
+                    @using (Html.BeginForm("Search", "TaiKhoan", FormMethod.Get))
+                    {
+                        @Html.RadioButton("loaiTimKiem", "TenTK", true)<span> Tên tài khoản</span>
+                        @Html.RadioButton("loaiTimKiem", "TenQuyen")<span> Tên quyền</span>
+                        <input class="input-search" type="text" placeholder="Mời nhập..." name="tenTimKiem" />
+
+                        <button class="btn btn-search" type="submit"><i class="fas fa-search"></i> Tìm kiếm</button>
+                    }
+
+                </div>
+            </div>
+            <div class="row mt-3">
+
+                <a href='@Url.Action("Index", "TaiKhoan")' class="btn btn-reload" style="color:black"><i class="fas fa-sync-alt"></i> Tải lại</a>
+
+            </div>
+        </div>
+    </div>
+    <br />
+    <table class="table">
+        <tr class="table-title">
+            <th>
+                @*@Html.DisplayNameFor(model => model.TenTK)*@<label>Tên tài khoản</label>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.MatKhau)*@<label>Mật khẩu</label>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.NhanVien.HoTen)*@<label>Họ tên</label>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.PhanQuyen.TenQuyen)*@<label>Tên quyền</label>
+            </th>
+            <th>Chức năng</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenTK)
+                </td>
+                <td>
+                    @Html.HiddenFor(modelItem => item.MatKhau)@Html.Raw("\u2022\u2022\u2022\u2022\u2022")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NhanVien.HoTen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhanQuyen.TenQuyen)
+                </td>
+                <td>
+                    <input class="btn-edit" type="button" value="Sửa" onclick="window.location.href= '@Url.Action("Edit","TaiKhoan", new { id = item.MaNhanVien })'" /> |
+                    <input class="btn-detail" type="button" value="Chi tiết" onclick="window.location.href= '@Url.Action("Details","TaiKhoan", new { id = item.MaNhanVien })'" />
+
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

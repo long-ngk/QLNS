@@ -1,0 +1,41 @@
+﻿@model WebApplication1.Models.PhongBan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="function-page-title">CHI TIẾT PHÒNG BAN</h1>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaPB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaPB)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TenPB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenPB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoDT)
+        </dd>
+
+    </dl>
+</div>
+<p class="footer-function">
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.MaPB }) |
+    @Html.ActionLink("Quay lại danh sách", "Index")
+</p>

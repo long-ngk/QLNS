@@ -128,9 +128,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ChucVuController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PhanQuyenController.cs" />
+    <Compile Include="Controllers\PhongBanController.cs" />
     <Compile Include="Controllers\TaiKhoanController.cs" />
     <Compile Include="Extensions\NotificationExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -275,6 +277,14 @@
     <Content Include="Views\TaiKhoan\Details.cshtml" />
     <Content Include="Views\TaiKhoan\Edit.cshtml" />
     <Content Include="Views\TaiKhoan\Index.cshtml" />
+    <Content Include="Views\ChucVu\Create.cshtml" />
+    <Content Include="Views\ChucVu\Details.cshtml" />
+    <Content Include="Views\ChucVu\Edit.cshtml" />
+    <Content Include="Views\ChucVu\Index.cshtml" />
+    <Content Include="Views\PhongBan\Create.cshtml" />
+    <Content Include="Views\PhongBan\Details.cshtml" />
+    <Content Include="Views\PhongBan\Edit.cshtml" />
+    <Content Include="Views\PhongBan\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

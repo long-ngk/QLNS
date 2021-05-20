@@ -6,9 +6,9 @@
 }
 
 <div>
-    <h1 class="function-page-title">Chi tiết người dùng</h1>
+    <h1 class="function-page-title">CHI TIẾT NGƯỜI DÙNG</h1>
     <hr />
-    <dl class="dl-horizontal" style="margin-left:1rem; ">
+    <dl class="dl-horizontal">
         <dt>
             @Html.HiddenFor(model => model.TenTK)
             <label>Tên tài khoản</label>
@@ -37,7 +37,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PhanQuyen.TenQuyen)
+            @Html.HiddenFor(model => model.PhanQuyen.TenQuyen)
+            <label>Tên quyền</label>
         </dt>
 
         <dd>

@@ -14,7 +14,7 @@
     <nav class="navbar navbar-expand-sm navbar-left">
         <ul class="navbar-nav">
             <li class="nav-item text-right">
-                <a class="nav-link text-white" href="#"><span class="fas fa-sign-out-alt"></span> Thoát</a>
+                <a class="nav-link text-white" href="@Url.Action("Logout","Login")"><span class="fas fa-sign-out-alt"></span> Thoát</a>
             </li>
         </ul>
     </nav>
@@ -23,7 +23,16 @@
             <div class="sidebar-header">
                 <img src="~/images/hrm.png" style="width: 70px; height:70px; color:white; display: block;margin: 0 auto;" />
                 <br />
-                <label>Chào : </label><input type="text" name="name" value="" />
+                <div style="text-align:center">
+                    @if (Session["TenNhanVien"] == null)
+                    {
+                        @:Chào:
+                    }
+                    else
+                    {
+                        @:Chào: @Session["TenNhanVien"]
+                    }
+                </div>
             </div>
 
             <ul class="list-unstyled components">
@@ -31,8 +40,8 @@
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="fas fa-user-tie mr-3"></span>Quản lý nhân viên</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            @Html.ActionLink("Danh sách nhân viên","ListEmployee","Home")
-                        
+                            @Html.ActionLink("Danh sách nhân viên", "ListEmployee", "Home")
+
                         </li>
                         <li>
                             <a href="#">Danh sách khen thưởng nhân viên</a>
@@ -62,14 +71,14 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><span class="fab fa-buromobelexperte mr-3"></span> Quản lý phòng ban</a>
+                    <a href="@Url.Action("Index", "PhongBan")"><span class="fab fa-buromobelexperte mr-3"></span> Quản lý phòng ban</a>
                 </li>
                 <li>
-                    <a href="#"><span class="far fa-id-card mr-3"></span>Quảm lý chức vụ</a>
+                    <a href="@Url.Action("Index", "ChucVu")"><span class="far fa-id-card mr-3"></span>Quản lý chức vụ</a>
                 </li>
             </ul>
-        </nav>
 
+        </nav>
         <div class="right-navbar">
             @RenderBody()
         </div>

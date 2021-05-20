@@ -28,12 +28,18 @@ namespace WebApplication1.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(List<PhanQuyen> phanQuyens)
+        public ActionResult Delete(List<PhanQuyen> phanQuyens)
         {
             try
             {
                 db.Configuration.ValidateOnSaveEnabled = false;
                 
+                if(phanQuyens == null)
+                {
+                    this.AddNotification("Vui lòng chọn phân quyền để xóa!", NotificationType.ERROR);
+                    return RedirectToAction("Index");
+                }
+
                 foreach (var item in phanQuyens)
                 {
                     if (item.IsChecked == true)
@@ -52,7 +58,7 @@ namespace WebApplication1.Controllers
             }
             catch
             {
-                this.AddNotification("Không thể xóa quyền này vì quyền này đã và đang được sử dụng!", NotificationType.ERROR);
+                this.AddNotification("Không thể xóa vì quyền này đã và đang được sử dụng!", NotificationType.ERROR);
                 return RedirectToAction("Index");
             }
         }

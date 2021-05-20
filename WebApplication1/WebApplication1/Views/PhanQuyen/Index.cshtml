@@ -8,11 +8,9 @@
 <html>
 <body>
     <div class="list-employee">
-        <h1>Phân quyền</h1>
+        <h1>PHÂN QUYỀN</h1>
         <div class="list-detail">
             <div class="row">
-                
-
                 <div class="form-check d-flex">
                     <a href='@Url.Action("Create", "PhanQuyen")' class="btn add-employee"><i class="fas fa-plus"></i> Thêm quyền</a>
 
@@ -38,11 +36,11 @@
         <br />
         @Html.Partial("_Notifications")
         <br />
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("Delete", "PhanQuyen", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
             <table class="table">
-                <tr>
+                <tr class="table-title">
                     <th><input type="checkbox" id="checkAll" /></th>
                     <th>
                         @*@Html.DisplayNameFor(model => model.MaQuyen)*@<label>Mã quyền</label>
@@ -73,9 +71,8 @@
                             @Html.HiddenFor(modelItem => Model[i].GhiChu)
                         </td>
                         <td>
-                            @Html.ActionLink("Sửa", "Edit", new { id = Model[i].MaQuyen }) |
-                            @Html.ActionLink("Chi tiết", "Details", new { id = Model[i].MaQuyen })
-
+                            <input class="btn-edit" type="button" value="Sửa" onclick="window.location.href= '@Url.Action("Edit","PhanQuyen", new { id = Model[i].MaQuyen })'" /> |
+                            <input class="btn-detail" type="button" value="Chi tiết" onclick="window.location.href= '@Url.Action("Details","PhanQuyen", new { id = Model[i].MaQuyen })'" />
                         </td>
                     </tr>
                 }

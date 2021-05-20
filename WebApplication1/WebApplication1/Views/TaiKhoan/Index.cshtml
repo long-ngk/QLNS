@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_LayoutQuanTri.cshtml";
 }
 
-<h1 class="function-page-title">Danh sách người dùng</h1>
+<h1 class="function-page-title">DANH SÁCH NGƯỜI DÙNG</h1>
 
 <html>
 <body>
@@ -35,7 +35,7 @@
     </div>
     <br />
     <table class="table">
-        <tr>
+        <tr class="table-title">
             <th>
                 @*@Html.DisplayNameFor(model => model.TenTK)*@<label>Tên tài khoản</label>
             </th>
@@ -46,7 +46,7 @@
                 @*@Html.DisplayNameFor(model => model.NhanVien.HoTen)*@<label>Họ tên</label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PhanQuyen.TenQuyen)
+                @*@Html.DisplayNameFor(model => model.PhanQuyen.TenQuyen)*@<label>Tên quyền</label>
             </th>
             <th>Chức năng</th>
         </tr>
@@ -67,8 +67,8 @@
                     @Html.DisplayFor(modelItem => item.PhanQuyen.TenQuyen)
                 </td>
                 <td>
-                    @Html.ActionLink("Sửa", "Edit", new { id = item.MaNhanVien }) |
-                    @Html.ActionLink("Chi tiết", "Details", new { id = item.MaNhanVien })
+                    <input class="btn-edit" type="button" value="Sửa" onclick="window.location.href= '@Url.Action("Edit","TaiKhoan", new { id = item.MaNhanVien })'" /> |
+                    <input class="btn-detail" type="button" value="Chi tiết" onclick="window.location.href= '@Url.Action("Details","TaiKhoan", new { id = item.MaNhanVien })'" />
 
                 </td>
             </tr>

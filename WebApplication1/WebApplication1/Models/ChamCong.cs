@@ -11,15 +11,18 @@ namespace WebApplication1.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class ChamCong
     {
         public int MaNhanVien { get; set; }
         public System.DateTime Ngay { get; set; }
-        public System.TimeSpan ThoiGianVao { get; set; }
-        public System.TimeSpan ThoiGianRa { get; set; }
-        public int ThoiGianLamViec { get; set; }
-        public int ThoiGianTangCa { get; set; }
+        public Nullable<System.TimeSpan> ThoiGianVao { get; set; }
+        public Nullable<System.TimeSpan> ThoiGianRa { get; set; }
+        public Nullable<int> ThoiGianLamViec { get; set; }
+        public Nullable<int> ThoiGianTangCa { get; set; }
+        public string TrangThai { get; set; }
     
         public virtual NhanVien NhanVien { get; set; }
     }

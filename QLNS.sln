@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLNS", "QLNS\QLNS.csproj", "{B0AF1749-0D87-4692-B4D3-2F7CAE8F64F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLNS.Tests", "QLNS.Tests\QLNS.Tests.csproj", "{AD2008F4-FC76-4CFD-B403-69F3D2552268}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0AF1749-0D87-4692-B4D3-2F7CAE8F64F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0AF1749-0D87-4692-B4D3-2F7CAE8F64F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0AF1749-0D87-4692-B4D3-2F7CAE8F64F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0AF1749-0D87-4692-B4D3-2F7CAE8F64F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD2008F4-FC76-4CFD-B403-69F3D2552268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD2008F4-FC76-4CFD-B403-69F3D2552268}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD2008F4-FC76-4CFD-B403-69F3D2552268}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD2008F4-FC76-4CFD-B403-69F3D2552268}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7E3789B6-8FC3-4338-9A15-A852E22A78D4}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="661b9b6e46ad4b6695e4f633024893b6" Name="Diagram1">
+        <EntityTypeShape EntityType="QLNhanSuModel1.ChamCong" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhanSuModel1.ChucVu" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhanSuModel1.Ct_Phat" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhanSuModel1.Ct_Thuong" Width="1.5" PointX="8.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhanSuModel1.LoaiPhat" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhanSuModel1.LoaiThuong" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhanSuModel1.LuongCoBan" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhanSuModel1.LuongThang" Width="1.5" PointX="7.5" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhanSuModel1.Nghi" Width="1.5" PointX="5.25" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhanSuModel1.NhanVien" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhanSuModel1.PhanQuyen" Width="1.5" PointX="6" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhanSuModel1.PhongBan" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhanSuModel1.sysdiagram" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhanSuModel1.TaiKhoan" Width="1.5" PointX="8.25" PointY="7.625" IsExpanded="true" />
+        <AssociationConnector Association="QLNhanSuModel1.FK_ChamCong_NhanVien" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNhanSuModel1.FK_NhanVien_ChucVu" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNhanSuModel1.FK_Ct_Phat_LoaiPhat" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNhanSuModel1.FK_Ct_Phat_NhanVien" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNhanSuModel1.FK_Ct_Thuong_NhanVien" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNhanSuModel1.FK_Ct_Thuong_Thuong" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNhanSuModel1.FK_LuongCoBan_LuongCoBan" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNhanSuModel1.FK_LuongThang_LuongCoBan" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNhanSuModel1.FK_Nghi_NhanVien" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNhanSuModel1.FK_NhanVien_PhongBan" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNhanSuModel1.FK_TaiKhoan_NhanVien" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNhanSuModel1.FK_TaiKhoan_PhanQuyen" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

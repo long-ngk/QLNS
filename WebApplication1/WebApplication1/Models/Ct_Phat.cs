@@ -11,13 +11,17 @@ namespace WebApplication1.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Ct_Phat
     {
-        public int MaCT_Phat { get; set; }
+        public int MaCTPhat { get; set; }
         public int MaNhanVien { get; set; }
-        public int MaPhat { get; set; }
-        public System.DateTime Ngay { get; set; }
+        public int MaLoaiPhat { get; set; }
+        public bool TrangThai { get; set; }
+        public string NguoiSua { get; set; }
+        public System.DateTime NgaySua { get; set; }
     
         public virtual LoaiPhat LoaiPhat { get; set; }
         public virtual NhanVien NhanVien { get; set; }

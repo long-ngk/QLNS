@@ -1,0 +1,181 @@
+﻿@model List<WebApplication1.Models.LoaiThuong>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<body>
+    <div class="list-employee">
+        <h1>DANH MỤC KHEN THƯỞNG</h1>
+        <div class="list-detail">
+            @using (Html.BeginForm("Search", "LoaiThuong"))
+            {
+                <div class="row">
+                    <a href='@Url.Action("Create", "LoaiThuong")' class="btn add-employee"><i class="fas fa-plus"></i> Thêm loại thưởng</a>
+                    <div class="form-check d-flex">
+
+                        <span style="margin-left: 10px">Chọn : </span>
+                        <label class="radio-inline">
+                            @Html.RadioButton("loaiTimKiem", "MaLoaiThuong", true, new { @class = "mr-2" })<span> Mã loại thưởng</span>
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButton("loaiTimKiem", "TenLoaiThuong", false, new { @class = "mr-2" })<span> Tên loại thưởng</span>
+                        </label>
+
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            @Html.HiddenFor(modelItem => Model[i].MaLoaiThuong)
+                            @Html.HiddenFor(modelItem => Model[i].TenLoaiThuong)
+                            @Html.HiddenFor(modelItem => Model[i].GiaTri)
+                            @Html.HiddenFor(modelItem => Model[i].TrangThai)
+                            @Html.HiddenFor(modelItem => Model[i].NguoiSua)
+                            @Html.HiddenFor(modelItem => Model[i].NgaySua)
+                        }
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <a href="@Url.Action("DanhSachHoatDong", "LoaiThuong")" class="btn btn-active"><i class="fas fa-book-medical"></i> Hoạt động</a>
+                    <a href="@Url.Action("DanhSachVoHieuHoa", "LoaiThuong")" class="btn btn-unactive"><i class="fas fa-book-dead"></i> Vô hiệu hóa</a>
+                    <input class="input-search" type="text" placeholder="Mời nhập..." name="tenTimKiem" />
+                    <button class="btn btn-search" type="submit"><i class="fas fa-search"></i> Tìm kiếm</button>
+                    <a href='@Url.Action("Index", "LoaiThuong")' class="btn btn-reload" style="color:black"><i class="fas fa-sync-alt"></i> Tải lại</a>
+                </div>
+            }
+
+        </div>
+        <br />
+        @Html.Partial("_Notifications")
+   
+        @using (Html.BeginForm("Delete", "LoaiThuong", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <table class="table">
+                <tr class="table-title">
+                    <th><input type="checkbox" id="checkAll" /></th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.MaChucVu)*@<label>Mã loại thưởng</label>
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.TenChucVu)*@<label>Tên loại thưởng</label>
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.HeSoChucVu)*@<label>Giá trị</label>
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.HeSoChucVu)*@<label>Trạng thái</label>
+                    </th>
+                    <th>Chức năng</th>
+                </tr>
+
+                @for (int i = 0; i < Model.Count(); i++)
+                {
+                    <tr>
+                        <td>@Html.CheckBoxFor(modelItem => Model[i].IsChecked, new { @class = "checkItem" })</td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model[i].MaLoaiThuong)
+                            @Html.HiddenFor(modelItem => Model[i].MaLoaiThuong)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model[i].TenLoaiThuong)
+                            @Html.HiddenFor(modelItem => Model[i].TenLoaiThuong)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model[i].GiaTri)
+                            @Html.HiddenFor(modelItem => Model[i].GiaTri)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model[i].TrangThai)
+                            @Html.HiddenFor(modelItem => Model[i].TrangThai)
+                        </td>
+
+                        <td>
+                            <input class="btn-edit" type="button" value="Sửa" onclick="window.location.href= '@Url.Action("Edit","LoaiThuong", new { id = Model[i].MaLoaiThuong })'" /> |
+                            <input class="btn-detail" type="button" value="Chi tiết" onclick="window.location.href= '@Url.Action("Details","LoaiThuong", new { id = Model[i].MaLoaiThuong })'" />
+
+                        </td>
+                    </tr>
+                }
+            </table>
+
+
+
+            <div class="row container button-footer">
+                <div class="left-button">
+                    <button type="submit" class="btn btn-delete_employee mr-2" onclick="return confirm('Bạn chắc chắn xóa chứ?')"><i class="fas fa-user-minus"></i> Xóa loại thưởng</button>
+                </div>
+            </div>
+        }
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        $("#checkAll").change(function () {
+            $(".checkItem").prop("checked", $(this).prop("checked"))
+        })
+        $(".checkItem").change(function () {
+            if ($(this).prop("checked") == false) {
+                $("#checkAll").prop("checked", false)
+            }
+            if ($(".checkItem:checked").length == $(".checkItem").length) {
+                $("#checkAll").prop("checked", true)
+            }
+        })
+    </script>
+
+</body>
+
+</html>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenLoaiThuong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GiaTri)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TrangThai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NguoiSua)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgaySua)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenLoaiThuong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaTri)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrangThai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NguoiSua)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgaySua)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.MaLoaiThuong }) |
+                @Html.ActionLink("Details", "Details", new { id=item.MaLoaiThuong }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.MaLoaiThuong })
+            </td>
+        </tr>
+    }
+
+    </table>*@

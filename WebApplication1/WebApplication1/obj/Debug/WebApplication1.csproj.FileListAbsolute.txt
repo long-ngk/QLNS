@@ -475,8 +475,12 @@ D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.xml
 D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\Newtonsoft.Json.xml
 D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\Antlr3.Runtime.pdb
 D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\GitHub\QLNS\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojAssemblyReference.cache
 D:\GitHub\QLNS\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CoreCompileInputs.cache
 D:\GitHub\QLNS\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CopyComplete
 D:\GitHub\QLNS\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 D:\GitHub\QLNS\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+D:\GitHub\QLNS\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojAssemblyReference.cache
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\xunit.abstractions.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\xunit.core.dll
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\xunit.abstractions.xml
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\xunit.core.xml

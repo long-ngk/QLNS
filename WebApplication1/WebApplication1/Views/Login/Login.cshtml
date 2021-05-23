@@ -39,39 +39,15 @@
                             <span class="checkmark"></span>
                             <p class="remember">Hiện mật khẩu</p>
                         </label>
-                        <input type="submit" class="btn btn-primary theme-button mt-4" value="Đăng nhập" />
+                        <div style="text-align:center">
+                            <input type="submit" class="btn btn-primary theme-button mt-4" value="Đăng nhập" />
+                        </div>
                         <div class="new-signup">
-                            <a href="#" class="signuplink" data-toggle="modal" data-target="#myModal">Quên mật khẩu?</a>
-                            @*@Html.ActionLink("Quên mật khẩu?", "ForgotPassword", "Login")*@
+                            @Html.ActionLink("Quên mật khẩu?", "ForgotPassword", "Login")
                         </div>
                     }
-                    <!--popup Quên mật khẩu-->
-                    <div class="container" style="width:auto; margin-top:2%">
-
-                        <div class="modal fade" id="myModal">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-
-                                        <h3 class="modal-title">Quên mật khẩu</h3>
-
-                                    </div>
-
-                                    <div class="modal-body">
-                                        <!--<form id="myForm">-->
-                                        @*@Html.TextBoxFor(model => model.TenTK, new { @class = "form-control", @placeholder = "Nhập tên tài khoản" })
-                                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Nhập email" })*@
-                                        <!--</form>-->
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <a href="#" class="btn btn-danger" data-dismiss="modal">Hủy</a>
-                                        <input type="reset" value="Gửi mail" class="btn btn-success" id="btnSendEmail" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @Html.Partial("_Notifications")
+                   
 
                 </div>
             </div>

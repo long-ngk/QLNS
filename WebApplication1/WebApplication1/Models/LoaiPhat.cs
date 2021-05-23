@@ -11,7 +11,9 @@ namespace WebApplication1.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class LoaiPhat
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,10 +22,12 @@ namespace WebApplication1.Models
             this.Ct_Phat = new HashSet<Ct_Phat>();
         }
     
-        public int MaPhat { get; set; }
-        public string TenTienPhat { get; set; }
+        public int MaLoaiPhat { get; set; }
+        public string TenLoaiPhat { get; set; }
         public int GiaTri { get; set; }
-        public Nullable<bool> TrangThai { get; set; }
+        public bool TrangThai { get; set; }
+        public string NguoiSua { get; set; }
+        public System.DateTime NgaySua { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ct_Phat> Ct_Phat { get; set; }

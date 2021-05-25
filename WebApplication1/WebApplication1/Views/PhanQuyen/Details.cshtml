@@ -36,6 +36,16 @@
     </dl>
 </div>
 <p class="footer-function">
-    @Html.ActionLink("Sửa", "Edit", new { id = Model.MaQuyen }) |
-    @Html.ActionLink("Quay lại danh sách", "Index")
+    @{
+        if (Model.MaQuyen == 1 || Model.MaQuyen == 2 || Model.MaQuyen == 3 || Model.MaQuyen == 4)
+        {
+            @Html.ActionLink("Quay lại danh sách", "Index")
+        }
+        else
+        {
+            @Html.ActionLink("Sửa", "Edit", new { id = Model.MaQuyen }) @:|
+            @Html.ActionLink("Quay lại danh sách", "Index")
+        }
+    }
+
 </p>

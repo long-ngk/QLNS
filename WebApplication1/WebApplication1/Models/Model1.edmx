@@ -25,6 +25,9 @@
           <Property Name="MaChucVu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenChucVu" Type="nvarchar(max)" Nullable="false" />
           <Property Name="HeSoChucVu" Type="float" Nullable="false" />
+          <Property Name="PhuCap" Type="int" />
+          <Property Name="NguoiSua" Type="nvarchar" MaxLength="500" />
+          <Property Name="NgaySua" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Ct_Phat">
           <Key>
@@ -32,8 +35,10 @@
           </Key>
           <Property Name="MaCTPhat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MaNhanVien" Type="int" Nullable="false" />
-          <Property Name="MaPhat" Type="int" Nullable="false" />
-          <Property Name="Ngay" Type="date" Nullable="false" />
+          <Property Name="MaLoaiPhat" Type="int" Nullable="false" />
+          <Property Name="TrangThai" Type="bit" Nullable="false" />
+          <Property Name="NguoiSua" Type="nvarchar" MaxLength="500" />
+          <Property Name="NgaySua" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Ct_Thuong">
           <Key>
@@ -41,8 +46,10 @@
           </Key>
           <Property Name="MaCTThuong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MaNhanVien" Type="int" Nullable="false" />
-          <Property Name="MaThuong" Type="int" Nullable="false" />
-          <Property Name="Ngay" Type="date" Nullable="false" />
+          <Property Name="MaLoaiThuong" Type="int" Nullable="false" />
+          <Property Name="TrangThai" Type="bit" Nullable="false" />
+          <Property Name="NguoiSua" Type="nvarchar" MaxLength="500" />
+          <Property Name="NgaySua" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="LoaiPhat">
           <Key>
@@ -51,7 +58,9 @@
           <Property Name="MaLoaiPhat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenLoaiPhat" Type="nvarchar(max)" Nullable="false" />
           <Property Name="GiaTri" Type="int" Nullable="false" />
-          <Property Name="TrangThai" Type="bit" />
+          <Property Name="TrangThai" Type="bit" Nullable="false" />
+          <Property Name="NguoiSua" Type="nvarchar" MaxLength="500" />
+          <Property Name="NgaySua" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="LoaiThuong">
           <Key>
@@ -60,7 +69,9 @@
           <Property Name="MaLoaiThuong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenLoaiThuong" Type="nvarchar(max)" Nullable="false" />
           <Property Name="GiaTri" Type="int" Nullable="false" />
-          <Property Name="TrangThai" Type="bit" />
+          <Property Name="TrangThai" Type="bit" Nullable="false" />
+          <Property Name="NguoiSua" Type="nvarchar" MaxLength="500" />
+          <Property Name="NgaySua" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="LuongCoBan">
           <Key>
@@ -69,8 +80,9 @@
           <Property Name="MaLuongCoBan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TienLuongCoBan" Type="int" Nullable="false" />
           <Property Name="MaNhanVien" Type="int" Nullable="false" />
-          <Property Name="NgayHieuLuc" Type="date" />
-          <Property Name="TrangThai" Type="bit" />
+          <Property Name="TrangThai" Type="bit" Nullable="false" />
+          <Property Name="NguoiSua" Type="nvarchar" MaxLength="500" />
+          <Property Name="NgaySua" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="LuongThang">
           <Key>
@@ -93,14 +105,15 @@
           <Property Name="NgayNghi" Type="date" Nullable="false" />
           <Property Name="Phep" Type="bit" />
           <Property Name="NguoiDuyet" Type="nvarchar(max)" />
+          <Property Name="NgaySua" Type="datetime" Nullable="false" />
           <Property Name="GhiChu" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="NhanVien">
           <Key>
             <PropertyRef Name="MaNhanVien" />
           </Key>
-          <Property Name="MaNhanVien" Type="int" Nullable="false" />
-          <Property Name="HoTen" Type="ntext" Nullable="false" />
+          <Property Name="MaNhanVien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="NgaySinh" Type="date" Nullable="false" />
           <Property Name="GioiTinh" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="QueQuan" Type="nvarchar(max)" Nullable="false" />
@@ -111,7 +124,9 @@
           <Property Name="HinhAnh" Type="nvarchar(max)" />
           <Property Name="MaChucVu" Type="int" Nullable="false" />
           <Property Name="MaPB" Type="int" />
-          <Property Name="TrangThai" Type="bit" />
+          <Property Name="TrangThai" Type="bit" Nullable="false" />
+          <Property Name="NguoiSua" Type="nvarchar" MaxLength="500" />
+          <Property Name="NgaySua" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="PhanQuyen">
           <Key>
@@ -128,6 +143,8 @@
           <Property Name="MaPB" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenPB" Type="nvarchar(max)" Nullable="false" />
           <Property Name="SoDT" Type="nvarchar" MaxLength="50" />
+          <Property Name="NguoiSua" Type="nvarchar" MaxLength="500" />
+          <Property Name="NgaySua" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -169,7 +186,7 @@
               <PropertyRef Name="MaLoaiPhat" />
             </Principal>
             <Dependent Role="Ct_Phat">
-              <PropertyRef Name="MaPhat" />
+              <PropertyRef Name="MaLoaiPhat" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -205,7 +222,7 @@
               <PropertyRef Name="MaLoaiThuong" />
             </Principal>
             <Dependent Role="Ct_Thuong">
-              <PropertyRef Name="MaThuong" />
+              <PropertyRef Name="MaLoaiThuong" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -383,6 +400,9 @@
           <Property Name="MaChucVu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenChucVu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="HeSoChucVu" Type="Double" Nullable="false" />
+          <Property Name="PhuCap" Type="Int32" />
+          <Property Name="NguoiSua" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NgaySua" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="NhanViens" Relationship="Self.FK_NhanVien_ChucVu" FromRole="ChucVu" ToRole="NhanVien" />
         </EntityType>
         <EntityType Name="Ct_Phat">
@@ -391,8 +411,10 @@
           </Key>
           <Property Name="MaCTPhat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
-          <Property Name="MaPhat" Type="Int32" Nullable="false" />
-          <Property Name="Ngay" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MaLoaiPhat" Type="Int32" Nullable="false" />
+          <Property Name="TrangThai" Type="Boolean" Nullable="false" />
+          <Property Name="NguoiSua" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NgaySua" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="LoaiPhat" Relationship="Self.FK_Ct_Phat_LoaiPhat" FromRole="Ct_Phat" ToRole="LoaiPhat" />
           <NavigationProperty Name="NhanVien" Relationship="Self.FK_Ct_Phat_NhanVien" FromRole="Ct_Phat" ToRole="NhanVien" />
         </EntityType>
@@ -402,8 +424,10 @@
           </Key>
           <Property Name="MaCTThuong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
-          <Property Name="MaThuong" Type="Int32" Nullable="false" />
-          <Property Name="Ngay" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MaLoaiThuong" Type="Int32" Nullable="false" />
+          <Property Name="TrangThai" Type="Boolean" Nullable="false" />
+          <Property Name="NguoiSua" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NgaySua" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="NhanVien" Relationship="Self.FK_Ct_Thuong_NhanVien" FromRole="Ct_Thuong" ToRole="NhanVien" />
           <NavigationProperty Name="LoaiThuong" Relationship="Self.FK_Ct_Thuong_Thuong" FromRole="Ct_Thuong" ToRole="LoaiThuong" />
         </EntityType>
@@ -414,7 +438,9 @@
           <Property Name="MaLoaiPhat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenLoaiPhat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="GiaTri" Type="Int32" Nullable="false" />
-          <Property Name="TrangThai" Type="Boolean" />
+          <Property Name="TrangThai" Type="Boolean" Nullable="false" />
+          <Property Name="NguoiSua" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NgaySua" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Ct_Phat" Relationship="Self.FK_Ct_Phat_LoaiPhat" FromRole="LoaiPhat" ToRole="Ct_Phat" />
         </EntityType>
         <EntityType Name="LoaiThuong">
@@ -424,7 +450,9 @@
           <Property Name="MaLoaiThuong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenLoaiThuong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="GiaTri" Type="Int32" Nullable="false" />
-          <Property Name="TrangThai" Type="Boolean" />
+          <Property Name="TrangThai" Type="Boolean" Nullable="false" />
+          <Property Name="NguoiSua" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NgaySua" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Ct_Thuong" Relationship="Self.FK_Ct_Thuong_Thuong" FromRole="LoaiThuong" ToRole="Ct_Thuong" />
         </EntityType>
         <EntityType Name="LuongCoBan">
@@ -434,8 +462,9 @@
           <Property Name="MaLuongCoBan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TienLuongCoBan" Type="Int32" Nullable="false" />
           <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
-          <Property Name="NgayHieuLuc" Type="DateTime" Precision="0" />
-          <Property Name="TrangThai" Type="Boolean" />
+          <Property Name="TrangThai" Type="Boolean" Nullable="false" />
+          <Property Name="NguoiSua" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NgaySua" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="NhanVien" Relationship="Self.FK_LuongCoBan_LuongCoBan" FromRole="LuongCoBan" ToRole="NhanVien" />
           <NavigationProperty Name="LuongThangs" Relationship="Self.FK_LuongThang_LuongCoBan" FromRole="LuongCoBan" ToRole="LuongThang" />
         </EntityType>
@@ -461,6 +490,7 @@
           <Property Name="NgayNghi" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Phep" Type="Boolean" />
           <Property Name="NguoiDuyet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NgaySua" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="NhanVien" Relationship="Self.FK_Nghi_NhanVien" FromRole="Nghi" ToRole="NhanVien" />
         </EntityType>
@@ -468,8 +498,8 @@
           <Key>
             <PropertyRef Name="MaNhanVien" />
           </Key>
-          <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
-          <Property Name="HoTen" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaNhanVien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoTen" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NgaySinh" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="GioiTinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="QueQuan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
@@ -480,7 +510,9 @@
           <Property Name="HinhAnh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="MaChucVu" Type="Int32" Nullable="false" />
           <Property Name="MaPB" Type="Int32" />
-          <Property Name="TrangThai" Type="Boolean" />
+          <Property Name="TrangThai" Type="Boolean" Nullable="false" />
+          <Property Name="NguoiSua" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NgaySua" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="ChamCongs" Relationship="Self.FK_ChamCong_NhanVien" FromRole="NhanVien" ToRole="ChamCong" />
           <NavigationProperty Name="ChucVu" Relationship="Self.FK_NhanVien_ChucVu" FromRole="NhanVien" ToRole="ChucVu" />
           <NavigationProperty Name="Ct_Phat" Relationship="Self.FK_Ct_Phat_NhanVien" FromRole="NhanVien" ToRole="Ct_Phat" />
@@ -506,6 +538,8 @@
           <Property Name="MaPB" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenPB" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SoDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NguoiSua" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NgaySua" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="NhanViens" Relationship="Self.FK_NhanVien_PhongBan" FromRole="PhongBan" ToRole="NhanVien" />
         </EntityType>
         <EntityType Name="sysdiagram">
@@ -562,7 +596,7 @@
               <PropertyRef Name="MaLoaiPhat" />
             </Principal>
             <Dependent Role="Ct_Phat">
-              <PropertyRef Name="MaPhat" />
+              <PropertyRef Name="MaLoaiPhat" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -598,7 +632,7 @@
               <PropertyRef Name="MaLoaiThuong" />
             </Principal>
             <Dependent Role="Ct_Thuong">
-              <PropertyRef Name="MaThuong" />
+              <PropertyRef Name="MaLoaiThuong" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -763,6 +797,9 @@
                 <ScalarProperty Name="MaChucVu" ColumnName="MaChucVu" />
                 <ScalarProperty Name="TenChucVu" ColumnName="TenChucVu" />
                 <ScalarProperty Name="HeSoChucVu" ColumnName="HeSoChucVu" />
+                <ScalarProperty Name="PhuCap" ColumnName="PhuCap" />
+                <ScalarProperty Name="NguoiSua" ColumnName="NguoiSua" />
+                <ScalarProperty Name="NgaySua" ColumnName="NgaySua" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -771,8 +808,10 @@
               <MappingFragment StoreEntitySet="Ct_Phat">
                 <ScalarProperty Name="MaCTPhat" ColumnName="MaCTPhat" />
                 <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
-                <ScalarProperty Name="MaPhat" ColumnName="MaPhat" />
-                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+                <ScalarProperty Name="MaLoaiPhat" ColumnName="MaLoaiPhat" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="NguoiSua" ColumnName="NguoiSua" />
+                <ScalarProperty Name="NgaySua" ColumnName="NgaySua" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -781,8 +820,10 @@
               <MappingFragment StoreEntitySet="Ct_Thuong">
                 <ScalarProperty Name="MaCTThuong" ColumnName="MaCTThuong" />
                 <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
-                <ScalarProperty Name="MaThuong" ColumnName="MaThuong" />
-                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+                <ScalarProperty Name="MaLoaiThuong" ColumnName="MaLoaiThuong" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="NguoiSua" ColumnName="NguoiSua" />
+                <ScalarProperty Name="NgaySua" ColumnName="NgaySua" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -793,6 +834,8 @@
                 <ScalarProperty Name="TenLoaiPhat" ColumnName="TenLoaiPhat" />
                 <ScalarProperty Name="GiaTri" ColumnName="GiaTri" />
                 <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="NguoiSua" ColumnName="NguoiSua" />
+                <ScalarProperty Name="NgaySua" ColumnName="NgaySua" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -803,6 +846,8 @@
                 <ScalarProperty Name="TenLoaiThuong" ColumnName="TenLoaiThuong" />
                 <ScalarProperty Name="GiaTri" ColumnName="GiaTri" />
                 <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="NguoiSua" ColumnName="NguoiSua" />
+                <ScalarProperty Name="NgaySua" ColumnName="NgaySua" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -812,8 +857,9 @@
                 <ScalarProperty Name="MaLuongCoBan" ColumnName="MaLuongCoBan" />
                 <ScalarProperty Name="TienLuongCoBan" ColumnName="TienLuongCoBan" />
                 <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
-                <ScalarProperty Name="NgayHieuLuc" ColumnName="NgayHieuLuc" />
                 <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="NguoiSua" ColumnName="NguoiSua" />
+                <ScalarProperty Name="NgaySua" ColumnName="NgaySua" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -837,6 +883,7 @@
                 <ScalarProperty Name="NgayNghi" ColumnName="NgayNghi" />
                 <ScalarProperty Name="Phep" ColumnName="Phep" />
                 <ScalarProperty Name="NguoiDuyet" ColumnName="NguoiDuyet" />
+                <ScalarProperty Name="NgaySua" ColumnName="NgaySua" />
                 <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -857,6 +904,8 @@
                 <ScalarProperty Name="MaChucVu" ColumnName="MaChucVu" />
                 <ScalarProperty Name="MaPB" ColumnName="MaPB" />
                 <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="NguoiSua" ColumnName="NguoiSua" />
+                <ScalarProperty Name="NgaySua" ColumnName="NgaySua" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -875,6 +924,8 @@
                 <ScalarProperty Name="MaPB" ColumnName="MaPB" />
                 <ScalarProperty Name="TenPB" ColumnName="TenPB" />
                 <ScalarProperty Name="SoDT" ColumnName="SoDT" />
+                <ScalarProperty Name="NguoiSua" ColumnName="NguoiSua" />
+                <ScalarProperty Name="NgaySua" ColumnName="NgaySua" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

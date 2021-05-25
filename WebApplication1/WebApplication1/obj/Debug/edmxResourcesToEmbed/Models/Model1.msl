@@ -20,6 +20,9 @@
           <ScalarProperty Name="MaChucVu" ColumnName="MaChucVu" />
           <ScalarProperty Name="TenChucVu" ColumnName="TenChucVu" />
           <ScalarProperty Name="HeSoChucVu" ColumnName="HeSoChucVu" />
+          <ScalarProperty Name="PhuCap" ColumnName="PhuCap" />
+          <ScalarProperty Name="NguoiSua" ColumnName="NguoiSua" />
+          <ScalarProperty Name="NgaySua" ColumnName="NgaySua" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -28,8 +31,10 @@
         <MappingFragment StoreEntitySet="Ct_Phat">
           <ScalarProperty Name="MaCTPhat" ColumnName="MaCTPhat" />
           <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
-          <ScalarProperty Name="MaPhat" ColumnName="MaPhat" />
-          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="MaLoaiPhat" ColumnName="MaLoaiPhat" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="NguoiSua" ColumnName="NguoiSua" />
+          <ScalarProperty Name="NgaySua" ColumnName="NgaySua" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -38,8 +43,10 @@
         <MappingFragment StoreEntitySet="Ct_Thuong">
           <ScalarProperty Name="MaCTThuong" ColumnName="MaCTThuong" />
           <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
-          <ScalarProperty Name="MaThuong" ColumnName="MaThuong" />
-          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="MaLoaiThuong" ColumnName="MaLoaiThuong" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="NguoiSua" ColumnName="NguoiSua" />
+          <ScalarProperty Name="NgaySua" ColumnName="NgaySua" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -50,6 +57,8 @@
           <ScalarProperty Name="TenLoaiPhat" ColumnName="TenLoaiPhat" />
           <ScalarProperty Name="GiaTri" ColumnName="GiaTri" />
           <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="NguoiSua" ColumnName="NguoiSua" />
+          <ScalarProperty Name="NgaySua" ColumnName="NgaySua" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -60,6 +69,8 @@
           <ScalarProperty Name="TenLoaiThuong" ColumnName="TenLoaiThuong" />
           <ScalarProperty Name="GiaTri" ColumnName="GiaTri" />
           <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="NguoiSua" ColumnName="NguoiSua" />
+          <ScalarProperty Name="NgaySua" ColumnName="NgaySua" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -69,8 +80,9 @@
           <ScalarProperty Name="MaLuongCoBan" ColumnName="MaLuongCoBan" />
           <ScalarProperty Name="TienLuongCoBan" ColumnName="TienLuongCoBan" />
           <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
-          <ScalarProperty Name="NgayHieuLuc" ColumnName="NgayHieuLuc" />
           <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="NguoiSua" ColumnName="NguoiSua" />
+          <ScalarProperty Name="NgaySua" ColumnName="NgaySua" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -94,6 +106,7 @@
           <ScalarProperty Name="NgayNghi" ColumnName="NgayNghi" />
           <ScalarProperty Name="Phep" ColumnName="Phep" />
           <ScalarProperty Name="NguoiDuyet" ColumnName="NguoiDuyet" />
+          <ScalarProperty Name="NgaySua" ColumnName="NgaySua" />
           <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -114,6 +127,8 @@
           <ScalarProperty Name="MaChucVu" ColumnName="MaChucVu" />
           <ScalarProperty Name="MaPB" ColumnName="MaPB" />
           <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="NguoiSua" ColumnName="NguoiSua" />
+          <ScalarProperty Name="NgaySua" ColumnName="NgaySua" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -132,6 +147,8 @@
           <ScalarProperty Name="MaPB" ColumnName="MaPB" />
           <ScalarProperty Name="TenPB" ColumnName="TenPB" />
           <ScalarProperty Name="SoDT" ColumnName="SoDT" />
+          <ScalarProperty Name="NguoiSua" ColumnName="NguoiSua" />
+          <ScalarProperty Name="NgaySua" ColumnName="NgaySua" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

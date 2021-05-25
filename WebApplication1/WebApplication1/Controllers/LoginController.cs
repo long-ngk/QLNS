@@ -20,16 +20,12 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
-
-        public ActionResult CheckLogin(TaiKhoanViewModel taiKhoan)
+        [HttpPost]
+        public ActionResult CheckLogin(TaiKhoan taiKhoan)
         {
             var check = database.TaiKhoans.Where(s => s.TenTK == taiKhoan.TenTK && s.MatKhau == taiKhoan.MatKhau).SingleOrDefault();
             var trangThaiLamViec = database.TaiKhoans.Where(s => s.TenTK == taiKhoan.TenTK && s.MatKhau == taiKhoan.MatKhau && s.NhanVien.TrangThai == true).SingleOrDefault();
-            if (taiKhoan.TenTK == null || taiKhoan.MatKhau == null || taiKhoan.TenTK == "" || taiKhoan.MatKhau == "")
-            {
-                return View("Login");
-            }
-            else
+            if (ModelState.IsValid)
             {
                 if (check == null)
                 {
@@ -49,7 +45,7 @@ namespace WebApplication1.Controllers
                         {
                             Session["TenNhanVien"] = tenNhanVien.ToString();
                         }
-                        
+
                         Session["TenTK"] = taiKhoan.TenTK;
                         Session["MatKhau"] = taiKhoan.MatKhau;
                         switch (check.MaQuyen)
@@ -67,6 +63,11 @@ namespace WebApplication1.Controllers
                         return View("Login");
                     }
                 }
+            }
+            else
+            {
+                
+                return View("Login");
             }
         }
         public ActionResult ForgotPassword()

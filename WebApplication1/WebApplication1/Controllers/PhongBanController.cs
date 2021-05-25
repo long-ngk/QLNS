@@ -98,7 +98,7 @@ namespace WebApplication1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaPB,TenPB,SoDT")] PhongBan phongBan)
+        public ActionResult Create([Bind(Include = "MaPB,TenPB,SoDT,NguoiSua,NgaySua")] PhongBan phongBan)
         {
             if (ModelState.IsValid)
             {
@@ -130,7 +130,7 @@ namespace WebApplication1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaPB,TenPB,SoDT")] PhongBan phongBan)
+        public ActionResult Edit([Bind(Include = "MaPB,TenPB,SoDT,NguoiSua,NgaySua")] PhongBan phongBan)
         {
             if (ModelState.IsValid)
             {

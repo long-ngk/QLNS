@@ -10,28 +10,26 @@
     <div class="list-employee">
         <h1>CHỨC VỤ</h1>
         <div class="list-detail">
-            <div class="row">
-                <div class="form-check d-flex">
+            @using (Html.BeginForm("Search", "ChucVu", FormMethod.Get))
+            {
+                <div class="row">
                     <a href='@Url.Action("Create", "ChucVu")' class="btn add-employee"><i class="fas fa-plus"></i> Thêm chức vụ</a>
-
-                    @using (Html.BeginForm("Search", "ChucVu", FormMethod.Get))
-                    {
+                    <div class="form-check d-flex">
                         <span style="margin-left: 10px">   Chọn : </span>
-                        @Html.RadioButton("loaiTimKiem", "MaChucVu", true)<span> Mã chức vụ</span>
-                        @Html.RadioButton("loaiTimKiem", "TenChucVu")<span> Tên chức vụ</span>
-
-                        <input class="input-search" type="text" placeholder="Mời nhập..." name="tenTimKiem" />
-
-                        <button class="btn btn-search" type="submit"><i class="fas fa-search"></i> Tìm kiếm</button>
-                    }
-
+                        <label class="radio-inline">
+                            @Html.RadioButton("loaiTimKiem", "MaChucVu", true)<span> Mã chức vụ</span>
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButton("loaiTimKiem", "TenChucVu")<span> Tên chức vụ</span>
+                        </label>
+                    </div>
                 </div>
-            </div>
-            <div class="row mt-3">
-
-                <a href='@Url.Action("Index", "ChucVu")' class="btn btn-reload" style="color:black"><i class="fas fa-sync-alt"></i> Tải lại</a>
-
-            </div>
+                <div class="row mt-3">
+                    <input class="input-search" type="text" placeholder="Nhập từ khóa tìm kiếm..." name="tenTimKiem" />
+                    <button class="btn btn-search" type="submit"><i class="fas fa-search"></i> Tìm kiếm</button>
+                    <a href='@Url.Action("Index", "ChucVu")' class="btn btn-reload" style="color:black"><i class="fas fa-sync-alt"></i> Tải lại</a>
+                </div>
+            }
         </div>
         <br />
         @Html.Partial("_Notifications")
@@ -51,12 +49,15 @@
                     <th>
                         @*@Html.DisplayNameFor(model => model.HeSoChucVu)*@<label>Hệ số chức vụ</label>
                     </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.HeSoChucVu)*@<label>Phụ cấp</label>
+                    </th>
                     <th>Chức năng</th>
                 </tr>
 
                 @for (int i = 0; i < Model.Count(); i++)
                 {
-                    <tr >
+                    <tr>
                         <td>@Html.CheckBoxFor(modelItem => Model[i].IsChecked, new { @class = "checkItem" })</td>
                         <td>
                             @Html.DisplayFor(modelItem => Model[i].MaChucVu)
@@ -66,9 +67,13 @@
                             @Html.DisplayFor(modelItem => Model[i].TenChucVu)
                             @Html.HiddenFor(modelItem => Model[i].TenChucVu)
                         </td>
-                        <td >
+                        <td>
                             @Html.DisplayFor(modelItem => Model[i].HeSoChucVu)
                             @Html.HiddenFor(modelItem => Model[i].HeSoChucVu)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model[i].PhuCap)
+                            @Html.HiddenFor(modelItem => Model[i].PhuCap)
                         </td>
                         <td>
                             <input class="btn-edit" type="button" value="Sửa" onclick="window.location.href= '@Url.Action("Edit","ChucVu", new { id = Model[i].MaChucVu })'" /> |

@@ -10,28 +10,28 @@
     <div class="list-employee">
         <h1>PHÒNG BAN</h1>
         <div class="list-detail">
-            <div class="row">
-                <div class="form-check d-flex">
+            @using (Html.BeginForm("Search", "PhongBan", FormMethod.Get))
+            {
+                <div class="row">
                     <a href='@Url.Action("Create", "PhongBan")' class="btn add-employee"><i class="fas fa-plus"></i> Thêm phòng ban</a>
-
-                    @using (Html.BeginForm("Search", "PhongBan", FormMethod.Get))
-                    {
-                        <span style="margin-left: 10px">   Chọn : </span>
-                        @Html.RadioButton("loaiTimKiem", "MaPhongBan", true)<span> Mã PB</span>
-                        @Html.RadioButton("loaiTimKiem", "TenPhongBan")<span> Tên PB</span>
-
-                        <input class="input-search" type="text" placeholder="Mời nhập..." name="tenTimKiem" />
-
-                        <button class="btn btn-search" type="submit"><i class="fas fa-search"></i> Tìm kiếm</button>
-                    }
-
+                    <div class="form-check d-flex">
+               
+                        <span class="search-title">Tìm kiếm theo : </span>
+                        <label class="radio-inline">
+                            @Html.RadioButton("loaiTimKiem", "MaPhongBan", true, new { @class = "mr-2" })<span> Mã phòng ban</span>
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButton("loaiTimKiem", "TenPhongBan", false, new { @class = "mr-2" })<span> Tên phòng ban</span>
+                        </label>
+                    </div>
                 </div>
-            </div>
-            <div class="row mt-3">
+                <div class="row mt-3">
+                    <input class="input-search" type="text" placeholder="Nhập từ khóa tìm kiếm..." name="tenTimKiem" />
+                    <button class="btn btn-search" type="submit"><i class="fas fa-search"></i> Tìm kiếm</button>
+                    <a href='@Url.Action("Index", "PhongBan")' class="btn btn-reload" style="color:black"><i class="fas fa-sync-alt"></i> Tải lại</a>
+                </div>
+            }
 
-                <a href='@Url.Action("Index", "PhongBan")' class="btn btn-reload" style="color:black"><i class="fas fa-sync-alt"></i> Tải lại</a>
-
-            </div>
         </div>
         <br />
         @Html.Partial("_Notifications")

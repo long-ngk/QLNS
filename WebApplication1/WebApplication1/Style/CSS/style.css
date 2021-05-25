@@ -1,6 +1,5 @@
 ﻿* {
     margin: 0;
-    font-size: 14px;
 }
 
 body {
@@ -121,37 +120,43 @@ a[data-toggle="collapse"] {
 }
 
 .list-employee > h1 {
-    font-size: 3rem;
+    font-size: 2.2rem;
     font-weight: 400;
     background-color: #8080808c;
     text-align: center;
     padding: 1.5rem 0;
     background: linear-gradient(to bottom, #71f3f9, #2193d6);
 }
+
 h1.function-page-title {
-    font-size: 3rem;
+    font-size: 2.2rem;
     font-weight: 400;
     background-color: #8080808c;
     text-align: center;
     padding: 1.5rem 0;
     background: linear-gradient(to bottom, #71f3f9, #2193d6);
 }
+
 dl.dl-horizontal {
     margin-left: 1rem;
+    font-size: 19px
 }
 
 .footer-function {
     margin-left: 2rem;
 }
-.list-employee .all-choose {
+
+.list-employee .btn-active {
     background-color: #90ADF8;
     border-radius: 5px;
+    color: black;
 }
 
-.list-employee .unchoose {
+.list-employee .btn-unactive {
     background-color: #4BE275;
     border-radius: 5px;
     margin-left: 2rem;
+    color: black
 }
 
 .list-detail .input-search {
@@ -169,12 +174,12 @@ dl.dl-horizontal {
 
 .list-detail .btn-reload {
     background-color: #90ADF8;
-    padding: 0 2rem;
 }
 
 .list-detail .form-check {
+    justify-content: center;
     align-items: center;
-    min-width:100%;
+    min-width: 100%;
 }
 
     .list-detail .form-check input {
@@ -189,32 +194,38 @@ dl.dl-horizontal {
     margin-left: .5%;
     margin-top: 3%;
 }
+
 .list-employee .radio-inline {
     margin: .5rem 1rem;
 }
+
 .list-employee .left-button
 .btn-delete_employee {
     background-color: #F91414;
     color: white;
     padding: 0.5rem 1rem;
 }
+
 .list-employee .button-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin:auto;
-    margin:2rem;
+    margin: auto;
+    margin: 2rem;
 }
+
 .list-employee .left-button .btn-add_award {
     background-color: #5884F6;
     color: white;
     padding: 0.5rem 1rem;
 }
+
 .list-employee .left-button .btn-add_discipline {
     background-color: #AE7E02;
     color: white;
     padding: 0.5rem 1rem;
 }
+
 .list-employee .right-button .btn-adsent {
     background-color: #e717ad;
     color: white;
@@ -222,18 +233,105 @@ dl.dl-horizontal {
 }
 
 table.table {
-   text-align:center;
+    text-align: center;
 }
 
-.btn-edit{
-    background-color:#fdba36;
-    color:black
+.btn-edit {
+    background-color: #fdba36;
+    color: black
 }
-.btn-detail{
-    background-color:aquamarine;
-    color:black
+
+.btn-detail {
+    background-color: aquamarine;
+    color: black
 }
 
 .table-title {
     background-color: rgb(0 255 33 / 0.55);
+}
+
+.control-label {
+    font-weight: bold;
+}
+
+.row.mt-3 {
+    justify-content: center;
+}
+
+.list-unstyled {
+    font-size: 15px;
+}
+
+input[type='checkbox'] {
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    border: 2px solid #555;
+}
+
+.search-title {
+    font-weight: bold
+}
+
+/*input[type="radio"]{
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background: blue;
+}
+input[type="radio"]:checked{
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background: blue;
+}*/
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+
+.pagination li.active {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+.column-1 {
+    float: left;
+}
+
+    /* Cột bên trái và phải */
+    .column-1.left {
+        width: 60%;
+    }
+
+    /* Cột chính giữa */
+    .column-1.right {
+        width: 40%;
+    }
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.body-content{
+    display:block;
+}
+/* Bố cục linh hoạt: ba cột xếp chồng lên nhau thay vì cạnh nhau khi màn hình
+có chiều rộng dưới 600px */
+@media screen and (max-width: 600px) {
+    .column.left, .column.right {
+        width: 100%;
+    }
 }

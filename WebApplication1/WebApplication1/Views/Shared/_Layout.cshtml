@@ -40,20 +40,20 @@
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="fas fa-user-tie mr-3"></span>Quản lý nhân viên</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            @Html.ActionLink("Danh sách nhân viên", "ListEmployee", "Home")
+                            @Html.ActionLink("Danh sách nhân viên", "Index", "NhanVien")
 
                         </li>
                         <li>
-                            <a href="#">Danh sách khen thưởng nhân viên</a>
+                            <a href="@Url.Action("Index", "Ct_Thuong")">Danh sách khen thưởng nhân viên</a>
                         </li>
                         <li>
-                            <a href="#">Danh mục khen thưởng</a>
+                            <a href="@Url.Action("Index", "LoaiThuong")">Danh mục khen thưởng</a>
                         </li>
                         <li>
-                            <a href="#">Danh sách kỷ luật nhân viên</a>
+                            <a href="@Url.Action("Index", "Ct_Phat")">Danh sách kỷ luật nhân viên</a>
                         </li>
                         <li>
-                            <a href="#">Danh mục kỷ luật</a>
+                            <a href="@Url.Action("Index", "LoaiPhat")">Danh mục kỷ luật</a>
                         </li>
                     </ul>
                 </li>
@@ -71,10 +71,13 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="@Url.Action("Index", "PhongBan")"><span class="fab fa-buromobelexperte mr-3"></span> Quản lý phòng ban</a>
+                    <a href="@Url.Action("Index", "PhongBan")"><span class="fab fa-buromobelexperte mr-3"></span>Quản lý phòng ban</a>
                 </li>
                 <li>
                     <a href="@Url.Action("Index", "ChucVu")"><span class="far fa-id-card mr-3"></span>Quản lý chức vụ</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "ChucVu")"><span class="fas fa-calendar-check mr-3"></span>Chấm công</a>
                 </li>
             </ul>
 

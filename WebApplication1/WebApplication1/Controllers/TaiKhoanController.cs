@@ -17,21 +17,21 @@ namespace WebApplication1.Controllers
         // GET: TaiKhoan
         public ActionResult Index()
         {
-            var taiKhoans = db.TaiKhoans.Include(t => t.NhanVien).Include(t => t.PhanQuyen);
+            var taiKhoans = db.TaiKhoans.Include(t => t.NhanVien).Include(t => t.PhanQuyen).OrderByDescending(t => t.PhanQuyen.TenQuyen);
             return View(taiKhoans.ToList());
         }
 
         public ActionResult Search(string loaiTimKiem, string tenTimKiem)
         {
             QLNhanSuEntities db = new QLNhanSuEntities();
-            List<TaiKhoan> taiKhoans  = db.TaiKhoans.ToList();
+            List<TaiKhoan> taiKhoans = db.TaiKhoans.ToList();
             if (loaiTimKiem == "TenTK")
             {
-                return View("Index", db.TaiKhoans.Where(x => x.TenTK.Contains(tenTimKiem) || tenTimKiem == null).ToList());
+                return View("Index", db.TaiKhoans.Where(x => x.TenTK.Contains(tenTimKiem) || tenTimKiem == null).OrderByDescending(x => x.PhanQuyen.TenQuyen).ToList());
             }
             else
             {
-                return View("Index", db.TaiKhoans.Where(x => x.PhanQuyen.TenQuyen.Contains(tenTimKiem.ToString()) || tenTimKiem == null).ToList());
+                return View("Index", db.TaiKhoans.Where(x => x.PhanQuyen.TenQuyen.Contains(tenTimKiem.ToString()) || tenTimKiem == null).OrderByDescending(x => x.PhanQuyen.TenQuyen).ToList());
             }
         }
 
@@ -53,8 +53,9 @@ namespace WebApplication1.Controllers
         // GET: TaiKhoan/Create
         public ActionResult Create()
         {
+
             ViewBag.MaNhanVien = new SelectList(db.NhanViens, "MaNhanVien", "HoTen");
-            ViewBag.MaQuyen = new SelectList(db.PhanQuyens, "MaQuyen", "TenQuyen");
+            ViewBag.MaQuyen = new SelectList(db.PhanQuyens.Where(a => a.MaQuyen != 3), "MaQuyen", "TenQuyen");
             return View();
         }
 
@@ -90,7 +91,7 @@ namespace WebApplication1.Controllers
                 return HttpNotFound();
             }
             ViewBag.MaNhanVien = new SelectList(db.NhanViens, "MaNhanVien", "HoTen", taiKhoan.MaNhanVien);
-            ViewBag.MaQuyen = new SelectList(db.PhanQuyens, "MaQuyen", "TenQuyen", taiKhoan.MaQuyen);
+            ViewBag.MaQuyen = new SelectList(db.PhanQuyens.Where(a => a.MaQuyen != 3), "MaQuyen", "TenQuyen", taiKhoan.MaQuyen);
             return View(taiKhoan);
         }
 
@@ -108,10 +109,10 @@ namespace WebApplication1.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.MaNhanVien = new SelectList(db.NhanViens, "MaNhanVien", "HoTen", taiKhoan.MaNhanVien);
-            ViewBag.MaQuyen = new SelectList(db.PhanQuyens, "MaQuyen", "TenQuyen", taiKhoan.MaQuyen);
+            ViewBag.MaQuyen = new SelectList(db.PhanQuyens.Where(a => a.MaQuyen != 3), "MaQuyen", "TenQuyen", taiKhoan.MaQuyen);
             return View(taiKhoan);
         }
-       
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

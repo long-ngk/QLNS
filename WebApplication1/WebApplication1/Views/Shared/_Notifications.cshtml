@@ -1,4 +1,4 @@
-@using WebApplication1.Extensions
+﻿@using WebApplication1.Extensions
 
 @{
     var errorList = Html.GetNotifications(NotificationType.ERROR);
@@ -11,7 +11,8 @@
 {
     <div class="alert alert-danger alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        @if(errorList.Count() > 1){
+        @if (errorList.Count() > 1)
+        {
             <strong><span class="glyphicon glyphicon-remove"></span> There are @errorList.Count() errors: </strong>
             <ul>
                 @foreach (String message in errorList)
@@ -20,8 +21,9 @@
                 }
             </ul>
         }
-        else{
-            <strong><span class="glyphicon glyphicon-remove"></span> Error: </strong>
+        else
+        {
+            <strong><i class="fa fa-exclamation"></i> Lỗi: </strong>
             @Html.Raw(errorList.First())
         }
     </div>
@@ -32,8 +34,9 @@
 {
     <div class="alert alert-warning alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        @if(warningList.Count() > 1){
-            <strong><span class="glyphicon glyphicon-warning-sign"></span> There are @warningList.Count() warnings: </strong>
+        @if (warningList.Count() > 1)
+        {
+            <strong><span class="fa fa-exclamation-triangle"></span> There are @warningList.Count() warnings: </strong>
             <ul>
                 @foreach (String message in warningList)
                 {
@@ -41,8 +44,9 @@
                 }
             </ul>
         }
-        else{
-            <strong><span class="glyphicon glyphicon-warning-sign"></span> Warning: </strong>
+        else
+        {
+            <strong><span class="fa fa-exclamation-triangle"></span> Cảnh báo: </strong>
             @Html.Raw(warningList.First())
         }
     </div>
@@ -53,7 +57,8 @@
 {
     <div class="alert alert-success alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        @if(successList.Count() > 1){
+        @if (successList.Count() > 1)
+        {
             <strong><span class="glyphicon glyphicon-ok"></span> There are @successList.Count() successful notifications: </strong>
             <ul>
                 @foreach (String message in successList)
@@ -62,8 +67,9 @@
                 }
             </ul>
         }
-        else{
-            <strong><span class="glyphicon glyphicon-ok"></span> Success! </strong>
+        else
+        {
+            <strong><span class="fa fa-check-circle"></span> Thành công! </strong>
             @Html.Raw(successList.First())
         }
     </div>
@@ -74,7 +80,8 @@
 {
     <div class="alert alert-info alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        @if(infoList.Count() > 1){
+        @if (infoList.Count() > 1)
+        {
             <strong><span class="glyphicon glyphicon-info-sign"></span> There are @infoList.Count() notifications: </strong>
             <ul>
                 @foreach (String message in infoList)
@@ -83,10 +90,10 @@
                 }
             </ul>
         }
-        else{
-            <strong><span class="glyphicon glyphicon-info-sign"></span> </strong>
+        else
+        {
+            <strong><span class="fa fa-info-circle"></span> Thông tin. </strong>
             @Html.Raw(infoList.First())
         }
     </div>
 }
-

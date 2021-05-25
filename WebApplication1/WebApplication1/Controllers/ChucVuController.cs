@@ -99,7 +99,7 @@ namespace WebApplication1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaChucVu,TenChucVu,HeSoChucVu")] ChucVu chucVu)
+        public ActionResult Create([Bind(Include = "MaChucVu,TenChucVu,HeSoChucVu,PhuCap,NguoiSua,NgaySua")] ChucVu chucVu)
         {
             if (ModelState.IsValid)
             {
@@ -131,7 +131,7 @@ namespace WebApplication1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaChucVu,TenChucVu,HeSoChucVu")] ChucVu chucVu)
+        public ActionResult Edit([Bind(Include = "MaChucVu,TenChucVu,HeSoChucVu,PhuCap,NguoiSua,NgaySua")] ChucVu chucVu)
         {
             if (ModelState.IsValid)
             {

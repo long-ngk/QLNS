@@ -18,166 +18,337 @@ namespace WebApplication1.Controllers
         private QLNhanSuEntities db = new QLNhanSuEntities();
 
         // GET: Ct_Phat
-        public ActionResult Index(string loaiTimKiem, string tenTimKiem, int? page, string trangThai)
+        public ActionResult Index(string loaiTimKiem, string tenTimKiem, int? page, string trangThai, string submit)
         {
-            try
+            IQueryable<Ct_Phat> ct_P;
+            QLNhanSuEntities db = new QLNhanSuEntities();
+            if(submit != null)
             {
-                IQueryable<Ct_Phat> ct_P;
-                QLNhanSuEntities db = new QLNhanSuEntities();
-                if (trangThai == "TatCa")
+                if(submit == "timKiem")
                 {
-                    if (loaiTimKiem == "MaNhanVien")
+                    try
                     {
-                        if (tenTimKiem == "" || tenTimKiem == null)
+                        if (trangThai == "TatCa")
                         {
-                            ct_P = db.Ct_Phat.Where(x => x.NhanVien.MaNhanVien.ToString().StartsWith("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
-                            return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                            if (loaiTimKiem == "MaNhanVien")
+                            {
+                                if (tenTimKiem == "" || tenTimKiem == null)
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.MaNhanVien.ToString().StartsWith("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                                else
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.MaNhanVien.ToString().StartsWith(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                            }
+                            else if (loaiTimKiem == "TenNhanVien")
+                            {
+                                if (tenTimKiem == "" || tenTimKiem == null)
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.HoTen.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                                else
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.HoTen.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                            }
+                            else if (loaiTimKiem == "PhongBan")
+                            {
+                                if (tenTimKiem == "" || tenTimKiem == null)
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.PhongBan.TenPB.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                                else
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                            }
+                            else
+                            {
+                                ct_P = db.Ct_Phat.Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                            }
                         }
-                        else
+                        else if (trangThai == "HoatDong")
                         {
-                            ct_P = db.Ct_Phat.Where(x => x.NhanVien.MaNhanVien.ToString().StartsWith(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
-                            return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
-                        }
-                    }
-                    else if (loaiTimKiem == "TenNhanVien")
-                    {
-                        if (tenTimKiem == "" || tenTimKiem == null)
-                        {
-                            ct_P = db.Ct_Phat.Where(x => x.NhanVien.HoTen.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
-                            return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
-                        }
-                        else
-                        {
-                            ct_P = db.Ct_Phat.Where(x => x.NhanVien.HoTen.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
-                            return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
-                        }
-                    }
-                    else if (loaiTimKiem == "PhongBan")
-                    {
-                        if (tenTimKiem == "" || tenTimKiem == null)
-                        {
-                            ct_P = db.Ct_Phat.Where(x => x.NhanVien.PhongBan.TenPB.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
-                            return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
-                        }
-                        else
-                        {
-                            ct_P = db.Ct_Phat.Where(x => x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
-                            return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
-                        }
-                    }
-                    else
-                    {
-                        ct_P = db.Ct_Phat.Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
-                        return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
-                    }
-                }
-                else if (trangThai == "HoatDong")
-                {
-                    if (loaiTimKiem == "MaNhanVien")
-                    {
-                        if (tenTimKiem == "" || tenTimKiem == null)
-                        {
-                            ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.MaNhanVien.ToString().StartsWith("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat);
-                            return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
-                        }
+                            if (loaiTimKiem == "MaNhanVien")
+                            {
+                                if (tenTimKiem == "" || tenTimKiem == null)
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.MaNhanVien.ToString().StartsWith("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
 
-                        else
-                        {
-                            ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.MaNhanVien.ToString().StartsWith(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat);
-                            return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
-                        }
-                    }
-                    else if (loaiTimKiem == "TenNhanVien")
-                    {
-                        if (tenTimKiem == "" || tenTimKiem == null)
-                        {
-                            ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.HoTen.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat);
-                            return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
-                        }
-                        else
-                        {
-                            ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.HoTen.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat);
-                            return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
-                        }
-                    }
-                    else if (loaiTimKiem == "PhongBan")
-                    {
-                        if (tenTimKiem == "" || tenTimKiem == null)
-                        {
-                            ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.PhongBan.TenPB.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat);
-                            return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
-                        }
-                        else
-                        {
-                            ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat);
-                            return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
-                        }
-                    }
-                    else
-                    {
+                                else
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.MaNhanVien.ToString().StartsWith(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                            }
+                            else if (loaiTimKiem == "TenNhanVien")
+                            {
+                                if (tenTimKiem == "" || tenTimKiem == null)
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.HoTen.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                                else
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.HoTen.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                            }
+                            else if (loaiTimKiem == "PhongBan")
+                            {
+                                if (tenTimKiem == "" || tenTimKiem == null)
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.PhongBan.TenPB.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                                else
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                            }
+                            else
+                            {
 
-                        ct_P = db.Ct_Phat.Where(x => x.TrangThai == true).Include(c => c.NhanVien).Include(c => c.LoaiPhat);
-                        return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                ct_P = db.Ct_Phat.Where(x => x.TrangThai == true).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
 
-                    }
-                }
-                else if (trangThai == "VoHieuHoa")
-                {
-                    if (loaiTimKiem == "MaNhanVien")
-                    {
-                        if (tenTimKiem == "" || tenTimKiem == null)
+                            }
+                        }
+                        else if (trangThai == "VoHieuHoa")
                         {
-                            ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.MaNhanVien.ToString().StartsWith("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat);
-                            return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                            if (loaiTimKiem == "MaNhanVien")
+                            {
+                                if (tenTimKiem == "" || tenTimKiem == null)
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.MaNhanVien.ToString().StartsWith("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                                else
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.MaNhanVien.ToString().StartsWith(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                            }
+                            else if (loaiTimKiem == "TenNhanVien")
+                            {
+                                if (tenTimKiem == "" || tenTimKiem == null)
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.HoTen.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                                else
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.HoTen.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                            }
+                            else if (loaiTimKiem == "PhongBan")
+                            {
+                                if (tenTimKiem == "" || tenTimKiem == null)
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.PhongBan.TenPB.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                                else
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                            }
+                            else
+                            {
+                                ct_P = db.Ct_Phat.Where(x => x.TrangThai != true).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                            }
                         }
                         else
                         {
-                            ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.MaNhanVien.ToString().StartsWith(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat);
+                            ct_P = db.Ct_Phat.Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen).OrderBy(x => x.NhanVien.HoTen);
                             return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                         }
                     }
-                    else if (loaiTimKiem == "TenNhanVien")
+                    catch
                     {
-                        if (tenTimKiem == "" || tenTimKiem == null)
-                        {
-                            ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.HoTen.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat);
-                            return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
-                        }
-                        else
-                        {
-                            ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.HoTen.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat);
-                            return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
-                        }
-                    }
-                    else if (loaiTimKiem == "PhongBan")
-                    {
-                        if (tenTimKiem == "" || tenTimKiem == null)
-                        {
-                            ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.PhongBan.TenPB.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat);
-                            return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
-                        }
-                        else
-                        {
-                            ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat);
-                            return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
-                        }
-                    }
-                    else
-                    {
-                        ct_P = db.Ct_Phat.Where(x => x.TrangThai != true).Include(c => c.NhanVien).Include(c => c.LoaiPhat);
-                        return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                        this.AddNotification("Không tìm thấy từ khóa yêu cầu. Vui lòng thực hiện tìm kiếm lại!", NotificationType.ERROR);
+                        return View("Index", db.Ct_Phat.OrderBy(x => x.NhanVien.HoTen).ToList().ToPagedList(page ?? 1, 10));
                     }
                 }
                 else
                 {
-                    ct_P = db.Ct_Phat.Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
-                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                    try
+                    {
+                        if (trangThai == "TatCa")
+                        {
+                            if (loaiTimKiem == "MaNhanVien")
+                            {
+                                if (tenTimKiem == "" || tenTimKiem == null)
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.MaNhanVien.ToString().StartsWith("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                                else
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.MaNhanVien.ToString().StartsWith(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                            }
+                            else if (loaiTimKiem == "TenNhanVien")
+                            {
+                                if (tenTimKiem == "" || tenTimKiem == null)
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.HoTen.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                                else
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.HoTen.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                            }
+                            else if (loaiTimKiem == "PhongBan")
+                            {
+                                if (tenTimKiem == "" || tenTimKiem == null)
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.PhongBan.TenPB.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                                else
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                            }
+                            else
+                            {
+                                ct_P = db.Ct_Phat.Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                            }
+                        }
+                        else if (trangThai == "HoatDong")
+                        {
+                            if (loaiTimKiem == "MaNhanVien")
+                            {
+                                if (tenTimKiem == "" || tenTimKiem == null)
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.MaNhanVien.ToString().StartsWith("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+
+                                else
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.MaNhanVien.ToString().StartsWith(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                            }
+                            else if (loaiTimKiem == "TenNhanVien")
+                            {
+                                if (tenTimKiem == "" || tenTimKiem == null)
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.HoTen.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                                else
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.HoTen.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                            }
+                            else if (loaiTimKiem == "PhongBan")
+                            {
+                                if (tenTimKiem == "" || tenTimKiem == null)
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.PhongBan.TenPB.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                                else
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                            }
+                            else
+                            {
+
+                                ct_P = db.Ct_Phat.Where(x => x.TrangThai == true).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+
+                            }
+                        }
+                        else if (trangThai == "VoHieuHoa")
+                        {
+                            if (loaiTimKiem == "MaNhanVien")
+                            {
+                                if (tenTimKiem == "" || tenTimKiem == null)
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.MaNhanVien.ToString().StartsWith("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                                else
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.MaNhanVien.ToString().StartsWith(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                            }
+                            else if (loaiTimKiem == "TenNhanVien")
+                            {
+                                if (tenTimKiem == "" || tenTimKiem == null)
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.HoTen.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                                else
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.HoTen.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                            }
+                            else if (loaiTimKiem == "PhongBan")
+                            {
+                                if (tenTimKiem == "" || tenTimKiem == null)
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.PhongBan.TenPB.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                                else
+                                {
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                                }
+                            }
+                            else
+                            {
+                                ct_P = db.Ct_Phat.Where(x => x.TrangThai != true).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                            }
+                        }
+                        else
+                        {
+                            ct_P = db.Ct_Phat.Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                            return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+                        }
+                    }
+                    catch
+                    {
+                        this.AddNotification("Không tìm thấy từ khóa yêu cầu. Vui lòng thực hiện tìm kiếm lại!", NotificationType.ERROR);
+                        return View("Index", db.Ct_Phat.OrderByDescending(x => x.NgaySua).ToList().ToPagedList(page ?? 1, 10));
+                    }
                 }
             }
-            catch
+            else
             {
-                this.AddNotification("Không tìm thấy từ khóa yêu cầu. Vui lòng thực hiện tìm kiếm lại!", NotificationType.ERROR);
-                return View("Index", db.Ct_Phat.OrderBy(x => x.NhanVien.HoTen).ToList());
+                ct_P = db.Ct_Phat.Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
             }
         }
 

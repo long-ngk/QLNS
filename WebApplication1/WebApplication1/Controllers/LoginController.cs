@@ -51,7 +51,7 @@ namespace WebApplication1.Controllers
                         switch (check.MaQuyen)
                         {
                             case 4:
-                                return RedirectToAction("ListEmployee", "Home");
+                                return RedirectToAction("Index", "NhanVien");
                             case 3:
                                 return RedirectToAction("Index", "TaiKhoan");
                         }

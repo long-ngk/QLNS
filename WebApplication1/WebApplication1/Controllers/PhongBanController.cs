@@ -45,7 +45,8 @@ namespace WebApplication1.Controllers
             try
             {
                 db.Configuration.ValidateOnSaveEnabled = false;
-                if(phongBans == null)
+                var checkIsChecked = phongBans.Where(x => x.IsChecked == true).SingleOrDefault();
+                if (checkIsChecked == null)
                 {
                     this.AddNotification("Vui lòng chọn phòng ban để xóa!", NotificationType.ERROR);
                     return RedirectToAction("Index");

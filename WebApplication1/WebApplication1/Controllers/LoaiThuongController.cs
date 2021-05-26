@@ -171,9 +171,9 @@ namespace WebApplication1.Controllers
             if (ModelState.IsValid)
             {
                 //kiểm tra tên loại thưởng được nhập từ ô textbox có trùng với bất kỳ tên loại thưởng nào trong database bảng LoaiThuong không 
-                var tenLoaiThuongList = db.LoaiThuongs.Where(x => x.TenLoaiThuong.Equals(loaiThuong.TenLoaiThuong, StringComparison.OrdinalIgnoreCase)).ToList();
+                var tenLoaiThuongList = db.LoaiThuongs.Where(x => x.TenLoaiThuong.Equals(loaiThuong.TenLoaiThuong.Trim(), StringComparison.OrdinalIgnoreCase)).ToList();
 
-                if (tenLoaiThuongList.Count != 0)
+                if (tenLoaiThuongList.Count > 0)
                 {
                     foreach (var item in tenLoaiThuongList)
                     {
@@ -185,6 +185,7 @@ namespace WebApplication1.Controllers
 
                         }
                     }
+                    loaiThuong.TenLoaiThuong = loaiThuong.TenLoaiThuong.Trim();
                     db.LoaiThuongs.Add(loaiThuong);
                 }
                 else
@@ -192,10 +193,8 @@ namespace WebApplication1.Controllers
                     db.LoaiThuongs.Add(loaiThuong);
                 }
                 db.SaveChanges();
-                var a = loaiThuong.MaLoaiThuong;
                 return RedirectToAction("Index");
             }
-
             return View(loaiThuong);
         }
 
@@ -257,7 +256,8 @@ namespace WebApplication1.Controllers
             try
             {
                 db.Configuration.ValidateOnSaveEnabled = false;
-                if (loaiThuongs == null)
+                var checkIsChecked = loaiThuongs.Where(x => x.IsChecked == true).SingleOrDefault();
+                if (checkIsChecked == null)
                 {
                     this.AddNotification("Vui lòng chọn loại thưởng để xóa!", NotificationType.ERROR);
                     return RedirectToAction("Index");

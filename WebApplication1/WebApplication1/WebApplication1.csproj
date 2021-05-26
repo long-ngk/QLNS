@@ -320,10 +320,11 @@
     <Content Include="Views\Ct_Phat\Edit.cshtml" />
     <Content Include="Views\Ct_Phat\Index.cshtml" />
     <Content Include="Views\NhanVien\Create.cshtml" />
-    <Content Include="Views\NhanVien\Delete.cshtml" />
     <Content Include="Views\NhanVien\Details.cshtml" />
     <Content Include="Views\NhanVien\Edit.cshtml" />
     <Content Include="Views\NhanVien\Index.cshtml" />
+    <Content Include="Views\NhanVien\ThemThuongNhanVien.cshtml" />
+    <Content Include="Views\NhanVien\ThemPhatNhanVien.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

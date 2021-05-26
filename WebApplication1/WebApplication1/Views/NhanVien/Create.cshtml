@@ -92,7 +92,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.MaChucVu, "Mã chức vụ", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.MaChucVu, "Chức vụ", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownList("MaChucVu", null, htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.MaChucVu, "", new { @class = "text-danger" })
@@ -100,7 +100,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.MaPB, "Mã phòng ban", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.MaPB, "Phòng ban", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownList("MaPB", null, htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.MaPB, "", new { @class = "text-danger" })

@@ -173,9 +173,9 @@ namespace WebApplication1.Controllers
             if (ModelState.IsValid)
             {
                 //kiểm tra tên loại phạt được nhập từ ô textbox có trùng với bất kỳ tên loại thưởng nào trong database bảng LoaiPhat không 
-                var tenLoaiPhatList = db.LoaiPhats.Where(x => x.TenLoaiPhat.Equals(loaiPhat.TenLoaiPhat, StringComparison.OrdinalIgnoreCase)).ToList();
+                var tenLoaiPhatList = db.LoaiPhats.Where(x => x.TenLoaiPhat.Equals(loaiPhat.TenLoaiPhat.Trim(), StringComparison.OrdinalIgnoreCase)).ToList();
 
-                if (tenLoaiPhatList.Count != 0)
+                if (tenLoaiPhatList.Count > 0)
                 {
                     foreach (var item in tenLoaiPhatList)
                     {
@@ -187,6 +187,7 @@ namespace WebApplication1.Controllers
 
                         }
                     }
+                    loaiPhat.TenLoaiPhat = loaiPhat.TenLoaiPhat.Trim();
                     db.LoaiPhats.Add(loaiPhat);
                 }
                 else
@@ -258,7 +259,8 @@ namespace WebApplication1.Controllers
             try
             {
                 db.Configuration.ValidateOnSaveEnabled = false;
-                if (loaiPhats == null)
+                var checkIsChecked = loaiPhats.Where(x => x.IsChecked == true).SingleOrDefault();
+                if (checkIsChecked == null)
                 {
                     this.AddNotification("Vui lòng chọn loại thưởng để xóa!", NotificationType.ERROR);
                     return RedirectToAction("Index");

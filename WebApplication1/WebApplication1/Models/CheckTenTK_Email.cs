@@ -14,7 +14,7 @@ namespace WebApplication1.Models
         public string TenTK { get; set; }
 
         [Required(ErrorMessage = "Email không được để trống...")]
-        [EmailAddress(ErrorMessage = "Email không hợp lệ")]
+        [EmailAddress(ErrorMessage = "Email không hợp lệ. Ví dụ: example@gmail.com")]
         public string Email { get; set; }
 
     }

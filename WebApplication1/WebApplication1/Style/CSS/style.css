@@ -138,25 +138,20 @@ h1.function-page-title {
 }
 
 dl.dl-horizontal {
-    margin-left: 1rem;
+    margin-left: 2rem;
     font-size: 19px
 }
 
 .footer-function {
-    margin-left: 2rem;
+    margin-left: 3.5rem;
 }
 
-.list-employee .btn-active {
-    background-color: #90ADF8;
-    border-radius: 5px;
-    color: black;
-}
 
-.list-employee .btn-unactive {
-    background-color: #4BE275;
+.list-employee .btn-recently-add {
+    background-color: #c23bee;
     border-radius: 5px;
     margin-left: 2rem;
-    color: black
+    color: white
 }
 
 .list-detail .input-search {
@@ -309,12 +304,12 @@ input[type="radio"]:checked{
     float: left;
 }
 
-    /* Cột bên trái và phải */
+    /* Cột bên trái */
     .column-1.left {
         width: 60%;
     }
 
-    /* Cột chính giữa */
+    /* Cột phải */
     .column-1.right {
         width: 40%;
     }

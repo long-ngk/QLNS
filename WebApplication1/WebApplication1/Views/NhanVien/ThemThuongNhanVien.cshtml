@@ -1,0 +1,46 @@
+﻿@model List<WebApplication1.Models.NhanVien>
+@{
+    ViewBag.Title = "ThemThuongNhanVien";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="function-page-title">THÊM THƯỞNG NHÂN VIÊN</h1>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            <label class="control-label col-md-2">Tên loại thưởng</label>
+            <div class="col-md-10">
+                @Html.DropDownList("MaLoaiThuong", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            @{
+                if (Session["TenNhanVien"] == null)
+                {
+                    <input type="hidden" value="Ẩn danh" name="NguoiSua" id="NguoiSua" />
+                    <input type="hidden" value="@DateTime.Now" name="NgaySua" id="NgaySua" />
+                }
+                else
+                {
+                    <input type="hidden" value="@Session["TenNhanVien"]" name="NguoiSua" id="NguoiSua" />
+                    <input type="hidden" value="@DateTime.Now" name="NgaySua" id="NgaySua" />
+                }
+            }
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Thêm" class="btn btn-success" id="submit" />
+        </div>
+    </div>
+}
+<div class="footer-function">
+    @Html.ActionLink("Quay lại danh sách", "Index", "NhanVien")
+</div>

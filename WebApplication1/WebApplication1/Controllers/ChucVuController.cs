@@ -44,7 +44,8 @@ namespace WebApplication1.Controllers
             try
             {
                 db.Configuration.ValidateOnSaveEnabled = false;
-                if(chucVus == null)
+                var checkIsChecked = chucVus.Where(x => x.IsChecked == true).SingleOrDefault();
+                if (checkIsChecked == null)
                 {
                     this.AddNotification("Vui lòng chọn chức vụ để xóa!", NotificationType.ERROR);
                     return RedirectToAction("Index");

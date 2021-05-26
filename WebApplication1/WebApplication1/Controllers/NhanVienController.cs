@@ -204,7 +204,7 @@ namespace WebApplication1.Controllers
             ViewBag.MaPB = new SelectList(db.PhongBans, "MaPB", "TenPB");
             ViewBag.MaNhanVien = new SelectList(db.TaiKhoans, "MaNhanVien", "TenTK");
 
-            ViewBag.MaQuyen = new SelectList(db.PhanQuyens, "MaQuyen", "TenQuyen");
+            ViewBag.MaQuyen = new SelectList(db.PhanQuyens.Where(x => !x.MaQuyen.Equals(3)), "MaQuyen", "TenQuyen");
             return View();
         }
 
@@ -223,7 +223,7 @@ namespace WebApplication1.Controllers
                     ViewBag.MaPB = new SelectList(db.PhongBans, "MaPB", "TenPB", nhanVien.MaPB);
                     ViewBag.MaNhanVien = new SelectList(db.TaiKhoans, "MaNhanVien", "TenTK", nhanVien.MaNhanVien);
 
-                    ViewBag.MaQuyen = new SelectList(db.PhanQuyens, "MaQuyen", "TenQuyen");
+                    ViewBag.MaQuyen = new SelectList(db.PhanQuyens.Where(x => !x.MaQuyen.Equals(3)), "MaQuyen", "TenQuyen");
                     this.AddNotification("Lương cơ bản không được trống!", NotificationType.ERROR);
                     return View(nhanVien);
                 }
@@ -264,7 +264,7 @@ namespace WebApplication1.Controllers
             ViewBag.MaPB = new SelectList(db.PhongBans, "MaPB", "TenPB", nhanVien.MaPB);
             ViewBag.MaNhanVien = new SelectList(db.TaiKhoans, "MaNhanVien", "TenTK", nhanVien.MaNhanVien);
 
-            ViewBag.MaQuyen = new SelectList(db.PhanQuyens, "MaQuyen", "TenQuyen");
+            ViewBag.MaQuyen = new SelectList(db.PhanQuyens.Where(x => !x.MaQuyen.Equals(3)), "MaQuyen", "TenQuyen");
             return View(nhanVien);
         }
 
@@ -307,35 +307,93 @@ namespace WebApplication1.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(List<NhanVien> nhanViens)
+        public ActionResult Delete(List<NhanVien> nhanViens, string submit)
         {
             try
             {
-                db.Configuration.ValidateOnSaveEnabled = false;
-                if (nhanViens == null)
+                if (submit == "xoaNV")
                 {
-                    this.AddNotification("Vui lòng chọn nhân viên để xóa!", NotificationType.ERROR);
-                    return RedirectToAction("Index");
-                }
-                foreach (var item in nhanViens)
-                {
-                    if (item.IsChecked == true)
+                    try
                     {
-                        int maNhanVien = item.MaNhanVien;
-                        NhanVien nhanVien = db.NhanViens.Where(x => x.MaNhanVien == maNhanVien).SingleOrDefault();
-                        if (nhanVien != null)
+                        db.Configuration.ValidateOnSaveEnabled = false;
+                        var checkIsChecked = nhanViens.Where(x => x.IsChecked == true).SingleOrDefault();
+                        if (checkIsChecked == null)
                         {
-                            nhanVien.TrangThai = false;
-                            db.SaveChanges();
+                            this.AddNotification("Vui lòng chọn nhân viên để xóa!", NotificationType.ERROR);
+                            return RedirectToAction("Index");
                         }
+                        foreach (var item in nhanViens)
+                        {
+                            if (item.IsChecked == true)
+                            {
+                                int maNhanVien = item.MaNhanVien;
+                                NhanVien nhanVien = db.NhanViens.Where(x => x.MaNhanVien == maNhanVien).SingleOrDefault();
+                                if (nhanVien != null)
+                                {
+                                    nhanVien.TrangThai = false;
+                                    db.SaveChanges();
+                                }
+                            }
+                        }
+
+                        return RedirectToAction("Index");
+                    }
+                    catch
+                    {
+                        this.AddNotification("Không thể xóa vì thông tin nhân viên đang được sử dụng!", NotificationType.ERROR);
+                        return RedirectToAction("Index");
                     }
                 }
-
-                return RedirectToAction("Index");
+                else if (submit == "themThuong")
+                {
+                    try
+                    {
+                        db.Configuration.ValidateOnSaveEnabled = false;
+                        var checkIsChecked = nhanViens.Where(x => x.IsChecked == true).FirstOrDefault();
+                        if (checkIsChecked == null)
+                        {
+                            this.AddNotification("Vui lòng chọn nhân viên để thêm thưởng!", NotificationType.ERROR);
+                            return RedirectToAction("Index");
+                        }
+                        else
+                        {
+                            TempData["listNhanVien"] = nhanViens.ToList();
+                            return RedirectToAction("ThemThuongNhanVien");
+                        }
+                    }
+                    catch
+                    {
+                        this.AddNotification("Không thể thêm thưởng cho nhân viên... Vui lòng thử lại!", NotificationType.ERROR);
+                        return RedirectToAction("Index");
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        db.Configuration.ValidateOnSaveEnabled = false;
+                        var checkIsChecked = nhanViens.Where(x => x.IsChecked == true).FirstOrDefault();
+                        if (checkIsChecked == null)
+                        {
+                            this.AddNotification("Vui lòng chọn nhân viên để thêm phạt!", NotificationType.ERROR);
+                            return RedirectToAction("Index");
+                        }
+                        else
+                        {
+                            TempData["listNhanVien"] = nhanViens.ToList();
+                            return RedirectToAction("ThemPhatNhanVien");
+                        }
+                    }
+                    catch
+                    {
+                        this.AddNotification("Không thể thêm phạt cho nhân viên... Vui lòng thử lại!", NotificationType.ERROR);
+                        return RedirectToAction("Index");
+                    }
+                }
             }
             catch
             {
-                this.AddNotification("Không thể xóa vì thông tin nhân viên đang được sử dụng!", NotificationType.ERROR);
+                this.AddNotification("Xảy ra lỗi. Vui lòng thực hiện lại thao tác!", NotificationType.ERROR);
                 return RedirectToAction("Index");
             }
         }
@@ -347,6 +405,62 @@ namespace WebApplication1.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult ThemThuongNhanVien()
+        {
+            ViewBag.MaLoaiThuong = new SelectList(db.LoaiThuongs.Where(x => x.TrangThai == true), "MaLoaiThuong", "TenLoaiThuong");
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ThemThuongNhanVien(FormCollection form)
+        {
+            var listNhanVien = TempData["listNhanVien"] as List<NhanVien>;
+            foreach (var item in listNhanVien)
+            {
+                if (item.IsChecked == true)
+                {
+                    var chitietThuong = new Ct_Thuong();
+                    chitietThuong.MaNhanVien = item.MaNhanVien;
+                    chitietThuong.MaLoaiThuong = Convert.ToInt32(form["MaLoaiThuong"]);
+                    chitietThuong.TrangThai = true;
+                    chitietThuong.NguoiSua = form["NguoiSua"].ToString();
+                    chitietThuong.NgaySua = DateTime.Now;
+                    db.Ct_Thuong.Add(chitietThuong);
+                    db.SaveChanges();
+                }
+            }
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult ThemPhatNhanVien()
+        {
+            ViewBag.MaLoaiPhat = new SelectList(db.LoaiPhats.Where(x => x.TrangThai == true && !x.TenLoaiPhat.Equals("Nghỉ", StringComparison.OrdinalIgnoreCase) && !x.TenLoaiPhat.Equals("Đi trễ", StringComparison.OrdinalIgnoreCase)), "MaLoaiPhat", "TenLoaiPhat");
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ThemPhatNhanVien(FormCollection form)
+        {
+            var listNhanVien = TempData["listNhanVien"] as List<NhanVien>;
+            foreach (var item in listNhanVien)
+            {
+                if (item.IsChecked == true)
+                {
+                    var chitietPhat = new Ct_Phat();
+                    chitietPhat.MaNhanVien = item.MaNhanVien;
+                    chitietPhat.MaLoaiPhat = Convert.ToInt32(form["MaLoaiPhat"]);
+                    chitietPhat.TrangThai = true;
+                    chitietPhat.NguoiSua = form["NguoiSua"].ToString();
+                    chitietPhat.NgaySua = DateTime.Now;
+                    db.Ct_Phat.Add(chitietPhat);
+                    db.SaveChanges();
+                }
+            }
+            return RedirectToAction("Index");
         }
     }
     public class RandomGenerator

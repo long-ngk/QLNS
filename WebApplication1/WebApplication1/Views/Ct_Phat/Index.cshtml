@@ -55,15 +55,12 @@
                     </div>
                 </div>
                 <div class="row mt-3">
+                    <button class="btn btn-recently-add" type="submit" name="submit" value="themGanDay"><i class="fas fa-arrow-circle-down"></i> Thêm gần đây</button>
                     <input class="input-search" type="text" placeholder="Nhập từ khóa tìm kiếm..." name="tenTimKiem" />
-                    <button class="btn btn-search" type="submit"><i class="fas fa-search"></i> Tìm kiếm</button>
+                    <button class="btn btn-search" type="submit" name="submit" value="timKiem"><i class="fas fa-search"></i> Tìm kiếm</button>
                     <a href='@Url.Action("Index", "Ct_Phat")' class="btn btn-reload" style="color:black"><i class="fas fa-sync-alt"></i> Tải lại</a>
                 </div>
-
-
-
             }
-
         </div>
         <br />
         @Html.Partial("_Notifications")
@@ -142,7 +139,7 @@
             </table>
 
             @Html.PagedListPager(Model,
-             page => Url.Action("Index", new { page, trangThai = Request.QueryString["trangThai"], loaiTimKiem = Request.QueryString["loaiTimKiem"], tenTimKiem = Request.QueryString["tenTimKiem"] }),
+             page => Url.Action("Index", new { page, submit = Request.QueryString["submit"], trangThai = Request.QueryString["trangThai"], loaiTimKiem = Request.QueryString["loaiTimKiem"], tenTimKiem = Request.QueryString["tenTimKiem"] }),
              new PagedListRenderOptions()
              {
                  Display = PagedListDisplayMode.IfNeeded,

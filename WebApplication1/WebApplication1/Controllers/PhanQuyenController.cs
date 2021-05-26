@@ -33,8 +33,8 @@ namespace WebApplication1.Controllers
             try
             {
                 db.Configuration.ValidateOnSaveEnabled = false;
-                
-                if(phanQuyens == null)
+                var checkIsChecked = phanQuyens.Where(x => x.IsChecked == true).SingleOrDefault();
+                if (checkIsChecked == null)
                 {
                     this.AddNotification("Vui lòng chọn phân quyền để xóa!", NotificationType.ERROR);
                     return RedirectToAction("Index");

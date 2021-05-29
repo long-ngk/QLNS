@@ -40,7 +40,9 @@ namespace WebApplication1.Models
         public string NguoiSua { get; set; }
         [DisplayName("Ngày sửa")]
         public System.DateTime NgaySua { get; set; }
-
+        [DisplayName("Trạng thái")]
+        public bool TrangThai { get; set; }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NhanVien> NhanViens { get; set; }
     }

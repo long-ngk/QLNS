@@ -123,8 +123,10 @@
                             @Html.HiddenFor(modelItem => Model[i].TrangThai)
                         </td>
                         <td>
-                            <input class="btn-edit" type="button" value="Sửa" onclick="window.location.href= '@Url.Action("Edit","NhanVien", new { id = Model[i].MaNhanVien })'" /> |
-                            <input class="btn-detail" type="button" value="Chi tiết" onclick="window.location.href= '@Url.Action("Details","NhanVien", new { id = Model[i].MaNhanVien })'" />
+                            @*<input class="btn-edit" type="button" value="Sửa" onclick="window.location.href= '@Url.Action("Edit","NhanVien", new { id = Model[i].MaNhanVien })'" /> |
+        <input class="btn-detail" type="button" value="Chi tiết" onclick="window.location.href= '@Url.Action("Details","NhanVien", new { id = Model[i].MaNhanVien })'" />*@
+                            <a href='@Url.Action("Details","NhanVien", new { id = Model[i].MaNhanVien })' class="btn-detail" style="color:black"><i class="fas fa-eye"></i></a>
+                            <a href='@Url.Action("Edit","NhanVien", new { id = Model[i].MaNhanVien })' class="btn-edit" style="color:black"><i class="fas fa-pen-alt"></i></a>
 
                         </td>
                     </tr>

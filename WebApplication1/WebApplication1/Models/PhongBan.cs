@@ -13,6 +13,7 @@ namespace WebApplication1.Models
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
+
     public partial class PhongBan
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -30,8 +31,7 @@ namespace WebApplication1.Models
         [DisplayName("Số điện thoại")]
         [Required(ErrorMessage = "Số điện thoại không được trống...")]
         [DataType(DataType.PhoneNumber)]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Số điện thoại không bao gồm chữ. Gồm 10 số")]
-
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Số điện thoại bắt đầu là 0 và không bao gồm chữ. Gồm 10 số")]
         public string SoDT { get; set; }
 
         public bool IsChecked { get; set; }

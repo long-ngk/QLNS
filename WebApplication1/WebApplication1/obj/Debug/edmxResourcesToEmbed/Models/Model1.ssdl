@@ -21,6 +21,7 @@
     <Property Name="TenChucVu" Type="nvarchar(max)" Nullable="false" />
     <Property Name="HeSoChucVu" Type="float" Nullable="false" />
     <Property Name="PhuCap" Type="int" />
+    <Property Name="TrangThai" Type="bit" />
     <Property Name="NguoiSua" Type="nvarchar" MaxLength="500" />
     <Property Name="NgaySua" Type="datetime" Nullable="false" />
   </EntityType>
@@ -31,6 +32,8 @@
     <Property Name="MaCTPhat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MaNhanVien" Type="int" Nullable="false" />
     <Property Name="MaLoaiPhat" Type="int" Nullable="false" />
+    <Property Name="NguoiPhat" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgayPhat" Type="datetime" Nullable="false" />
     <Property Name="TrangThai" Type="bit" Nullable="false" />
     <Property Name="NguoiSua" Type="nvarchar" MaxLength="500" />
     <Property Name="NgaySua" Type="datetime" Nullable="false" />
@@ -42,6 +45,8 @@
     <Property Name="MaCTThuong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MaNhanVien" Type="int" Nullable="false" />
     <Property Name="MaLoaiThuong" Type="int" Nullable="false" />
+    <Property Name="NguoiThuong" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgayThuong" Type="datetime" Nullable="false" />
     <Property Name="TrangThai" Type="bit" Nullable="false" />
     <Property Name="NguoiSua" Type="nvarchar" MaxLength="500" />
     <Property Name="NgaySua" Type="datetime" Nullable="false" />

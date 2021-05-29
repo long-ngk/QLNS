@@ -73,12 +73,16 @@
                                 if (Model[i].MaQuyen == 1 || Model[i].MaQuyen == 2 || Model[i].MaQuyen == 3 || Model[i].MaQuyen == 4)
                                 {
 
-                                    <input class="btn-detail" type="button" value="Chi tiết" onclick="window.location.href= '@Url.Action("Details", "PhanQuyen", new { id = Model[i].MaQuyen })'" />
+                                    <a href='@Url.Action("Details","PhanQuyen", new { id = Model[i].MaQuyen })' class="btn-detail" style="color:black"><i class="fas fa-eye"></i></a>
+                                    @*<input class="btn-detail" type="button" value="Chi tiết" onclick="window.location.href= '@Url.Action("Details", "PhanQuyen", new { id = Model[i].MaQuyen })'" />*@
                                 }
                                 else
                                 {
-                                    <input class="btn-edit" type="button" value="Sửa" onclick="window.location.href= '@Url.Action("Edit","PhanQuyen", new { id = Model[i].MaQuyen })'" /> @:|
-                                    <input class="btn-detail" type="button" value="Chi tiết" onclick="window.location.href= '@Url.Action("Details", "PhanQuyen", new { id = Model[i].MaQuyen })'" />
+                                    <a href='@Url.Action("Details","PhanQuyen", new { id = Model[i].MaQuyen })' class="btn-detail" style="color:black"><i class="fas fa-eye"></i></a>
+                                    <a href='@Url.Action("Edit","PhanQuyen", new { id = Model[i].MaQuyen })' class="btn-edit" style="color:black"><i class="fas fa-pen-alt"></i></a>
+
+                                    @*<input class="btn-edit" type="button" value="Sửa" onclick="window.location.href= '@Url.Action("Edit","PhanQuyen", new { id = Model[i].MaQuyen })'" /> @:|
+                <input class="btn-detail" type="button" value="Chi tiết" onclick="window.location.href= '@Url.Action("Details", "PhanQuyen", new { id = Model[i].MaQuyen })'" />*@
                                 }
                             }
                         </td>

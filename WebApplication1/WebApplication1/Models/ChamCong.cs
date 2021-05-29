@@ -13,6 +13,7 @@ namespace WebApplication1.Models
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
+
     public partial class ChamCong
     {
         public int MaNhanVien { get; set; }

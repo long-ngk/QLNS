@@ -25,6 +25,7 @@
     <Property Name="NguoiSua" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="NgaySua" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="NhanViens" Relationship="Self.FK_NhanVien_ChucVu" FromRole="ChucVu" ToRole="NhanVien" />
+    <Property Name="TrangThai" Type="Boolean" />
   </EntityType>
   <EntityType Name="Ct_Phat">
     <Key>
@@ -38,6 +39,8 @@
     <Property Name="NgaySua" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="LoaiPhat" Relationship="Self.FK_Ct_Phat_LoaiPhat" FromRole="Ct_Phat" ToRole="LoaiPhat" />
     <NavigationProperty Name="NhanVien" Relationship="Self.FK_Ct_Phat_NhanVien" FromRole="Ct_Phat" ToRole="NhanVien" />
+    <Property Name="NguoiPhat" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayPhat" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <EntityType Name="Ct_Thuong">
     <Key>
@@ -51,6 +54,8 @@
     <Property Name="NgaySua" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="NhanVien" Relationship="Self.FK_Ct_Thuong_NhanVien" FromRole="Ct_Thuong" ToRole="NhanVien" />
     <NavigationProperty Name="LoaiThuong" Relationship="Self.FK_Ct_Thuong_Thuong" FromRole="Ct_Thuong" ToRole="LoaiThuong" />
+    <Property Name="NguoiThuong" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayThuong" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <EntityType Name="LoaiPhat">
     <Key>

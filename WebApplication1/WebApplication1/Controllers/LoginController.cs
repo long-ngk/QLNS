@@ -55,7 +55,7 @@ namespace WebApplication1.Controllers
                             case 3:
                                 return RedirectToAction("Index", "TaiKhoan");
                         }
-                        return RedirectToAction("ListEmployee", "Home");
+                        return RedirectToAction("Index", "NhanVien");
                     }
                     else
                     {

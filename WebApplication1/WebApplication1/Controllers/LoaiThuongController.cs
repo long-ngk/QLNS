@@ -224,7 +224,7 @@ namespace WebApplication1.Controllers
             {
                 var tenLoaiThuongList = db.LoaiThuongs.Where(x => x.TenLoaiThuong.Equals(loaiThuong.TenLoaiThuong, StringComparison.OrdinalIgnoreCase)).ToList();
 
-                if (tenLoaiThuongList.Count != 0)
+                if (tenLoaiThuongList.Count > 0)
                 {
                     foreach (var item in tenLoaiThuongList)
                     {
@@ -256,7 +256,7 @@ namespace WebApplication1.Controllers
             try
             {
                 db.Configuration.ValidateOnSaveEnabled = false;
-                var checkIsChecked = loaiThuongs.Where(x => x.IsChecked == true).SingleOrDefault();
+                var checkIsChecked = loaiThuongs.Where(x => x.IsChecked == true).FirstOrDefault();
                 if (checkIsChecked == null)
                 {
                     this.AddNotification("Vui lòng chọn loại thưởng để xóa!", NotificationType.ERROR);

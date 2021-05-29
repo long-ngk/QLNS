@@ -259,7 +259,7 @@ namespace WebApplication1.Controllers
             try
             {
                 db.Configuration.ValidateOnSaveEnabled = false;
-                var checkIsChecked = loaiPhats.Where(x => x.IsChecked == true).SingleOrDefault();
+                var checkIsChecked = loaiPhats.Where(x => x.IsChecked == true).FirstOrDefault();
                 if (checkIsChecked == null)
                 {
                     this.AddNotification("Vui lòng chọn loại thưởng để xóa!", NotificationType.ERROR);

@@ -17,6 +17,7 @@
     <EntitySetMapping Name="ChucVus">
       <EntityTypeMapping TypeName="QLNhanSuModel.ChucVu">
         <MappingFragment StoreEntitySet="ChucVu">
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
           <ScalarProperty Name="MaChucVu" ColumnName="MaChucVu" />
           <ScalarProperty Name="TenChucVu" ColumnName="TenChucVu" />
           <ScalarProperty Name="HeSoChucVu" ColumnName="HeSoChucVu" />
@@ -29,6 +30,8 @@
     <EntitySetMapping Name="Ct_Phat">
       <EntityTypeMapping TypeName="QLNhanSuModel.Ct_Phat">
         <MappingFragment StoreEntitySet="Ct_Phat">
+          <ScalarProperty Name="NgayPhat" ColumnName="NgayPhat" />
+          <ScalarProperty Name="NguoiPhat" ColumnName="NguoiPhat" />
           <ScalarProperty Name="MaCTPhat" ColumnName="MaCTPhat" />
           <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
           <ScalarProperty Name="MaLoaiPhat" ColumnName="MaLoaiPhat" />
@@ -41,6 +44,8 @@
     <EntitySetMapping Name="Ct_Thuong">
       <EntityTypeMapping TypeName="QLNhanSuModel.Ct_Thuong">
         <MappingFragment StoreEntitySet="Ct_Thuong">
+          <ScalarProperty Name="NgayThuong" ColumnName="NgayThuong" />
+          <ScalarProperty Name="NguoiThuong" ColumnName="NguoiThuong" />
           <ScalarProperty Name="MaCTThuong" ColumnName="MaCTThuong" />
           <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
           <ScalarProperty Name="MaLoaiThuong" ColumnName="MaLoaiThuong" />

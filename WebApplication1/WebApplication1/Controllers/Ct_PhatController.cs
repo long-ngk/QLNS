@@ -194,12 +194,12 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.MaNhanVien.ToString().StartsWith("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.MaNhanVien.ToString().StartsWith("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.MaNhanVien.ToString().StartsWith(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.MaNhanVien.ToString().StartsWith(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
@@ -207,12 +207,12 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.HoTen.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.HoTen.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.HoTen.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.HoTen.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
@@ -220,18 +220,18 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.PhongBan.TenPB.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.PhongBan.TenPB.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
                             else
                             {
-                                ct_P = db.Ct_Phat.Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                ct_P = db.Ct_Phat.Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                 return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                             }
                         }
@@ -241,13 +241,13 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.MaNhanVien.ToString().StartsWith("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.MaNhanVien.ToString().StartsWith("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
 
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.MaNhanVien.ToString().StartsWith(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.MaNhanVien.ToString().StartsWith(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
@@ -255,12 +255,12 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.HoTen.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.HoTen.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.HoTen.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.HoTen.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
@@ -268,19 +268,19 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.PhongBan.TenPB.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.PhongBan.TenPB.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
                             else
                             {
 
-                                ct_P = db.Ct_Phat.Where(x => x.TrangThai == true).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                ct_P = db.Ct_Phat.Where(x => x.TrangThai == true).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                 return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
 
                             }
@@ -334,7 +334,7 @@ namespace WebApplication1.Controllers
                         }
                         else
                         {
-                            ct_P = db.Ct_Phat.Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                            ct_P = db.Ct_Phat.Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                             return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                         }
                     }
@@ -413,7 +413,7 @@ namespace WebApplication1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaCTPhat,MaNhanVien,MaLoaiPhat,TrangThai,NguoiSua,NgaySua")] Ct_Phat ct_Phat)
+        public ActionResult Create([Bind(Include = "MaCTPhat,MaNhanVien,MaLoaiPhat,TrangThai,NguoiSua,NgaySua,NguoiPhat,NgayPhat")] Ct_Phat ct_Phat)
         {
             if (ModelState.IsValid)
             {
@@ -449,7 +449,7 @@ namespace WebApplication1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaCTPhat,MaNhanVien,MaLoaiPhat,TrangThai,NguoiSua,NgaySua")] Ct_Phat ct_Phat)
+        public ActionResult Edit([Bind(Include = "MaCTPhat,MaNhanVien,MaLoaiPhat,TrangThai,NguoiSua,NgaySua,NguoiPhat,NgayPhat")] Ct_Phat ct_Phat)
         {
             if (ModelState.IsValid)
             {
@@ -469,7 +469,8 @@ namespace WebApplication1.Controllers
             try
             {
                 db.Configuration.ValidateOnSaveEnabled = false;
-                if (ct_Phats == null)
+                var checkIsChecked = ct_Phats.Where(x => x.IsChecked == true).FirstOrDefault();
+                if (checkIsChecked == null)
                 {
                     this.AddNotification("Vui lòng chọn chi tiết phạt để xóa!", NotificationType.ERROR);
                     return RedirectToAction("Index");
@@ -483,6 +484,17 @@ namespace WebApplication1.Controllers
                         if (ct_Phat != null)
                         {
                             ct_Phat.TrangThai = false;
+                            if (Session["TenNhanVien"] == null)
+                            {
+                                ct_Phat.NguoiSua = "Ẩn danh";
+                                ct_Phat.NgaySua = DateTime.Now;
+                            }
+                            else
+                            {
+                                ct_Phat.NguoiSua = Session["TenNhanVien"].ToString();
+                                ct_Phat.NgaySua = DateTime.Now;
+                            }
+                            ct_Phat.NgaySua = DateTime.Now;
                             db.SaveChanges();
                         }
                     }
@@ -492,7 +504,7 @@ namespace WebApplication1.Controllers
             }
             catch
             {
-                this.AddNotification("Không thể xóa vì chi tiết thưởng này đã và đang được sử dụng!", NotificationType.ERROR);
+                this.AddNotification("Không thể xóa vì chi tiết phạt này đã và đang được sử dụng!", NotificationType.ERROR);
                 return RedirectToAction("Index");
             }
         }

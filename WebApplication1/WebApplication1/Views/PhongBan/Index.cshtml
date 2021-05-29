@@ -35,7 +35,6 @@
         </div>
         <br />
         @Html.Partial("_Notifications")
-        <br />
         @using (Html.BeginForm("Delete", "PhongBan", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
@@ -71,8 +70,10 @@
                             @Html.HiddenFor(modelItem => Model[i].SoDT)
                         </td>
                         <td>
-                            <input class="btn-edit" type="button" value="Sửa" onclick="window.location.href= '@Url.Action("Edit","PhongBan", new { id = Model[i].MaPB })'" /> |
-                            <input class="btn-detail" type="button" value="Chi tiết" onclick="window.location.href= '@Url.Action("Details","PhongBan", new { id = Model[i].MaPB })'" />
+                            @*<input class="btn-edit" type="button" value="Sửa" onclick="window.location.href= '@Url.Action("Edit","PhongBan", new { id = Model[i].MaPB })'" /> |
+        <input class="btn-detail" type="button" value="Chi tiết" onclick="window.location.href= '@Url.Action("Details","PhongBan", new { id = Model[i].MaPB })'" />*@
+                            <a href='@Url.Action("Details","PhongBan", new { id = Model[i].MaPB })' class="btn-detail" style="color:black"><i class="fas fa-eye"></i></a>
+                            <a href='@Url.Action("Edit","PhongBan", new { id = Model[i].MaPB })' class="btn-edit" style="color:black"><i class="fas fa-pen-alt"></i></a>
 
                         </td>
                     </tr>

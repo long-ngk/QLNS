@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication1.Extensions;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
@@ -102,15 +103,24 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "MaNhanVien,TenTK,MatKhau,MaQuyen")] TaiKhoan taiKhoan)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(taiKhoan).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(taiKhoan).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                ViewBag.MaNhanVien = new SelectList(db.NhanViens, "MaNhanVien", "HoTen", taiKhoan.MaNhanVien);
+                ViewBag.MaQuyen = new SelectList(db.PhanQuyens.Where(a => a.MaQuyen != 3), "MaQuyen", "TenQuyen", taiKhoan.MaQuyen);
+                return View(taiKhoan);
+            }catch
+            {
+                this.AddNotification("Vui lòng nhập đủ thông tin...", NotificationType.ERROR);
+                ViewBag.MaNhanVien = new SelectList(db.NhanViens, "MaNhanVien", "HoTen", taiKhoan.MaNhanVien);
+                ViewBag.MaQuyen = new SelectList(db.PhanQuyens.Where(a => a.MaQuyen != 3), "MaQuyen", "TenQuyen", taiKhoan.MaQuyen);
+                return View(taiKhoan);
             }
-            ViewBag.MaNhanVien = new SelectList(db.NhanViens, "MaNhanVien", "HoTen", taiKhoan.MaNhanVien);
-            ViewBag.MaQuyen = new SelectList(db.PhanQuyens.Where(a => a.MaQuyen != 3), "MaQuyen", "TenQuyen", taiKhoan.MaQuyen);
-            return View(taiKhoan);
         }
 
         protected override void Dispose(bool disposing)

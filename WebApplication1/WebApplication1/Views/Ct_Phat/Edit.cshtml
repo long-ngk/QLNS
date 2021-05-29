@@ -46,21 +46,35 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.TrangThai, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @{
-                    if (Session["TenNhanVien"] == null)
-                    {
-                        <input type="hidden" value="Ẩn danh" name="NguoiSua" id="NguoiSua" />
-                        <input type="hidden" value="@DateTime.Now" name="NgaySua" id="NgaySua" />
-                    }
-                    else
-                    {
-                        <input type="hidden" value="@Session["TenNhanVien"]" name="NguoiSua" id="NguoiSua" />
-                        <input type="hidden" value="@DateTime.Now" name="NgaySua" id="NgaySua" />
-                    }
-                }
+                <div class="checkbox">
+                    @Html.CheckBoxFor(model => model.TrangThai, new { @checked = "checked" })
+                    @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
+
+
+        @{
+            if (Session["TenNhanVien"] == null)
+            {
+                <input type="hidden" value="Ẩn danh" name="NguoiSua" id="NguoiSua" />
+                <input type="hidden" value="@DateTime.Now" name="NgaySua" id="NgaySua" />
+            }
+            else
+            {
+                <input type="hidden" value="@Session["TenNhanVien"]" name="NguoiSua" id="NguoiSua" />
+                <input type="hidden" value="@DateTime.Now" name="NgaySua" id="NgaySua" />
+            }
+        }
+
+
+        @Html.HiddenFor(model => model.NguoiPhat, new { @checked = "checked" })
+
+
+        @Html.HiddenFor(model => model.NgayPhat, new { @checked = "checked" })
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Sửa" class="btn btn-success" />

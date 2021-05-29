@@ -69,7 +69,7 @@ namespace WebApplication1.Controllers
             }
             catch
             {
-                this.AddNotification("Không thể xóa vì chức vụ này đã và đang được sử dụng!", NotificationType.ERROR);
+                this.AddNotification("Không thể xóa vì phòng ban này đã và đang được sử dụng!", NotificationType.ERROR);
                 return RedirectToAction("Index");
             }
         }

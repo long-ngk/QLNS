@@ -143,7 +143,7 @@ dl.dl-horizontal {
 }
 
 .footer-function {
-    margin-left: 3.5rem;
+    margin-left: 20%;
 }
 
 
@@ -169,6 +169,10 @@ dl.dl-horizontal {
 
 .list-detail .btn-reload {
     background-color: #90ADF8;
+}
+
+.form-group {
+    margin-left: 15%;
 }
 
 .list-detail .form-check {
@@ -231,15 +235,29 @@ table.table {
     text-align: center;
 }
 
-.btn-edit {
+/*.btn-edit {
     background-color: #fdba36;
-    color: black
-}
+    color: black;
 
-.btn-detail {
+}*/
+/*.btn-detail {
     background-color: aquamarine;
     color: black
+}*/
+i.fas.fa-pen-alt::before {
+    font-size: 25px;
+    color: #FF7700;
+ 
+    
 }
+
+i.fas.fa-eye::before {
+    font-size: 25px;
+    color: #0015FF;
+    margin-right: 0.6rem
+}
+
+
 
 .table-title {
     background-color: rgb(0 255 33 / 0.55);

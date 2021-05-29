@@ -44,7 +44,7 @@ namespace WebApplication1.Controllers
             try
             {
                 db.Configuration.ValidateOnSaveEnabled = false;
-                var checkIsChecked = chucVus.Where(x => x.IsChecked == true).SingleOrDefault();
+                var checkIsChecked = chucVus.Where(x => x.IsChecked == true).FirstOrDefault();
                 if (checkIsChecked == null)
                 {
                     this.AddNotification("Vui lòng chọn chức vụ để xóa!", NotificationType.ERROR);
@@ -59,7 +59,7 @@ namespace WebApplication1.Controllers
                         ChucVu chucVu = db.ChucVus.Where(x => x.MaChucVu == maChucVu).SingleOrDefault();
                         if (chucVu != null)
                         {
-                            db.ChucVus.Remove(chucVu);
+                            chucVu.TrangThai = false;
                             db.SaveChanges();
                         }
                     }
@@ -69,6 +69,7 @@ namespace WebApplication1.Controllers
             }
             catch
             {
+
                 this.AddNotification("Không thể xóa vì chức vụ này đã và đang được sử dụng!", NotificationType.ERROR);
                 return RedirectToAction("Index");
             }
@@ -100,11 +101,36 @@ namespace WebApplication1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaChucVu,TenChucVu,HeSoChucVu,PhuCap,NguoiSua,NgaySua")] ChucVu chucVu)
+        public ActionResult Create([Bind(Include = "MaChucVu,TenChucVu,HeSoChucVu,PhuCap,NguoiSua,NgaySua,TrangThai")] ChucVu chucVu)
         {
             if (ModelState.IsValid)
             {
-                db.ChucVus.Add(chucVu);
+
+                //db.ChucVus.Add(chucVu);
+                //db.SaveChanges();
+                //return RedirectToAction("Index");
+
+                var tenChucVuList = db.ChucVus.Where(x => x.TenChucVu.Equals(chucVu.TenChucVu.Trim(), StringComparison.OrdinalIgnoreCase)).ToList();
+
+                if (tenChucVuList.Count > 0)
+                {
+                    foreach (var item in tenChucVuList)
+                    {
+                        if (item.TrangThai == true)
+                        {
+                            item.TrangThai = false;
+                            item.NguoiSua = "Hệ thống - " + chucVu.NguoiSua;
+                            item.NgaySua = DateTime.Now;
+
+                        }
+                    }
+                    chucVu.TenChucVu = chucVu.TenChucVu.Trim();
+                    db.ChucVus.Add(chucVu);
+                }
+                else
+                {
+                    db.ChucVus.Add(chucVu);
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -132,11 +158,32 @@ namespace WebApplication1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaChucVu,TenChucVu,HeSoChucVu,PhuCap,NguoiSua,NgaySua")] ChucVu chucVu)
+        public ActionResult Edit([Bind(Include = "MaChucVu,TenChucVu,HeSoChucVu,PhuCap,NguoiSua,NgaySua,TrangThai")] ChucVu chucVu)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(chucVu).State = EntityState.Modified;
+                //db.Entry(chucVu).State = EntityState.Modified;
+                //db.SaveChanges();
+                //return RedirectToAction("Index");
+                var tenChucVuList = db.ChucVus.Where(x => x.TenChucVu.Equals(chucVu.TenChucVu.Trim(), StringComparison.OrdinalIgnoreCase)).ToList();
+                if (tenChucVuList.Count > 0)
+                {
+                    foreach (var item in tenChucVuList)
+                    {
+                        if (item.TrangThai == true)
+                        {
+                            item.TrangThai = false;
+                            item.NguoiSua = "Hệ thống - " + chucVu.NguoiSua;
+                            item.NgaySua = DateTime.Now;
+
+                        }
+                    }
+                    db.ChucVus.Add(chucVu);
+                }
+                else
+                {
+                    db.ChucVus.Add(chucVu);
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

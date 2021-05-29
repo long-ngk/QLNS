@@ -15,7 +15,7 @@
                 <div class="row">
                     <a href='@Url.Action("Create", "ChucVu")' class="btn add-employee"><i class="fas fa-plus"></i> Thêm chức vụ</a>
                     <div class="form-check d-flex">
-                        <span style="margin-left: 10px">   Chọn : </span>
+                        <span class="search-title">Tìm kiếm theo : </span>
                         <label class="radio-inline">
                             @Html.RadioButton("loaiTimKiem", "MaChucVu", true)<span> Mã chức vụ</span>
                         </label>
@@ -33,7 +33,6 @@
         </div>
         <br />
         @Html.Partial("_Notifications")
-        <br />
         @using (Html.BeginForm("Delete", "ChucVu", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
@@ -52,35 +51,44 @@
                     <th>
                         @*@Html.DisplayNameFor(model => model.HeSoChucVu)*@<label>Phụ cấp</label>
                     </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.HeSoChucVu)*@<label>Trạng thái</label>
+                    </th>
                     <th>Chức năng</th>
                 </tr>
 
                 @for (int i = 0; i < Model.Count(); i++)
                 {
-                    <tr>
-                        <td>@Html.CheckBoxFor(modelItem => Model[i].IsChecked, new { @class = "checkItem" })</td>
-                        <td>
-                            @Html.DisplayFor(modelItem => Model[i].MaChucVu)
-                            @Html.HiddenFor(modelItem => Model[i].MaChucVu)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => Model[i].TenChucVu)
-                            @Html.HiddenFor(modelItem => Model[i].TenChucVu)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => Model[i].HeSoChucVu)
-                            @Html.HiddenFor(modelItem => Model[i].HeSoChucVu)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => Model[i].PhuCap)
-                            @Html.HiddenFor(modelItem => Model[i].PhuCap)
-                        </td>
-                        <td>
-                            <input class="btn-edit" type="button" value="Sửa" onclick="window.location.href= '@Url.Action("Edit","ChucVu", new { id = Model[i].MaChucVu })'" /> |
-                            <input class="btn-detail" type="button" value="Chi tiết" onclick="window.location.href= '@Url.Action("Details","ChucVu", new { id = Model[i].MaChucVu })'" />
+            <tr>
+                <td>@Html.CheckBoxFor(modelItem => Model[i].IsChecked, new { @class = "checkItem" })</td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model[i].MaChucVu)
+                    @Html.HiddenFor(modelItem => Model[i].MaChucVu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model[i].TenChucVu)
+                    @Html.HiddenFor(modelItem => Model[i].TenChucVu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model[i].HeSoChucVu)
+                    @Html.HiddenFor(modelItem => Model[i].HeSoChucVu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model[i].PhuCap)
+                    @Html.HiddenFor(modelItem => Model[i].PhuCap)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model[i].TrangThai)
+                    @Html.HiddenFor(modelItem => Model[i].TrangThai)
+                </td>
+                <td>
+                    @*<input class="btn-edit" type="button" value="Sửa" onclick="window.location.href= '@Url.Action("Edit","ChucVu", new { id = Model[i].MaChucVu })'" /> | *@
+                    @*<input class="btn-detail" type="button" value="Chi tiết" onclick="window.location.href= '@Url.Action("Details","ChucVu", new { id = Model[i].MaChucVu })'" />*@
+                    <a href='@Url.Action("Details","ChucVu", new { id = Model[i].MaChucVu })' class="btn-detail" style="color:black"><i class="fas fa-eye"></i></a>
+                    <a href='@Url.Action("Edit","ChucVu", new { id = Model[i].MaChucVu })' class="btn-edit" style="color:black"><i class="fas fa-pen-alt"></i></a>
 
-                        </td>
-                    </tr>
+                </td>
+            </tr>
                 }
             </table>
 

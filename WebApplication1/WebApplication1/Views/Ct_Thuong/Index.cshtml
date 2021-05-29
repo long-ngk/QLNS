@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="row mt-3">
-                    <button class="btn btn-recently-add" type="submit" name="submit" value="themGanDay"><i class="fas fa-arrow-circle-down"></i> Thêm gần đây</button>
+                    <button class="btn btn-recently-add" type="submit" name="submit" value="dsGanDay"><i class="fas fa-arrow-circle-down"></i> Danh sách gần đây</button>
                     <input class="input-search" type="text" placeholder="Nhập từ khóa tìm kiếm..." name="tenTimKiem" />
                     <button class="btn btn-search" type="submit" name="submit" value="timKiem"><i class="fas fa-search"></i> Tìm kiếm</button>
                     <a class="btn btn-reload" href='@Url.Action("Index", "Ct_Thuong")'  style="color:black"><i class="fas fa-sync-alt"></i> Tải lại</a>
@@ -125,16 +125,18 @@
                             @Html.HiddenFor(modelItem => Model[i].LoaiThuong.GiaTri)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => Model[i].NgaySua)
-                            @Html.HiddenFor(modelItem => Model[i].NgaySua)
+                            @Html.DisplayFor(modelItem => Model[i].NgayThuong)
+                            @Html.HiddenFor(modelItem => Model[i].NgayThuong)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => Model[i].TrangThai)
                             @Html.HiddenFor(modelItem => Model[i].TrangThai)
                         </td>
                         <td>
-                            <input class="btn-edit" type="button" value="Sửa" onclick="window.location.href= '@Url.Action("Edit","Ct_Thuong", new { id = Model[i].MaCTThuong })'" /> |
-                            <input class="btn-detail" type="button" value="Chi tiết" onclick="window.location.href= '@Url.Action("Details","Ct_Thuong", new { id = Model[i].MaCTThuong })'" />
+                            @*<input class="btn-edit" type="button" value="Sửa" onclick="window.location.href= '@Url.Action("Edit","Ct_Thuong", new { id = Model[i].MaCTThuong })'" /> |
+        <input class="btn-detail" type="button" value="Chi tiết" onclick="window.location.href= '@Url.Action("Details","Ct_Thuong", new { id = Model[i].MaCTThuong })'" />*@
+                            <a href='@Url.Action("Details","Ct_Thuong", new { id = Model[i].MaCTThuong })' class="btn-detail" style="color:black"><i class="fas fa-eye"></i></a>
+                            <a href='@Url.Action("Edit","Ct_Thuong", new { id = Model[i].MaCTThuong })' class="btn-edit" style="color:black"><i class="fas fa-pen-alt"></i></a>
 
                         </td>
                     </tr>

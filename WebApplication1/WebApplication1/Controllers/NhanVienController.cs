@@ -316,7 +316,7 @@ namespace WebApplication1.Controllers
                     try
                     {
                         db.Configuration.ValidateOnSaveEnabled = false;
-                        var checkIsChecked = nhanViens.Where(x => x.IsChecked == true).SingleOrDefault();
+                        var checkIsChecked = nhanViens.Where(x => x.IsChecked == true).FirstOrDefault();
                         if (checkIsChecked == null)
                         {
                             this.AddNotification("Vui lòng chọn nhân viên để xóa!", NotificationType.ERROR);
@@ -349,17 +349,44 @@ namespace WebApplication1.Controllers
                     try
                     {
                         db.Configuration.ValidateOnSaveEnabled = false;
-                        var checkIsChecked = nhanViens.Where(x => x.IsChecked == true).FirstOrDefault();
-                        if (checkIsChecked == null)
+                        //var checkIsChecked = nhanViens.Where(x => x.IsChecked == true).FirstOrDefault();
+
+                        //if (checkIsChecked == null)
+                        //{
+                        //    this.AddNotification("Vui lòng chọn nhân viên để thêm thưởng!", NotificationType.ERROR);
+                        //    return RedirectToAction("Index");
+                        //}
+                        //else
+                        //{
+                        //    TempData["listNhanVien"] = nhanViens.ToList();
+                        //    return RedirectToAction("ThemThuongNhanVien");
+                        //}
+
+                        List<NhanVien> listNV = new List<NhanVien>();
+                        var checkIsChecked = nhanViens.Where(x => x.IsChecked == true).ToList();
+                        var checkTrangThai = checkIsChecked.Where(x => x.TrangThai == false).FirstOrDefault();
+                        if(checkIsChecked == null)
                         {
                             this.AddNotification("Vui lòng chọn nhân viên để thêm thưởng!", NotificationType.ERROR);
                             return RedirectToAction("Index");
                         }
                         else
                         {
-                            TempData["listNhanVien"] = nhanViens.ToList();
-                            return RedirectToAction("ThemThuongNhanVien");
+                            foreach(var item in checkIsChecked)
+                            {
+                                if(item.TrangThai == true)
+                                {
+                                    listNV.Add(item);
+                                }
+                            }
+                            if(checkTrangThai != null)
+                            {
+                                this.AddNotification("Không thể thêm thưởng cho nhân viên nghỉ việc!", NotificationType.ERROR);
+                                return RedirectToAction("Index");
+                            }
                         }
+                        TempData["listNhanVien"] = listNV;
+                        return RedirectToAction("ThemThuongNhanVien");
                     }
                     catch
                     {
@@ -372,7 +399,21 @@ namespace WebApplication1.Controllers
                     try
                     {
                         db.Configuration.ValidateOnSaveEnabled = false;
-                        var checkIsChecked = nhanViens.Where(x => x.IsChecked == true).FirstOrDefault();
+                        //var checkIsChecked = nhanViens.Where(x => x.IsChecked == true).FirstOrDefault();
+                        //if (checkIsChecked == null)
+                        //{
+                        //    this.AddNotification("Vui lòng chọn nhân viên để thêm phạt!", NotificationType.ERROR);
+                        //    return RedirectToAction("Index");
+                        //}
+                        //else
+                        //{
+                        //    TempData["listNhanVien"] = nhanViens.ToList();
+                        //    return RedirectToAction("ThemPhatNhanVien");
+                        //}
+
+                        List<NhanVien> listNV = new List<NhanVien>();
+                        var checkIsChecked = nhanViens.Where(x => x.IsChecked == true).ToList();
+                        var checkTrangThai = checkIsChecked.Where(x => x.TrangThai == false).FirstOrDefault();
                         if (checkIsChecked == null)
                         {
                             this.AddNotification("Vui lòng chọn nhân viên để thêm phạt!", NotificationType.ERROR);
@@ -380,9 +421,21 @@ namespace WebApplication1.Controllers
                         }
                         else
                         {
-                            TempData["listNhanVien"] = nhanViens.ToList();
-                            return RedirectToAction("ThemPhatNhanVien");
+                            foreach (var item in checkIsChecked)
+                            {
+                                if (item.TrangThai == true)
+                                {
+                                    listNV.Add(item);
+                                }
+                            }
+                            if (checkTrangThai != null)
+                            {
+                                this.AddNotification("Không thể thêm phạt cho nhân viên nghỉ việc!", NotificationType.ERROR);
+                                return RedirectToAction("Index");
+                            }
                         }
+                        TempData["listNhanVien"] = listNV;
+                        return RedirectToAction("ThemPhatNhanVien");
                     }
                     catch
                     {
@@ -426,12 +479,15 @@ namespace WebApplication1.Controllers
                     chitietThuong.MaNhanVien = item.MaNhanVien;
                     chitietThuong.MaLoaiThuong = Convert.ToInt32(form["MaLoaiThuong"]);
                     chitietThuong.TrangThai = true;
+                    chitietThuong.NguoiThuong = form["NguoiSua"].ToString();
+                    chitietThuong.NgayThuong = DateTime.Now;
                     chitietThuong.NguoiSua = form["NguoiSua"].ToString();
                     chitietThuong.NgaySua = DateTime.Now;
                     db.Ct_Thuong.Add(chitietThuong);
                     db.SaveChanges();
                 }
             }
+         
             return RedirectToAction("Index");
         }
 
@@ -456,6 +512,8 @@ namespace WebApplication1.Controllers
                     chitietPhat.TrangThai = true;
                     chitietPhat.NguoiSua = form["NguoiSua"].ToString();
                     chitietPhat.NgaySua = DateTime.Now;
+                    chitietPhat.NguoiPhat = form["NguoiSua"].ToString();
+                    chitietPhat.NgayPhat = DateTime.Now;
                     db.Ct_Phat.Add(chitietPhat);
                     db.SaveChanges();
                 }

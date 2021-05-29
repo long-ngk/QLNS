@@ -487,4 +487,4 @@ D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\PagedList.dll
 D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\PagedList.Mvc.dll
 D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\PagedList.xml
 D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\PagedList.Mvc.xml
-D:\GitHub\QLNS\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojAssemblyReference.cache
+D:\GitHub\QLNS\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.AssemblyReference.cache

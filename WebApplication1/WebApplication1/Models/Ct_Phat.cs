@@ -13,6 +13,7 @@ namespace WebApplication1.Models
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
+
     public partial class Ct_Phat
     {
         [DisplayName("Mã chi tiết phạt")]
@@ -28,8 +29,12 @@ namespace WebApplication1.Models
         [DisplayName("Ngày sửa")]
         public System.DateTime NgaySua { get; set; }
         public bool IsChecked { get; set; }
+        [DisplayName("Người phạt")]
 
-
+        public string NguoiPhat { get; set; }
+        [DisplayName("Ngày phạt")]
+        public System.DateTime NgayPhat { get; set; }
+    
         public virtual LoaiPhat LoaiPhat { get; set; }
         public virtual NhanVien NhanVien { get; set; }
     }

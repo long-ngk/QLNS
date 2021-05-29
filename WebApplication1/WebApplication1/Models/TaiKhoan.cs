@@ -13,6 +13,7 @@ namespace WebApplication1.Models
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
+
     public partial class TaiKhoan
     {
         [DisplayName("Mã nhân viên")]
@@ -28,7 +29,6 @@ namespace WebApplication1.Models
         [DisplayName("Mã quyền")]
         public int MaQuyen { get; set; }
         public string ResetPasswordCode { get; set; }
-
 
         public virtual NhanVien NhanVien { get; set; }
         public virtual PhanQuyen PhanQuyen { get; set; }

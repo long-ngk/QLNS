@@ -44,18 +44,32 @@ namespace WebApplication1.Controllers
                         if (tenNhanVien != null)
                         {
                             Session["TenNhanVien"] = tenNhanVien.ToString();
+                            
                         }
-
+                        Session["MaNhanVien"] = trangThaiLamViec.MaNhanVien;
+                        Session["TenPB"] = trangThaiLamViec.NhanVien.PhongBan.TenPB;
+                        Session["TenChucVu"] = trangThaiLamViec.NhanVien.ChucVu.TenChucVu;
+                        Session["TenQuyen"] = trangThaiLamViec.PhanQuyen.TenQuyen;
                         Session["TenTK"] = taiKhoan.TenTK;
                         Session["MatKhau"] = taiKhoan.MatKhau;
                         switch (check.MaQuyen)
                         {
                             case 4:
+                                Session["MaQuyen"] = 4;
                                 return RedirectToAction("Index", "NhanVien");
                             case 3:
+                                Session["MaQuyen"] = 3;
                                 return RedirectToAction("Index", "TaiKhoan");
+                            case 2:
+                                Session["MaQuyen"] = 2;
+                                return RedirectToAction("Index", "LuongCoBan");
+                            case 1:
+                                Session["MaQuyen"] = 1;
+                                return RedirectToAction("ThongTinTaiKhoan", "ThongTin");
+                            default:
+                                Session["MaQuyen"] = check.MaQuyen;
+                                return RedirectToAction("ThongTinTaiKhoan", "ThongTin");
                         }
-                        return RedirectToAction("Index", "NhanVien");
                     }
                     else
                     {

@@ -64,8 +64,14 @@ namespace WebApplication1.Models
         public int MaChucVu { get; set; }
         [DisplayName("Mã phòng ban")]
         public Nullable<int> MaPB { get; set; }
+        [DisplayName("Người tạo")]
+        public string NguoiTao { get; set; }
+        [DisplayName("Ngày tạo")]
+        public System.DateTime NgayTao { get; set; }
+
         [DisplayName("Trạng thái")]
         public bool TrangThai { get; set; }
+
         [DisplayName("Người sửa")]
         public string NguoiSua { get; set; }
         [DisplayName("Ngày sửa")]

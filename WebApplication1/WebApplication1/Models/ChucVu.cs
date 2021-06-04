@@ -34,15 +34,16 @@ namespace WebApplication1.Models
         [DisplayName("Phụ cấp")]
         [Required(ErrorMessage = "Phụ cấp không được trống...")]
         public Nullable<int> PhuCap { get; set; }
+        [DisplayName("Trạng thái")]
+        public bool TrangThai { get; set; }
 
         public bool IsChecked { get; set; }
         [DisplayName("Người sửa")]
         public string NguoiSua { get; set; }
         [DisplayName("Ngày sửa")]
         public System.DateTime NgaySua { get; set; }
-        [DisplayName("Trạng thái")]
-        public bool TrangThai { get; set; }
-    
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NhanVien> NhanViens { get; set; }
     }

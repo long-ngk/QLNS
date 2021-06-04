@@ -23,6 +23,8 @@ namespace WebApplication1.Models
         public int TongThuong { get; set; }
         public int TongPhat { get; set; }
         public int MaLuongCoBan { get; set; }
+        public Nullable<double> HeSoLuong { get; set; }
+        public Nullable<int> PhuCap { get; set; }
     
         public virtual LuongCoBan LuongCoBan { get; set; }
     }

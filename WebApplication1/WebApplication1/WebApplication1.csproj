@@ -51,6 +51,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FluentScheduler, Version=5.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentScheduler.5.5.1\lib\netstandard2.0\FluentScheduler.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
@@ -130,6 +133,9 @@
     <Reference Include="xunit.core, Version=2.4.1.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
       <HintPath>..\packages\xunit.extensibility.core.2.4.1\lib\net452\xunit.core.dll</HintPath>
     </Reference>
+    <Reference Include="xunit.execution.desktop, Version=2.4.1.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.extensibility.execution.2.4.1\lib\net452\xunit.execution.desktop.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -140,6 +146,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CCRaVaoController.cs" />
+    <Compile Include="Controllers\ChamCongController.cs" />
     <Compile Include="Controllers\ChucVuController.cs" />
     <Compile Include="Controllers\Ct_PhatController.cs" />
     <Compile Include="Controllers\Ct_ThuongController.cs" />
@@ -147,10 +155,14 @@
     <Compile Include="Controllers\LoaiPhatController.cs" />
     <Compile Include="Controllers\LoaiThuongController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\LuongCoBanController.cs" />
+    <Compile Include="Controllers\NghiController.cs" />
     <Compile Include="Controllers\NhanVienController.cs" />
     <Compile Include="Controllers\PhanQuyenController.cs" />
     <Compile Include="Controllers\PhongBanController.cs" />
     <Compile Include="Controllers\TaiKhoanController.cs" />
+    <Compile Include="Controllers\ThongKeLuongController.cs" />
+    <Compile Include="Controllers\ThongTinController.cs" />
     <Compile Include="Extensions\NotificationExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -158,6 +170,7 @@
     <Compile Include="Models\ChamCong.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChangePassword.cs" />
     <Compile Include="Models\CheckTenTK_Email.cs" />
     <Compile Include="Models\ChucVu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -325,6 +338,24 @@
     <Content Include="Views\NhanVien\Index.cshtml" />
     <Content Include="Views\NhanVien\ThemThuongNhanVien.cshtml" />
     <Content Include="Views\NhanVien\ThemPhatNhanVien.cshtml" />
+    <Content Include="Views\ThongTin\ThongTinTaiKhoan.cshtml" />
+    <Content Include="Views\ThongTin\DoiMatKhau.cshtml" />
+    <Content Include="Views\ThongTin\XemThongTinCaNhan.cshtml" />
+    <Content Include="Views\Nghi\Create.cshtml" />
+    <Content Include="Views\Nghi\Delete.cshtml" />
+    <Content Include="Views\Nghi\Details.cshtml" />
+    <Content Include="Views\Nghi\Edit.cshtml" />
+    <Content Include="Views\Nghi\Index.cshtml" />
+    <Content Include="Views\ChamCong\Details.cshtml" />
+    <Content Include="Views\ChamCong\Edit.cshtml" />
+    <Content Include="Views\ChamCong\Index.cshtml" />
+    <Content Include="Views\CCRaVao\ChamCongNgay.cshtml" />
+    <Content Include="Views\ThongKeLuong\TheoPhongBan.cshtml" />
+    <Content Include="Views\ThongKeLuong\Details.cshtml" />
+    <Content Include="Views\ThongKeLuong\TheoNhanVien.cshtml" />
+    <Content Include="Views\LuongCoBan\Details.cshtml" />
+    <Content Include="Views\LuongCoBan\Edit.cshtml" />
+    <Content Include="Views\LuongCoBan\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

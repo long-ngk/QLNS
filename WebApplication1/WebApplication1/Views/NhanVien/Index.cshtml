@@ -15,26 +15,26 @@
         <div class="list-detail">
             @using (Html.BeginForm("Index", "NhanVien", FormMethod.Get))
             {
-            <div class="row">
-                <a href='@Url.Action("Create", "NhanVien")' class="btn add-employee"><i class="fas fa-plus"></i> Thêm nhân viên</a>
-                <div class="form-check d-flex">
-                    <span class="search-title">Trạng thái : </span>
-                    <label class="radio-inline">
-                        @Html.RadioButton("trangThai", "TatCa", true, new { @class = "mr-2" })
-                        <span> Tất cả</span>
-                    </label>
-                    <label class="radio-inline">
-                        @Html.RadioButton("trangThai", "HoatDong", false, new { @class = "mr-2" })
-                        <span> Đang làm việc</span>
+                <div class="row">
+                    <a href='@Url.Action("Create", "NhanVien")' class="btn add-employee"><i class="fas fa-plus"></i> Thêm nhân viên</a>
+                    <div class="form-check d-flex">
+                        <span class="search-title">Trạng thái : </span>
+                        <label class="radio-inline">
+                            @Html.RadioButton("trangThai", "TatCa", true, new { @class = "mr-2" })
+                            <span> Tất cả</span>
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButton("trangThai", "HoatDong", false, new { @class = "mr-2" })
+                            <span> Đang làm việc</span>
 
-                    </label>
-                    <label class="radio-inline">
-                        @Html.RadioButton("trangThai", "VoHieuHoa", false, new { @class = "mr-2" })
-                        <span> Nghỉ việc</span>
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButton("trangThai", "VoHieuHoa", false, new { @class = "mr-2" })
+                            <span> Nghỉ việc</span>
 
-                    </label>
+                        </label>
+                    </div>
                 </div>
-            </div>
 
                 <div class="row">
 
@@ -124,7 +124,7 @@
                         </td>
                         <td>
                             @*<input class="btn-edit" type="button" value="Sửa" onclick="window.location.href= '@Url.Action("Edit","NhanVien", new { id = Model[i].MaNhanVien })'" /> |
-        <input class="btn-detail" type="button" value="Chi tiết" onclick="window.location.href= '@Url.Action("Details","NhanVien", new { id = Model[i].MaNhanVien })'" />*@
+                                <input class="btn-detail" type="button" value="Chi tiết" onclick="window.location.href= '@Url.Action("Details","NhanVien", new { id = Model[i].MaNhanVien })'" />*@
                             <a href='@Url.Action("Details","NhanVien", new { id = Model[i].MaNhanVien })' class="btn-detail" style="color:black"><i class="fas fa-eye"></i></a>
                             <a href='@Url.Action("Edit","NhanVien", new { id = Model[i].MaNhanVien })' class="btn-edit" style="color:black"><i class="fas fa-pen-alt"></i></a>
 

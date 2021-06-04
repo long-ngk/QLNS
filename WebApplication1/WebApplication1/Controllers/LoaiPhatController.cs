@@ -20,25 +20,27 @@ namespace WebApplication1.Controllers
         // GET: LoaiPhat
         public ActionResult Index(int? page, string trangThai, string loaiTimKiem, string tenTimKiem)
         {
+            int pageNumber = page ?? 1;
+            int pageSize = 10;
+
             try
             {
                 IQueryable<LoaiPhat> loaiPhats;
                 QLNhanSuEntities db = new QLNhanSuEntities();
-                int pageNumber = page ?? 1;
-                int pageSize = 10;
-
+                
                 if (trangThai == "TatCa")
                 {
                     if (loaiTimKiem == "MaLoaiPhat")
                     {
                         if (tenTimKiem == "" || tenTimKiem == null)
                         {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã loại phạt!", NotificationType.WARNING);
                             loaiPhats = db.LoaiPhats.Where(x => x.MaLoaiPhat.ToString().StartsWith("+-*/abcdefgh")).OrderBy(x => x.TenLoaiPhat);
                             return View("Index", loaiPhats.ToList().ToPagedList(page ?? 1, 10));
                         }
                         else
                         {
-                            loaiPhats = db.LoaiPhats.Where(x => x.MaLoaiPhat.ToString().StartsWith(tenTimKiem)).OrderBy(x => x.TenLoaiPhat);
+                            loaiPhats = db.LoaiPhats.Where(x => x.MaLoaiPhat.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.TenLoaiPhat);
                             return View("Index", loaiPhats.ToList().ToPagedList(pageNumber, pageSize));
                         }
                     }
@@ -46,12 +48,13 @@ namespace WebApplication1.Controllers
                     {
                         if (tenTimKiem == "" || tenTimKiem == null)
                         {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên loại phạt!", NotificationType.WARNING);
                             loaiPhats = db.LoaiPhats.Where(x => x.TenLoaiPhat.Contains("+-*/abcdefgh")).OrderBy(x => x.TenLoaiPhat);
                             return View("Index", loaiPhats.ToList().ToPagedList(pageNumber, pageSize));
                         }
                         else
                         {
-                            loaiPhats = db.LoaiPhats.Where(x => x.TenLoaiPhat.Contains(tenTimKiem)).OrderBy(x => x.TenLoaiPhat);
+                            loaiPhats = db.LoaiPhats.Where(x => x.TenLoaiPhat.Contains(tenTimKiem.ToString())).OrderBy(x => x.TenLoaiPhat);
                             return View("Index", loaiPhats.ToList().ToPagedList(pageNumber, pageSize));
                         }
                     }
@@ -67,12 +70,13 @@ namespace WebApplication1.Controllers
                     {
                         if (tenTimKiem == "" || tenTimKiem == null)
                         {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã loại phạt!", NotificationType.WARNING);
                             loaiPhats = db.LoaiPhats.Where(x => x.TrangThai == true && x.MaLoaiPhat.ToString().StartsWith("+-*/abcdefgh")).OrderBy(x => x.TenLoaiPhat);
                             return View("Index", loaiPhats.ToList().ToPagedList(pageNumber, pageSize));
                         }
                         else
                         {
-                            loaiPhats = db.LoaiPhats.Where(x => x.TrangThai == true && x.MaLoaiPhat.ToString().StartsWith(tenTimKiem)).OrderBy(x => x.TenLoaiPhat);
+                            loaiPhats = db.LoaiPhats.Where(x => x.TrangThai == true && x.MaLoaiPhat.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.TenLoaiPhat);
                             return View("Index", loaiPhats.ToList().ToPagedList(pageNumber, pageSize));
                         }
                     }
@@ -80,12 +84,13 @@ namespace WebApplication1.Controllers
                     {
                         if (tenTimKiem == "" || tenTimKiem == null)
                         {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên loại phạt!", NotificationType.WARNING);
                             loaiPhats = db.LoaiPhats.Where(x => x.TrangThai == true && x.TenLoaiPhat.Contains("+-*/abcdefgh")).OrderBy(x => x.TenLoaiPhat);
                             return View("Index", loaiPhats.ToList().ToPagedList(pageNumber, pageSize));
                         }
                         else
                         {
-                            loaiPhats = db.LoaiPhats.Where(x => x.TrangThai == true && x.TenLoaiPhat.Contains(tenTimKiem)).OrderBy(x => x.TenLoaiPhat);
+                            loaiPhats = db.LoaiPhats.Where(x => x.TrangThai == true && x.TenLoaiPhat.Contains(tenTimKiem.ToString())).OrderBy(x => x.TenLoaiPhat);
                             return View("Index", loaiPhats.ToList().ToPagedList(pageNumber, pageSize));
                         }
                     }
@@ -101,12 +106,13 @@ namespace WebApplication1.Controllers
                     {
                         if (tenTimKiem == "" || tenTimKiem == null)
                         {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã loại phạt!", NotificationType.WARNING);
                             loaiPhats = db.LoaiPhats.Where(x => x.TrangThai != true && x.MaLoaiPhat.ToString().StartsWith("+-*/abcdefgh")).OrderBy(x => x.TenLoaiPhat);
                             return View("Index", loaiPhats.ToList().ToPagedList(page ?? 1, 10));
                         }
                         else
                         {
-                            loaiPhats = db.LoaiPhats.Where(x => x.TrangThai != true && x.MaLoaiPhat.ToString().StartsWith(tenTimKiem)).OrderBy(x => x.TenLoaiPhat);
+                            loaiPhats = db.LoaiPhats.Where(x => x.TrangThai != true && x.MaLoaiPhat.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.TenLoaiPhat);
                             return View("Index", loaiPhats.ToList().ToPagedList(pageNumber, pageSize));
                         }
                     }
@@ -114,12 +120,13 @@ namespace WebApplication1.Controllers
                     {
                         if (tenTimKiem == "" || tenTimKiem == null)
                         {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên loại phạt!", NotificationType.WARNING);
                             loaiPhats = db.LoaiPhats.Where(x => x.TrangThai != true && x.TenLoaiPhat.Contains("+-*/abcdefgh")).OrderBy(x => x.TenLoaiPhat);
                             return View("Index", loaiPhats.ToList().ToPagedList(pageNumber, pageSize));
                         }
                         else
                         {
-                            loaiPhats = db.LoaiPhats.Where(x => x.TrangThai != true && x.TenLoaiPhat.Contains(tenTimKiem)).OrderBy(x => x.TenLoaiPhat);
+                            loaiPhats = db.LoaiPhats.Where(x => x.TrangThai != true && x.TenLoaiPhat.Contains(tenTimKiem.ToString())).OrderBy(x => x.TenLoaiPhat);
                             return View("Index", loaiPhats.ToList().ToPagedList(pageNumber, pageSize));
                         }
                     }
@@ -137,8 +144,8 @@ namespace WebApplication1.Controllers
             }
             catch
             {
-                this.AddNotification("Không tìm thấy từ khóa yêu cầu. Vui lòng thực hiện tìm kiếm lại!", NotificationType.ERROR);
-                return View("Index", db.LoaiPhats.OrderBy(x => x.TenLoaiPhat).ToList());
+                this.AddNotification("Có lỗi xảy ra. Vui lòng thực hiện tìm kiếm lại!", NotificationType.ERROR);
+                return View("Index", db.LoaiPhats.OrderBy(x => x.TenLoaiPhat).ToList().ToPagedList(pageNumber, pageSize));
             }
         }
 

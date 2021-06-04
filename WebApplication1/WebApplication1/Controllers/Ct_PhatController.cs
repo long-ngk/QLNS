@@ -34,12 +34,13 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
+                                    this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã nhân viên!", NotificationType.WARNING);
                                     ct_P = db.Ct_Phat.Where(x => x.NhanVien.MaNhanVien.ToString().StartsWith("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.MaNhanVien.ToString().StartsWith(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.MaNhanVien.ToString().Contains(tenTimKiem.ToString())).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
@@ -47,12 +48,13 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
+                                    this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên nhân viên!", NotificationType.WARNING);
                                     ct_P = db.Ct_Phat.Where(x => x.NhanVien.HoTen.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.HoTen.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.HoTen.Contains(tenTimKiem.ToString())).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
@@ -60,12 +62,13 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
+                                    this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo phòng ban!", NotificationType.WARNING);
                                     ct_P = db.Ct_Phat.Where(x => x.NhanVien.PhongBan.TenPB.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem.ToString())).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
@@ -81,13 +84,14 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
+                                    this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã nhân viên!", NotificationType.WARNING);
                                     ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.MaNhanVien.ToString().StartsWith("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
 
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.MaNhanVien.ToString().StartsWith(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.MaNhanVien.ToString().Contains(tenTimKiem.ToString())).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
@@ -95,12 +99,13 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
+                                    this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên nhân viên!", NotificationType.WARNING);
                                     ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.HoTen.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.HoTen.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.HoTen.Contains(tenTimKiem.ToString())).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
@@ -108,12 +113,13 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
+                                    this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo phòng ban!", NotificationType.WARNING);
                                     ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.PhongBan.TenPB.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem.ToString())).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
@@ -131,12 +137,13 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
+                                    this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã nhân viên!", NotificationType.WARNING);
                                     ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.MaNhanVien.ToString().StartsWith("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.MaNhanVien.ToString().StartsWith(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.MaNhanVien.ToString().Contains(tenTimKiem.ToString())).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
@@ -144,12 +151,13 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
+                                    this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên nhân viên!", NotificationType.WARNING);
                                     ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.HoTen.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.HoTen.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.HoTen.Contains(tenTimKiem.ToString())).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
@@ -157,12 +165,13 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
+                                    this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo phòng ban!", NotificationType.WARNING);
                                     ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.PhongBan.TenPB.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem.ToString())).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderBy(x => x.NhanVien.HoTen);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
@@ -194,12 +203,13 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
+                                    this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã nhân viên!", NotificationType.WARNING);
                                     ct_P = db.Ct_Phat.Where(x => x.NhanVien.MaNhanVien.ToString().StartsWith("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.MaNhanVien.ToString().StartsWith(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.MaNhanVien.ToString().Contains(tenTimKiem.ToString())).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
@@ -207,12 +217,13 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
+                                    this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên nhân viên!", NotificationType.WARNING);
                                     ct_P = db.Ct_Phat.Where(x => x.NhanVien.HoTen.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.HoTen.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.HoTen.Contains(tenTimKiem.ToString())).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
@@ -220,12 +231,13 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
+                                    this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo phòng ban!", NotificationType.WARNING);
                                     ct_P = db.Ct_Phat.Where(x => x.NhanVien.PhongBan.TenPB.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
+                                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem.ToString())).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
@@ -241,13 +253,14 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
+                                    this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã nhân viên!", NotificationType.WARNING);
                                     ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.MaNhanVien.ToString().StartsWith("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
 
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.MaNhanVien.ToString().StartsWith(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.MaNhanVien.ToString().Contains(tenTimKiem.ToString())).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
@@ -255,12 +268,13 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
+                                    this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên nhân viên!", NotificationType.WARNING);
                                     ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.HoTen.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.HoTen.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.HoTen.Contains(tenTimKiem.ToString())).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
@@ -268,12 +282,13 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
+                                    this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo phòng ban!", NotificationType.WARNING);
                                     ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.PhongBan.TenPB.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai == true && x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem.ToString())).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgayPhat);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
@@ -291,12 +306,13 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
+                                    this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã nhân viên!", NotificationType.WARNING);
                                     ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.MaNhanVien.ToString().StartsWith("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.MaNhanVien.ToString().StartsWith(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.MaNhanVien.ToString().Contains(tenTimKiem.ToString())).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
@@ -304,12 +320,13 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
+                                    this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên nhân viên!", NotificationType.WARNING);
                                     ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.HoTen.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.HoTen.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.HoTen.Contains(tenTimKiem.ToString())).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
@@ -317,12 +334,13 @@ namespace WebApplication1.Controllers
                             {
                                 if (tenTimKiem == "" || tenTimKiem == null)
                                 {
+                                    this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo phòng ban!", NotificationType.WARNING);
                                     ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.PhongBan.TenPB.Contains("+-*/abcdefgh")).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                                 else
                                 {
-                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem)).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
+                                    ct_P = db.Ct_Phat.Where(x => x.TrangThai != true && x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem.ToString())).Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua);
                                     return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
                                 }
                             }
@@ -340,8 +358,8 @@ namespace WebApplication1.Controllers
                     }
                     catch
                     {
-                        this.AddNotification("Không tìm thấy từ khóa yêu cầu. Vui lòng thực hiện tìm kiếm lại!", NotificationType.ERROR);
-                        return View("Index", db.Ct_Phat.OrderByDescending(x => x.NgaySua).ToList().ToPagedList(page ?? 1, 10));
+                        this.AddNotification("Có lỗi xảy ra. Vui lòng thực hiện tìm kiếm lại!", NotificationType.ERROR);
+                        return View("Index", db.Ct_Phat.Include(c => c.NhanVien).Include(c => c.LoaiPhat).OrderByDescending(x => x.NgaySua).ToList().ToPagedList(page ?? 1, 10));
                     }
                 }
             }
@@ -352,38 +370,38 @@ namespace WebApplication1.Controllers
             }
         }
 
-        public ActionResult Search(string loaiTimKiem, string tenTimKiem, int? page)
-        {
-            try
-            {
-                IQueryable<Ct_Phat> ct_P;
-                QLNhanSuEntities db = new QLNhanSuEntities();
-                if (loaiTimKiem == "MaNhanVien")
-                {
+        //public ActionResult Search(string loaiTimKiem, string tenTimKiem, int? page)
+        //{
+        //    try
+        //    {
+        //        IQueryable<Ct_Phat> ct_P;
+        //        QLNhanSuEntities db = new QLNhanSuEntities();
+        //        if (loaiTimKiem == "MaNhanVien")
+        //        {
 
-                    int tenTimKiem_int;
-                    int.TryParse(tenTimKiem, out tenTimKiem_int);
-                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.MaNhanVien.ToString().StartsWith(tenTimKiem) || tenTimKiem == null).Include(c => c.NhanVien).Include(c => c.LoaiPhat);
-                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
-                }
-                else if (loaiTimKiem == "TenNhanVien")
-                {
+        //            int tenTimKiem_int;
+        //            int.TryParse(tenTimKiem, out tenTimKiem_int);
+        //            ct_P = db.Ct_Phat.Where(x => x.NhanVien.MaNhanVien.ToString().StartsWith(tenTimKiem) || tenTimKiem == null).Include(c => c.NhanVien).Include(c => c.LoaiPhat);
+        //            return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+        //        }
+        //        else if (loaiTimKiem == "TenNhanVien")
+        //        {
 
-                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.HoTen.Contains(tenTimKiem) || tenTimKiem == null).Include(c => c.NhanVien).Include(c => c.LoaiPhat);
-                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
-                }
-                else
-                {
-                    ct_P = db.Ct_Phat.Where(x => x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem) || tenTimKiem == null).Include(c => c.NhanVien).Include(c => c.LoaiPhat);
-                    return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
-                }
-            }
-            catch
-            {
-                this.AddNotification("Không tìm thấy từ khóa yêu cầu. Vui lòng thực hiện tìm kiếm lại!", NotificationType.ERROR);
-                return View("Index", db.Ct_Phat.OrderBy(x => x.NhanVien.HoTen).ToList());
-            }
-        }
+        //            ct_P = db.Ct_Phat.Where(x => x.NhanVien.HoTen.Contains(tenTimKiem) || tenTimKiem == null).Include(c => c.NhanVien).Include(c => c.LoaiPhat);
+        //            return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+        //        }
+        //        else
+        //        {
+        //            ct_P = db.Ct_Phat.Where(x => x.NhanVien.PhongBan.TenPB.Contains(tenTimKiem) || tenTimKiem == null).Include(c => c.NhanVien).Include(c => c.LoaiPhat);
+        //            return View("Index", ct_P.ToList().ToPagedList(page ?? 1, 10));
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        this.AddNotification("Có lỗi xảy ra. Vui lòng thực hiện tìm kiếm lại!", NotificationType.ERROR);
+        //        return View("Index", db.Ct_Phat.OrderBy(x => x.NhanVien.HoTen).ToList().ToPagedList(page ?? 1, 10));
+        //    }
+        //}
 
         // GET: Ct_Phat/Details/5
         public ActionResult Details(int? id)

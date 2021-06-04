@@ -20,7 +20,7 @@ namespace WebApplication1.Controllers
         // GET: PhanQuyen
         public ActionResult Index()
         {
-            return View(db.PhanQuyens.ToList());
+            return View(db.PhanQuyens.OrderByDescending(x=>x.TenQuyen).ToList());
 
             //PhanQuyenViewModel phanQuyenModel = new PhanQuyenViewModel();
             //phanQuyenModel.phanQuyens = db.PhanQuyens.ToList();

@@ -1,7 +1,9 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -16,30 +18,127 @@ namespace WebApplication1.Controllers
         private QLNhanSuEntities db = new QLNhanSuEntities();
 
         // GET: ChucVu
-        public ActionResult Index()
+        public ActionResult Index(string loaiTimKiem, string tenTimKiem, int? page, string trangThai)
         {
-            return View(db.ChucVus.ToList());
-        }
-        public ActionResult Search(string loaiTimKiem, string tenTimKiem)
-        {
-            QLNhanSuEntities db = new QLNhanSuEntities();
-            List<ChucVu> chucVus = db.ChucVus.ToList();
-            if (loaiTimKiem == "MaChucVu")
+            IQueryable<ChucVu> chucVus;
+            int pageNumber = 10;
+            var pageSize = (page ?? 1);
+            try
             {
-                int tenTimKiem_int;
-                int.TryParse(tenTimKiem, out tenTimKiem_int);
-                return View("Index", db.ChucVus.Where(x => x.MaChucVu == tenTimKiem_int || tenTimKiem == null).ToList());
-            }
-            else
-            {
+                if (trangThai == "TatCa")
+                {
+                    if (loaiTimKiem == "MaChucVu")
+                    {
+                        if (tenTimKiem == null || tenTimKiem == "")
+                        {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã chức vụ!", NotificationType.WARNING);
+                        }
+                        chucVus = db.ChucVus.Where(x => x.MaChucVu.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.TenChucVu);
+                        return View("Index", chucVus.ToList().ToPagedList(pageSize, pageNumber));
+                    }
 
-                return View("Index", db.ChucVus.Where(x => x.TenChucVu.Contains(tenTimKiem.ToString()) || tenTimKiem == null).ToList());
+                    else if (loaiTimKiem == "TenChucVu")
+                    {
+                        if (tenTimKiem == null || tenTimKiem == "")
+                        {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên chức vụ!", NotificationType.WARNING);
+                        }
+                        chucVus = db.ChucVus.Where(x => x.TenChucVu.Contains(tenTimKiem.ToString())).OrderBy(x => x.TenChucVu);
+                        return View("Index", chucVus.ToList().ToPagedList(pageSize, pageNumber));
+                    }
+                    else
+                    {
+                        chucVus = db.ChucVus.OrderBy(x => x.TenChucVu);
+                        return View("Index", chucVus.ToList().ToPagedList(pageSize, pageNumber));
+                    }
+                }
+                else if (trangThai == "HoatDong")
+                {
+                    if (loaiTimKiem == "MaChucVu")
+                    {
+                        if (tenTimKiem == null || tenTimKiem == "")
+                        {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã chức vụ!", NotificationType.WARNING);
+                        }
+                        chucVus = db.ChucVus.Where(x => x.MaChucVu.ToString().Contains(tenTimKiem.ToString()) && x.TrangThai == true).OrderBy(x => x.TenChucVu);
+                        return View("Index", chucVus.ToList().ToPagedList(pageSize, pageNumber));
+                    }
+
+                    else if (loaiTimKiem == "TenChucVu")
+                    {
+                        if (tenTimKiem == null || tenTimKiem == "")
+                        {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên chức vụ!", NotificationType.WARNING);
+                        }
+                        chucVus = db.ChucVus.Where(x => x.TenChucVu.Contains(tenTimKiem.ToString()) && x.TrangThai == true).OrderBy(x => x.TenChucVu);
+                        return View("Index", chucVus.ToList().ToPagedList(pageSize, pageNumber));
+                    }
+                    else
+                    {
+                        chucVus = db.ChucVus.Where(x => x.TrangThai == true).OrderBy(x => x.TenChucVu);
+                        return View("Index", chucVus.ToList().ToPagedList(pageSize, pageNumber));
+                    }
+                }
+                else if (trangThai == "VoHieuHoa")
+                {
+                    if (loaiTimKiem == "MaChucVu")
+                    {
+                        if (tenTimKiem == null || tenTimKiem == "")
+                        {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã chức vụ!", NotificationType.WARNING);
+                        }
+                        chucVus = db.ChucVus.Where(x => x.MaChucVu.ToString().Contains(tenTimKiem.ToString()) && x.TrangThai != true).OrderBy(x => x.TenChucVu);
+                        return View("Index", chucVus.ToList().ToPagedList(pageSize, pageNumber));
+                    }
+
+                    else if (loaiTimKiem == "TenChucVu")
+                    {
+                        if (tenTimKiem == null || tenTimKiem == "")
+                        {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên chức vụ!", NotificationType.WARNING);
+                        }
+                        chucVus = db.ChucVus.Where(x => x.TenChucVu.Contains(tenTimKiem.ToString()) && x.TrangThai != true).OrderBy(x => x.TenChucVu);
+                        return View("Index", chucVus.ToList().ToPagedList(pageSize, pageNumber));
+                    }
+                    else
+                    {
+                        chucVus = db.ChucVus.Where(x => x.TrangThai != true).OrderBy(x => x.TenChucVu);
+                        return View("Index", chucVus.ToList().ToPagedList(pageSize, pageNumber));
+                    }
+                }
+                else
+                {
+                    chucVus = db.ChucVus.OrderBy(x => x.TenChucVu);
+                    return View("Index", chucVus.ToList().ToPagedList(pageSize, pageNumber));
+                }
+            }
+            catch
+            {
+                this.AddNotification("Có lỗi xảy ra. Vui lòng thực hiện tìm kiếm lại!", NotificationType.ERROR);
+                chucVus = db.ChucVus.OrderBy(x => x.TenChucVu).Where(x => x.TenChucVu.Contains("/*-+-*/-+-*/"));
+                return View("Index", chucVus.ToList().ToPagedList(pageSize, pageNumber));
             }
         }
+        //public ActionResult Search(string loaiTimKiem, string tenTimKiem)
+        //{
+
+        //    List<ChucVu> chucVus = db.ChucVus.ToList();
+        //    if (loaiTimKiem == "MaChucVu")
+        //    {
+        //        int tenTimKiem_int;
+        //        int.TryParse(tenTimKiem, out tenTimKiem_int);
+        //        return View("Index", db.ChucVus.Where(x => x.MaChucVu == tenTimKiem_int || tenTimKiem == null).ToList());
+        //    }
+        //    else
+        //    {
+
+        //        return View("Index", db.ChucVus.Where(x => x.TenChucVu.Contains(tenTimKiem.ToString()) || tenTimKiem == null).ToList());
+        //    }
+        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(List<ChucVu> chucVus )
+        public ActionResult Delete(List<ChucVu> chucVus)
         {
             try
             {
@@ -124,8 +223,16 @@ namespace WebApplication1.Controllers
 
                         }
                     }
-                    chucVu.TenChucVu = chucVu.TenChucVu.Trim();
+                    //chucVu.TenChucVu = chucVu.TenChucVu.Trim();
                     db.ChucVus.Add(chucVu);
+                    db.SaveChanges();
+
+                    var nhanViens = db.NhanViens.ToList();
+                    var newMaChucVu = db.ChucVus.Where(x => x.TenChucVu.Equals(chucVu.TenChucVu.Trim(), StringComparison.OrdinalIgnoreCase) && x.TrangThai == true).FirstOrDefault();
+                    if (newMaChucVu != null)
+                    {
+                        ThayDoiNhanVienVoiMaChucVuMoi(newMaChucVu.MaChucVu, chucVu.TenChucVu.Trim(), nhanViens);
+                    }
                 }
                 else
                 {
@@ -178,7 +285,16 @@ namespace WebApplication1.Controllers
 
                         }
                     }
+             
                     db.ChucVus.Add(chucVu);
+                    db.SaveChanges();
+
+                    var nhanViens = db.NhanViens.ToList();
+                    var newMaChucVu = db.ChucVus.Where(x => x.TenChucVu.Equals(chucVu.TenChucVu.Trim(), StringComparison.OrdinalIgnoreCase) && x.TrangThai == true).FirstOrDefault();
+                    if (newMaChucVu != null)
+                    {
+                        ThayDoiNhanVienVoiMaChucVuMoi(newMaChucVu.MaChucVu, chucVu.TenChucVu.Trim(), nhanViens);
+                    }
                 }
                 else
                 {
@@ -190,6 +306,25 @@ namespace WebApplication1.Controllers
             return View(chucVu);
         }
 
+        [NonAction]
+        public void ThayDoiNhanVienVoiMaChucVuMoi(int newMaChucVu, string tenChucVu, List<NhanVien> nhanViens)
+        {
+            if (ModelState.IsValid)
+            {
+                var listNhanVien = db.NhanViens.Where(x => x.ChucVu.TenChucVu.ToString().Equals(tenChucVu.Trim(), StringComparison.OrdinalIgnoreCase)).ToList();
+                foreach (var item in listNhanVien)
+                {
+                    foreach (var NV in nhanViens)
+                    {
+                        if (item.MaNhanVien == NV.MaNhanVien)
+                        {
+                            NV.MaChucVu = newMaChucVu;
+                        }
+                    }
+                }
+                db.SaveChanges();
+            }
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

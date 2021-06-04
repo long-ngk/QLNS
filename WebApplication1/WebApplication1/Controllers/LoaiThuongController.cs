@@ -18,25 +18,25 @@ namespace WebApplication1.Controllers
 
         public ActionResult Index(int? page, string trangThai, string loaiTimKiem, string tenTimKiem)
         {
+            int pageNumber = page ?? 1;
+            int pageSize = 10;
             try
             {
                 IQueryable<LoaiThuong> loaiThuongs;
                 QLNhanSuEntities db = new QLNhanSuEntities();
-                int pageNumber = page ?? 1;
-                int pageSize = 10;
-
                 if (trangThai == "TatCa")
                 {
                     if (loaiTimKiem == "MaLoaiThuong")
                     {
                         if (tenTimKiem == "" || tenTimKiem == null)
                         {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã loại thưởng!", NotificationType.WARNING);
                             loaiThuongs = db.LoaiThuongs.Where(x => x.MaLoaiThuong.ToString().StartsWith("+-*/abcdefgh")).OrderBy(x => x.TenLoaiThuong);
                             return View("Index", loaiThuongs.ToList().ToPagedList(page ?? 1, 10));
                         }
                         else
                         {
-                            loaiThuongs = db.LoaiThuongs.Where(x => x.MaLoaiThuong.ToString().StartsWith(tenTimKiem)).OrderBy(x => x.TenLoaiThuong);
+                            loaiThuongs = db.LoaiThuongs.Where(x => x.MaLoaiThuong.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.TenLoaiThuong);
                             return View("Index", loaiThuongs.ToList().ToPagedList(pageNumber, pageSize));
                         }
                     }
@@ -44,12 +44,13 @@ namespace WebApplication1.Controllers
                     {
                         if (tenTimKiem == "" || tenTimKiem == null)
                         {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên loại thưởng!", NotificationType.WARNING);
                             loaiThuongs = db.LoaiThuongs.Where(x => x.TenLoaiThuong.Contains("+-*/abcdefgh")).OrderBy(x => x.TenLoaiThuong);
                             return View("Index", loaiThuongs.ToList().ToPagedList(pageNumber, pageSize));
                         }
                         else
                         {
-                            loaiThuongs = db.LoaiThuongs.Where(x => x.TenLoaiThuong.Contains(tenTimKiem)).OrderBy(x => x.TenLoaiThuong);
+                            loaiThuongs = db.LoaiThuongs.Where(x => x.TenLoaiThuong.Contains(tenTimKiem.ToString())).OrderBy(x => x.TenLoaiThuong);
                             return View("Index", loaiThuongs.ToList().ToPagedList(pageNumber, pageSize));
                         }
                     }
@@ -65,12 +66,13 @@ namespace WebApplication1.Controllers
                     {
                         if (tenTimKiem == "" || tenTimKiem == null)
                         {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã loại thưởng!", NotificationType.WARNING);
                             loaiThuongs = db.LoaiThuongs.Where(x => x.TrangThai == true && x.MaLoaiThuong.ToString().StartsWith("+-*/abcdefgh")).OrderBy(x => x.TenLoaiThuong);
                             return View("Index", loaiThuongs.ToList().ToPagedList(pageNumber, pageSize));
                         }
                         else
                         {
-                            loaiThuongs = db.LoaiThuongs.Where(x => x.TrangThai == true && x.MaLoaiThuong.ToString().StartsWith(tenTimKiem)).OrderBy(x => x.TenLoaiThuong);
+                            loaiThuongs = db.LoaiThuongs.Where(x => x.TrangThai == true && x.MaLoaiThuong.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.TenLoaiThuong);
                             return View("Index", loaiThuongs.ToList().ToPagedList(pageNumber, pageSize));
                         }
                     }
@@ -78,12 +80,13 @@ namespace WebApplication1.Controllers
                     {
                         if (tenTimKiem == "" || tenTimKiem == null)
                         {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên loại thưởng!", NotificationType.WARNING);
                             loaiThuongs = db.LoaiThuongs.Where(x => x.TrangThai == true && x.TenLoaiThuong.Contains("+-*/abcdefgh")).OrderBy(x => x.TenLoaiThuong);
                             return View("Index", loaiThuongs.ToList().ToPagedList(pageNumber, pageSize));
                         }
                         else
                         {
-                            loaiThuongs = db.LoaiThuongs.Where(x => x.TrangThai == true && x.TenLoaiThuong.Contains(tenTimKiem)).OrderBy(x => x.TenLoaiThuong);
+                            loaiThuongs = db.LoaiThuongs.Where(x => x.TrangThai == true && x.TenLoaiThuong.Contains(tenTimKiem.ToString())).OrderBy(x => x.TenLoaiThuong);
                             return View("Index", loaiThuongs.ToList().ToPagedList(pageNumber, pageSize));
                         }
                     }
@@ -99,12 +102,13 @@ namespace WebApplication1.Controllers
                     {
                         if (tenTimKiem == "" || tenTimKiem == null)
                         {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã loại thưởng!", NotificationType.WARNING);
                             loaiThuongs = db.LoaiThuongs.Where(x => x.TrangThai != true && x.MaLoaiThuong.ToString().StartsWith("+-*/abcdefgh")).OrderBy(x => x.TenLoaiThuong);
                             return View("Index", loaiThuongs.ToList().ToPagedList(page ?? 1, 10));
                         }
                         else
                         {
-                            loaiThuongs = db.LoaiThuongs.Where(x => x.TrangThai != true && x.MaLoaiThuong.ToString().StartsWith(tenTimKiem)).OrderBy(x => x.TenLoaiThuong);
+                            loaiThuongs = db.LoaiThuongs.Where(x => x.TrangThai != true && x.MaLoaiThuong.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.TenLoaiThuong);
                             return View("Index", loaiThuongs.ToList().ToPagedList(pageNumber, pageSize));
                         }
                     }
@@ -112,12 +116,13 @@ namespace WebApplication1.Controllers
                     {
                         if (tenTimKiem == "" || tenTimKiem == null)
                         {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên loại thưởng!", NotificationType.WARNING);
                             loaiThuongs = db.LoaiThuongs.Where(x => x.TrangThai != true && x.TenLoaiThuong.Contains("+-*/abcdefgh")).OrderBy(x => x.TenLoaiThuong);
                             return View("Index", loaiThuongs.ToList().ToPagedList(pageNumber, pageSize));
                         }
                         else
                         {
-                            loaiThuongs = db.LoaiThuongs.Where(x => x.TrangThai != true && x.TenLoaiThuong.Contains(tenTimKiem)).OrderBy(x => x.TenLoaiThuong);
+                            loaiThuongs = db.LoaiThuongs.Where(x => x.TrangThai != true && x.TenLoaiThuong.Contains(tenTimKiem.ToString())).OrderBy(x => x.TenLoaiThuong);
                             return View("Index", loaiThuongs.ToList().ToPagedList(pageNumber, pageSize));
                         }
                     }
@@ -135,8 +140,8 @@ namespace WebApplication1.Controllers
             }
             catch
             {
-                this.AddNotification("Không tìm thấy từ khóa yêu cầu. Vui lòng thực hiện tìm kiếm lại!", NotificationType.ERROR);
-                return View("Index", db.LoaiThuongs.OrderBy(x => x.TenLoaiThuong).ToList());
+                this.AddNotification("Có lỗi xảy ra. Vui lòng thực hiện tìm kiếm lại!", NotificationType.ERROR);
+                return View("Index", db.LoaiThuongs.OrderBy(x => x.TenLoaiThuong).ToList().ToPagedList(pageNumber, pageSize));
             }
         }
 

@@ -30,11 +30,11 @@ namespace WebApplication1.Models
         public System.DateTime NgaySua { get; set; }
         public bool IsChecked { get; set; }
         [DisplayName("Người phạt")]
-
         public string NguoiPhat { get; set; }
         [DisplayName("Ngày phạt")]
         public System.DateTime NgayPhat { get; set; }
-    
+
+
         public virtual LoaiPhat LoaiPhat { get; set; }
         public virtual NhanVien NhanVien { get; set; }
     }

@@ -286,13 +286,13 @@ input[type='checkbox'] {
     font-weight: bold
 }
 
-/*input[type="radio"]{
-    width: 16px;
-    height: 16px;
+input[type="radio"]{
+    width: 17px;
+    height: 17px;
     border-radius: 100%;
     background: blue;
 }
-input[type="radio"]:checked{
+/*input[type="radio"]:checked{
     width: 16px;
     height: 16px;
     border-radius: 100%;
@@ -347,4 +347,31 @@ có chiều rộng dưới 600px */
     .column.left, .column.right {
         width: 100%;
     }
+}
+
+.btn-change-password {
+    background-color: #28b3ff;
+    color: black;
+    padding: 0.5rem 1rem;
+}
+
+.btn-view-info {
+    margin-left: 10%;
+    background-color: #fbf000;
+    color: black;
+    padding: 0.5rem 1rem;
+}
+
+.btn-check-in {
+    margin-right: 5%;
+    background-color: #06cc28;
+    color: black;
+    width: 120.64px;
+}
+
+
+.btn-check-out {
+    margin-right: 5%;
+    background-color: #ff3685;
+    color: black;
 }

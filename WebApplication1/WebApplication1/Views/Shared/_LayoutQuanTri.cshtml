@@ -31,7 +31,7 @@
                     }
                     else
                     {
-                        @:Chào: @Session["TenNhanVien"]
+                        @:Chào: <a href="/ThongTin/ThongTinTaiKhoan">@Session["TenNhanVien"]</a>
                     }
                 </div>
             </div>
@@ -70,6 +70,17 @@
                 $('#sidebar').toggleClass('active');
             });
         });
+
+           //session end
+    var sessionTimeoutWarning = @Session.Timeout- 1;
+
+    var sTimeout = parseInt(sessionTimeoutWarning) * 60 * 1000;
+    setTimeout('SessionEnd()', sTimeout);
+
+        function SessionEnd() {
+            alert("Phiên làm việc đã hết hạn. Vui lòng đăng nhập lại!");
+        window.location = "/Login/Logout";
+    }
     </script>
 
 </body>

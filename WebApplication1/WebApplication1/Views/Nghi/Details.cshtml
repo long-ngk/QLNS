@@ -1,0 +1,73 @@
+﻿@model WebApplication1.Models.Nghi
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="function-page-title">CHI TIẾT NHÂN VIÊN NGHỈ</h1>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaNhanVien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaNhanVien)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NhanVien.HoTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhanVien.HoTen)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayNghi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayNghi)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Phep)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phep)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NguoiDuyet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NguoiDuyet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgaySua)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgaySua)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GhiChu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GhiChu)
+        </dd>
+
+       
+
+    </dl>
+</div>
+<p class="footer-function">
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.MaNhanVien, ngayNghi = Model.NgayNghi }) |
+    @Html.ActionLink("Quay lại danh sách", "Index")
+</p>

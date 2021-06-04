@@ -22,10 +22,10 @@
     <Property Name="TenChucVu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="HeSoChucVu" Type="Double" Nullable="false" />
     <Property Name="PhuCap" Type="Int32" />
+    <Property Name="TrangThai" Type="Boolean" />
     <Property Name="NguoiSua" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="NgaySua" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="NhanViens" Relationship="Self.FK_NhanVien_ChucVu" FromRole="ChucVu" ToRole="NhanVien" />
-    <Property Name="TrangThai" Type="Boolean" />
   </EntityType>
   <EntityType Name="Ct_Phat">
     <Key>
@@ -34,13 +34,13 @@
     <Property Name="MaCTPhat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
     <Property Name="MaLoaiPhat" Type="Int32" Nullable="false" />
+    <Property Name="NguoiPhat" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayPhat" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="TrangThai" Type="Boolean" Nullable="false" />
     <Property Name="NguoiSua" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="NgaySua" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="LoaiPhat" Relationship="Self.FK_Ct_Phat_LoaiPhat" FromRole="Ct_Phat" ToRole="LoaiPhat" />
     <NavigationProperty Name="NhanVien" Relationship="Self.FK_Ct_Phat_NhanVien" FromRole="Ct_Phat" ToRole="NhanVien" />
-    <Property Name="NguoiPhat" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="NgayPhat" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <EntityType Name="Ct_Thuong">
     <Key>
@@ -49,13 +49,13 @@
     <Property Name="MaCTThuong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
     <Property Name="MaLoaiThuong" Type="Int32" Nullable="false" />
+    <Property Name="NguoiThuong" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayThuong" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="TrangThai" Type="Boolean" Nullable="false" />
     <Property Name="NguoiSua" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="NgaySua" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="NhanVien" Relationship="Self.FK_Ct_Thuong_NhanVien" FromRole="Ct_Thuong" ToRole="NhanVien" />
     <NavigationProperty Name="LoaiThuong" Relationship="Self.FK_Ct_Thuong_Thuong" FromRole="Ct_Thuong" ToRole="LoaiThuong" />
-    <Property Name="NguoiThuong" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="NgayThuong" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <EntityType Name="LoaiPhat">
     <Key>
@@ -105,6 +105,8 @@
     <Property Name="TongThuong" Type="Int32" Nullable="false" />
     <Property Name="TongPhat" Type="Int32" Nullable="false" />
     <Property Name="MaLuongCoBan" Type="Int32" Nullable="false" />
+    <Property Name="HeSoLuong" Type="Double" />
+    <Property Name="PhuCap" Type="Int32" />
     <NavigationProperty Name="LuongCoBan" Relationship="Self.FK_LuongThang_LuongCoBan" FromRole="LuongThang" ToRole="LuongCoBan" />
   </EntityType>
   <EntityType Name="Nghi">
@@ -136,6 +138,8 @@
     <Property Name="HinhAnh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="MaChucVu" Type="Int32" Nullable="false" />
     <Property Name="MaPB" Type="Int32" />
+    <Property Name="NguoiTao" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayTao" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="TrangThai" Type="Boolean" Nullable="false" />
     <Property Name="NguoiSua" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="NgaySua" Type="DateTime" Nullable="false" Precision="3" />

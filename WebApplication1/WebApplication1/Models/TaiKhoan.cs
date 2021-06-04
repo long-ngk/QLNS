@@ -22,13 +22,14 @@ namespace WebApplication1.Models
         [Required(ErrorMessage = "Tên tài khoản không được trống...")]
         public string TenTK { get; set; }
         [DisplayName("Mật khẩu")]
-        [DataType(DataType.Password)]
+
         [Required(ErrorMessage = "Mật khẩu không được trống...")]
         [RegularExpression(@"^(?=.*[a-z])(?=.*\d).{5,25}$", ErrorMessage = "Mật khẩu bao gồm chữ và số, từ 5 đến 25 kí tự")]
         public string MatKhau { get; set; }
         [DisplayName("Mã quyền")]
         public int MaQuyen { get; set; }
         public string ResetPasswordCode { get; set; }
+
 
         public virtual NhanVien NhanVien { get; set; }
         public virtual PhanQuyen PhanQuyen { get; set; }

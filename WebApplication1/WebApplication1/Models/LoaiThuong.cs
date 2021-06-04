@@ -35,7 +35,8 @@ namespace WebApplication1.Models
         [DisplayName("Ngày sửa")]
         public System.DateTime NgaySua { get; set; }
         public bool IsChecked { get; set; }
-    
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ct_Thuong> Ct_Thuong { get; set; }
     }

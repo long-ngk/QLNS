@@ -1,0 +1,67 @@
+﻿@model WebApplication1.Models.ChamCong
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ChamCong</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ThoiGianVao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThoiGianVao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThoiGianRa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThoiGianRa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThoiGianLamViec)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThoiGianLamViec)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThoiGianTangCa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThoiGianTangCa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrangThai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NhanVien.HoTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhanVien.HoTen)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

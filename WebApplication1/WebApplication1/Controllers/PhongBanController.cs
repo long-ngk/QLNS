@@ -18,7 +18,7 @@ namespace WebApplication1.Controllers
         // GET: PhongBan
         public ActionResult Index()
         {
-            return View(db.PhongBans.ToList());
+            return View(db.PhongBans.Where(x=>x.MaPB != 12).OrderBy(x => x.TenPB).ToList());
         }
 
         public ActionResult Search(string loaiTimKiem, string tenTimKiem)
@@ -27,14 +27,20 @@ namespace WebApplication1.Controllers
             List<PhongBan> phongBans = db.PhongBans.ToList();
             if (loaiTimKiem == "MaPhongBan")
             {
-                int tenTimKiem_int;
-                int.TryParse(tenTimKiem, out tenTimKiem_int);
-                return View("Index", db.PhongBans.Where(x => x.MaPB == tenTimKiem_int || tenTimKiem == null).ToList());
+                if (tenTimKiem == null || tenTimKiem == "")
+                {
+                    this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã phòng ban!", NotificationType.WARNING);
+                }
+               
+                return View("Index", db.PhongBans.Where(x => x.MaPB.ToString().Contains(tenTimKiem.ToString()) && x.MaPB != 12 || tenTimKiem == null).OrderBy(x=>x.TenPB).ToList());
             }
             else
             {
-
-                return View("Index", db.PhongBans.Where(x => x.TenPB.Contains(tenTimKiem.ToString()) || tenTimKiem == null).ToList());
+                if (tenTimKiem == null || tenTimKiem == "")
+                {
+                    this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên phòng ban!", NotificationType.WARNING);
+                }
+                return View("Index", db.PhongBans.Where(x => x.TenPB.Contains(tenTimKiem.ToString()) && x.MaPB != 12 || tenTimKiem == null).OrderBy(x => x.TenPB).ToList());
             }
         }
 

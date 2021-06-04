@@ -1,0 +1,83 @@
+﻿@model WebApplication1.Models.LuongThang
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutTaiChinh.cshtml";
+}
+<style>
+    .table-ct_luong{
+        margin-left:17%;
+    }
+    .title{
+        font-weight:bold;
+        margin-left:30px;
+        margin-right:25px;
+    
+        text-align:right;
+    }
+    .row-table{
+        margin-bottom:20px;
+    }
+    .btn-danger{
+        margin-top:5%;
+        margin-left:43%
+    }
+    h4{
+        color:#ff5902; 
+        margin-left:30%;
+        margin-top:5%;
+    }
+    .td-title{
+        text-align:right;
+    }
+</style>
+<h1 class="function-page-title">CHI TIẾT LƯƠNG</h1>
+
+<table class="table-ct_luong">
+    <tr class="row-table">
+        <td class="td-title"><label class="title">Mã nhân viên:</label></td>
+        <td><label>@Html.DisplayFor(model => model.LuongCoBan.MaNhanVien)</label></td>
+        <td class="td-title"><label class="title">Họ tên:</label></td>
+        <td><label>@Html.DisplayFor(model => model.LuongCoBan.NhanVien.HoTen)</label></td>
+    </tr>
+    <tr class="row-table">
+        <td class="td-title"><label class="title">Phòng ban:</label></td>
+        <td><label>@Html.DisplayFor(model => model.LuongCoBan.NhanVien.PhongBan.TenPB)</label></td>
+        <td class="td-title"><label class="title">Chức vụ:</label></td>
+        <td><label>@Html.DisplayFor(model => model.LuongCoBan.NhanVien.ChucVu.TenChucVu)</label></td>
+    </tr>
+
+    <tr class="row-table">
+        <td class="td-title"><label class="title">Lương cơ bản:</label></td>
+        <td><label>@Html.DisplayFor(model => model.LuongCoBan.TienLuongCoBan)</label></td>
+        <td class="td-title"><label class="title">Hệ số lương:</label></td>
+        <td><label>@Html.DisplayFor(model => model.HeSoLuong)</label></td>
+    </tr>
+    <tr class="row-table">
+        @{ 
+            double tienLamViecMotGio = (double)((Model.LuongCoBan.TienLuongCoBan * Model.HeSoLuong + Model.PhuCap) / 208);
+            double tienLamViecTangCaMotGio = tienLamViecMotGio * 150 / 100;
+        }
+        <td class="td-title"><label class="title">Tổng giờ công:</label></td>
+        <td><label>@Html.DisplayFor(model => model.TongGioLamViec) | @Math.Round(tienLamViecMotGio) VNĐ</label></td>
+        <td class="td-title"><label class="title">Tổng giờ tăng ca:</label></td>
+        <td><label>@Html.DisplayFor(model => model.TongGioTangCa) | @Math.Round(tienLamViecTangCaMotGio) VNĐ</label></td>
+    </tr>
+    <tr class="row-table">
+        @{ 
+            double tienCong = Math.Round(Math.Round(tienLamViecMotGio) * Model.TongGioLamViec);
+            double tienTangCa = Math.Round(Math.Round(tienLamViecTangCaMotGio) * Model.TongGioTangCa);
+        }
+        <td class="td-title"><label class="title">Tiền công:</label></td>
+        <td><label>@tienCong VNĐ</label></td>
+        <td class="td-title"><label class="title">Tiền tăng ca:</label></td>
+        <td><label>@tienTangCa VNĐ</label></td>
+    </tr>
+</table>
+
+@{ 
+    double tongLuong = tienCong + tienTangCa;
+}
+<h4>Tổng lương: @tongLuong VNĐ</h4>
+<div >
+    <a class="btn btn-danger" href="/ThongKeLuong/TheoPhongBan">Đóng</a>
+</div>

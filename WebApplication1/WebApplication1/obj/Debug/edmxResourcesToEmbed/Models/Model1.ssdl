@@ -95,6 +95,8 @@
     <Property Name="TongThuong" Type="int" Nullable="false" />
     <Property Name="TongPhat" Type="int" Nullable="false" />
     <Property Name="MaLuongCoBan" Type="int" Nullable="false" />
+    <Property Name="HeSoLuong" Type="float" />
+    <Property Name="PhuCap" Type="int" />
   </EntityType>
   <EntityType Name="Nghi">
     <Key>
@@ -124,6 +126,8 @@
     <Property Name="HinhAnh" Type="nvarchar(max)" />
     <Property Name="MaChucVu" Type="int" Nullable="false" />
     <Property Name="MaPB" Type="int" />
+    <Property Name="NguoiTao" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgayTao" Type="datetime" Nullable="false" />
     <Property Name="TrangThai" Type="bit" Nullable="false" />
     <Property Name="NguoiSua" Type="nvarchar" MaxLength="500" />
     <Property Name="NgaySua" Type="datetime" Nullable="false" />

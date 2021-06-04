@@ -37,9 +37,14 @@ namespace WebApplication1.Controllers
                         luongThangs = db.LuongThangs.Where(x => x.ThangNam.Year == year).OrderBy(x => x.LuongCoBan.NhanVien.HoTen);
                         return View(luongThangs.ToList().ToPagedList(pageNumber, pageSize));
                     }
+                    else if (year == null && month != null)
+                    {
+                        luongThangs = db.LuongThangs.Where(x => x.ThangNam.Month == month).OrderBy(x => x.LuongCoBan.NhanVien.HoTen);
+                        return View(luongThangs.ToList().ToPagedList(pageNumber, pageSize));
+                    }
                     else
                     {
-                        luongThangs = db.LuongThangs.Where(x => x.ThangNam.Year == year && x.ThangNam.Month == month).OrderBy(x => x.LuongCoBan.NhanVien.HoTen);
+                        luongThangs = db.LuongThangs.OrderBy(x => x.LuongCoBan.NhanVien.HoTen);
                         return View(luongThangs.ToList().ToPagedList(pageNumber, pageSize));
                     }
                 }
@@ -56,9 +61,14 @@ namespace WebApplication1.Controllers
                         luongThangs = db.LuongThangs.Where(x => x.ThangNam.Year == year && x.LuongCoBan.NhanVien.PhongBan.MaPB.ToString().Equals(MaPB.ToString())).OrderBy(x => x.LuongCoBan.NhanVien.HoTen);
                         return View(luongThangs.ToList().ToPagedList(pageNumber, pageSize));
                     }
+                    else if (year == null && month != null)
+                    {
+                        luongThangs = db.LuongThangs.Where(x => x.ThangNam.Month == month && x.LuongCoBan.NhanVien.PhongBan.MaPB.ToString().Equals(MaPB.ToString())).OrderBy(x => x.LuongCoBan.NhanVien.HoTen);
+                        return View(luongThangs.ToList().ToPagedList(pageNumber, pageSize));
+                    }
                     else
                     {
-                        luongThangs = db.LuongThangs.Where(x => x.ThangNam.Year == year && x.ThangNam.Month == month && x.LuongCoBan.NhanVien.PhongBan.MaPB.ToString().Equals(MaPB.ToString())).OrderBy(x => x.LuongCoBan.NhanVien.HoTen);
+                        luongThangs = db.LuongThangs.Where(x => x.LuongCoBan.NhanVien.PhongBan.MaPB.ToString().Equals(MaPB.ToString())).OrderBy(x => x.LuongCoBan.NhanVien.HoTen);
                         return View(luongThangs.ToList().ToPagedList(pageNumber, pageSize));
                     }
                 }

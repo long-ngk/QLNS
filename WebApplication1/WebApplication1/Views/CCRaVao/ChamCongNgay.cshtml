@@ -44,13 +44,19 @@
     }
 
     #checkInTime {
+        margin-bottom: 24px;
         padding-left: 15px;
-        padding-top: 20px
+        padding-top: 20px;
+        font-weight: bold;
+        font-size: 22px
     }
 
     #checkOutTime {
+        margin-bottom: 24px;
         padding-left: 15px;
-        padding-top: 20px
+        padding-top: 20px;
+        font-weight: bold;
+        font-size: 22px
     }
 </style>
 <div class="column-1 left" style="padding-left:10%;">
@@ -75,11 +81,14 @@
         <tr>
             <td style="text-align:right"><strong>Tổng số giờ công: </strong></td>
             @{ int? tongGioCong = 0;
-                if (Model != null)
+                if (Model.Count > 0)
                 {
                     foreach (var item in Model)
                     {
-                        tongGioCong += item.ThoiGianLamViec;
+                        if (item.ThoiGianLamViec != null)
+                        {
+                            tongGioCong += item.ThoiGianLamViec;
+                        }
                     }
                 }
             }
@@ -92,7 +101,10 @@
                 {
                     foreach (var item in Model)
                     {
-                        tongGioTangCa += item.ThoiGianTangCa;
+                        if (item.ThoiGianTangCa != null)
+                        {
+                            tongGioTangCa += item.ThoiGianTangCa;
+                        }
                     }
                 }
             }
@@ -128,24 +140,27 @@
                     @*Nếu chưa check in thì mới hiện button check in*@
                     @if (checkInTime == null)
                     {
-                        //trước 10h sáng mới hiện button check in.
-                        if (DateTime.Now.TimeOfDay < thoiGianKhongChoVao)
+                        DateTime dayOfW = DateTime.Today;
+                        if (dayOfW.DayOfWeek != DayOfWeek.Saturday || dayOfW.DayOfWeek != DayOfWeek.Sunday)
                         {
-                            <button class="btn btn-check-in" type="submit">Check in</button>
+                            //trước 10h sáng mới hiện button check in.
+                            if (DateTime.Now.TimeOfDay < thoiGianKhongChoVao)
+                            {
+                                <button class="btn btn-check-in" type="submit">Check in</button>
+                            }
                         }
-
                     }
                 </td>
-                <td> <div style="padding-left: 20px">Giờ vào: </div></td>
+                <td> <div style="padding-left: 20px; text-align: right">Giờ vào: </div></td>
 
                 <td>
                     <p id="checkInTime">
                         @{
                             @*if (checkInTime != DateTime.Now.TimeOfDay)
-                            {
-                                checkInTime.ToString();
-                            }*@
-                           
+                                {
+                                    checkInTime.ToString();
+                                }*@
+
                             foreach (var item in db.ChamCongs)
                             {
                                 if (item.MaNhanVien.ToString().Equals(maNhanVien) && item.Ngay == DateTime.Today)
@@ -153,8 +168,9 @@
                                     checkInTime = item.ThoiGianVao;
                                 }
                             }
+                            string inTime = checkInTime.HasValue ? checkInTime.Value.ToString("hh\\:mm\\:ss") : "";
                         }
-                        @checkInTime
+                        @inTime
                     </p>
 
                 </td>
@@ -163,6 +179,7 @@
         <tr>
             @using (Html.BeginForm("CheckOut", "CCRaVao", FormMethod.Post))
             {
+                QLNhanSuEntities db = new QLNhanSuEntities();
                 var maNhanVien = Session["MaNhanVien"].ToString();
                 TimeSpan? checkInTime = DateTime.Now.TimeOfDay;
                 TimeSpan? checkOutTime = DateTime.Now.TimeOfDay;
@@ -171,7 +188,7 @@
                     if (Model[i].MaNhanVien.ToString().Equals(maNhanVien) && Model[i].Ngay == DateTime.Today)
                     {
                         checkInTime = Model[i].ThoiGianVao;
-                        checkOutTime = Model[i].ThoiGianRa;
+                        checkOutTime = Model[i].ThoiGianRa/*.ToString(@"hh\:mm\:ss")*/;
                     }
                 }
 
@@ -184,8 +201,22 @@
                         }
                     }
                 </td>
-                <td> <div style="padding-left: 20px">Giờ ra: </div></td>
-                <td><p id="checkOutTime">@checkOutTime</p></td>
+                <td> <div style="padding-left: 20px; text-align: right">Giờ ra: </div></td>
+                <td>
+                    <p id="checkOutTime">
+                        @{
+                            foreach (var item in db.ChamCongs)
+                            {
+                                if (item.MaNhanVien.ToString().Equals(maNhanVien) && item.Ngay == DateTime.Today)
+                                {
+                                    checkOutTime = item.ThoiGianRa;
+                                }
+                            }
+                            string outTime = checkOutTime.HasValue ? checkOutTime.Value.ToString("hh\\:mm\\:ss") : "";
+                        }
+                        @outTime
+                    </p>
+                </td>
             }
         </tr>
     </table>

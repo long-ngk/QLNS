@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -16,31 +17,41 @@ namespace WebApplication1.Controllers
         private QLNhanSuEntities db = new QLNhanSuEntities();
 
         // GET: PhongBan
-        public ActionResult Index()
-        {
-            return View(db.PhongBans.Where(x=>x.MaPB != 12).OrderBy(x => x.TenPB).ToList());
-        }
 
-        public ActionResult Search(string loaiTimKiem, string tenTimKiem)
+        public ActionResult Index(int? page, string loaiTimKiem, string tenTimKiem)
         {
-            QLNhanSuEntities db = new QLNhanSuEntities();
-            List<PhongBan> phongBans = db.PhongBans.ToList();
-            if (loaiTimKiem == "MaPhongBan")
+
+            int pageNumber = (page ?? 1);
+            int pageSize = 10;
+            IQueryable<PhongBan> phongBans;
+            try
             {
-                if (tenTimKiem == null || tenTimKiem == "")
+                if (loaiTimKiem == "MaPhongBan")
                 {
-                    this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã phòng ban!", NotificationType.WARNING);
+                    if (tenTimKiem == null || tenTimKiem == "")
+                    {
+                        this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã phòng ban!", NotificationType.WARNING);
+                    }
+                    phongBans = db.PhongBans.Where(x => x.MaPB.ToString().Contains(tenTimKiem.ToString()) && x.MaPB != 12).OrderBy(x => x.TenPB);
+                    return View("Index", phongBans.ToList().ToPagedList(pageNumber, pageSize));
                 }
-               
-                return View("Index", db.PhongBans.Where(x => x.MaPB.ToString().Contains(tenTimKiem.ToString()) && x.MaPB != 12 || tenTimKiem == null).OrderBy(x=>x.TenPB).ToList());
+                else if (loaiTimKiem == "TenPhongBan")
+                {
+                    if (tenTimKiem == null || tenTimKiem == "")
+                    {
+                        this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên phòng ban!", NotificationType.WARNING);
+                    }
+                    phongBans = db.PhongBans.Where(x => x.TenPB.Contains(tenTimKiem.ToString()) && x.MaPB != 12).OrderBy(x => x.TenPB);
+                    return View("Index", phongBans.ToList().ToPagedList(pageNumber, pageSize));
+                }
+                phongBans = db.PhongBans.Where(x => x.MaPB != 12).OrderBy(x => x.TenPB);
+                return View("Index", phongBans.ToList().ToPagedList(pageNumber, pageSize));
             }
-            else
+            catch
             {
-                if (tenTimKiem == null || tenTimKiem == "")
-                {
-                    this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên phòng ban!", NotificationType.WARNING);
-                }
-                return View("Index", db.PhongBans.Where(x => x.TenPB.Contains(tenTimKiem.ToString()) && x.MaPB != 12 || tenTimKiem == null).OrderBy(x => x.TenPB).ToList());
+                this.AddNotification("Có lỗi xảy ra. Vui lòng thực hiện tìm kiếm lại!", NotificationType.ERROR);
+                phongBans = db.PhongBans.Where(x => x.TenPB.Contains("+-*/*-+-*/+") && x.MaPB != 12).OrderBy(x => x.TenPB);
+                return View("Index", phongBans.ToList().ToPagedList(pageNumber, pageSize));
             }
         }
 
@@ -51,7 +62,7 @@ namespace WebApplication1.Controllers
             try
             {
                 db.Configuration.ValidateOnSaveEnabled = false;
-                var checkIsChecked = phongBans.Where(x => x.IsChecked == true).SingleOrDefault();
+                var checkIsChecked = phongBans.Where(x => x.IsChecked == true);
                 if (checkIsChecked == null)
                 {
                     this.AddNotification("Vui lòng chọn phòng ban để xóa!", NotificationType.ERROR);

@@ -286,7 +286,8 @@ input[type='checkbox'] {
     font-weight: bold
 }
 
-input[type="radio"]{
+input[type="radio"] {
+    margin-right: 6px;
     width: 17px;
     height: 17px;
     border-radius: 100%;
@@ -361,6 +362,7 @@ có chiều rộng dưới 600px */
     color: black;
     padding: 0.5rem 1rem;
 }
+
 
 .btn-check-in {
     margin-right: 5%;

@@ -28,6 +28,15 @@
         </dd>
 
         <dt>
+            @Html.HiddenFor(model => model.MaNhanVien)
+            <label>Mã nhân viên</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaNhanVien)
+        </dd>
+
+        <dt>
             @Html.HiddenFor(model => model.NhanVien.HoTen)
             <label>Họ tên</label>
         </dt>

@@ -19,25 +19,30 @@ namespace WebApplication1
         protected void Application_Start()
         {
             DateTime B = DateTime.Now;
+            DateTime dayOfW = DateTime.Today;
             JobManager.Initialize(new MyRegistry());
             QLNhanSuEntities ql = new QLNhanSuEntities();
-            var chamcong = ql.ChamCongs.Where(s => s.Ngay == B.Date).FirstOrDefault();
-            if (chamcong == null)
+            if(dayOfW.DayOfWeek != DayOfWeek.Saturday || dayOfW.DayOfWeek != DayOfWeek.Sunday)
             {
-                var nhanvien = ql.NhanViens.Where(s => s.TrangThai == true && s.MaNhanVien != 1001);
-                foreach (var nv in nhanvien)
+                var chamcong = ql.ChamCongs.Where(s => s.Ngay == B.Date).FirstOrDefault();
+                if (chamcong == null)
                 {
-                    //ChamCong cham = new ChamCong();
-                    //cham.MaNhanVien = nv.MaNhanVien;
-                    //cham.Ngay = B;
-                    //ql.ChamCongs.Add(cham);
-                    ChamCong cham = new ChamCong();
-                    cham.MaNhanVien = nv.MaNhanVien;
-                    cham.Ngay = B;
-                    ql.ChamCongs.Add(cham);
+                    var nhanvien = ql.NhanViens.Where(s => s.TrangThai == true && s.MaNhanVien != 1001);
+                    foreach (var nv in nhanvien)
+                    {
+                        //ChamCong cham = new ChamCong();
+                        //cham.MaNhanVien = nv.MaNhanVien;
+                        //cham.Ngay = B;
+                        //ql.ChamCongs.Add(cham);
+                        ChamCong cham = new ChamCong();
+                        cham.MaNhanVien = nv.MaNhanVien;
+                        cham.Ngay = B;
+                        ql.ChamCongs.Add(cham);
+                    }
+                    ql.SaveChanges();
                 }
-                ql.SaveChanges();
             }
+            
 
             int month, year;
             if (B.Month == 1)

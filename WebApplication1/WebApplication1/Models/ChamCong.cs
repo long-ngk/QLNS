@@ -18,7 +18,11 @@ namespace WebApplication1.Models
     {
         public int MaNhanVien { get; set; }
         public System.DateTime Ngay { get; set; }
+        [DataType(DataType.Time)]
+        [DisplayFormat(DataFormatString = @"{0:hh\:mm\:ss}")]
         public Nullable<System.TimeSpan> ThoiGianVao { get; set; }
+        [DataType(DataType.Time)]
+        [DisplayFormat(DataFormatString = @"{0:hh\:mm\:ss}")]
         public Nullable<System.TimeSpan> ThoiGianRa { get; set; }
         public Nullable<int> ThoiGianLamViec { get; set; }
         public Nullable<int> ThoiGianTangCa { get; set; }

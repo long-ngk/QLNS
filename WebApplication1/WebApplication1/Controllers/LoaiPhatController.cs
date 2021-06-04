@@ -36,7 +36,7 @@ namespace WebApplication1.Controllers
                         {
                             this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã loại phạt!", NotificationType.WARNING);
                             loaiPhats = db.LoaiPhats.Where(x => x.MaLoaiPhat.ToString().StartsWith("+-*/abcdefgh")).OrderBy(x => x.TenLoaiPhat);
-                            return View("Index", loaiPhats.ToList().ToPagedList(page ?? 1, 10));
+                            return View("Index", loaiPhats.ToList().ToPagedList(pageNumber, pageSize));
                         }
                         else
                         {
@@ -108,7 +108,7 @@ namespace WebApplication1.Controllers
                         {
                             this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã loại phạt!", NotificationType.WARNING);
                             loaiPhats = db.LoaiPhats.Where(x => x.TrangThai != true && x.MaLoaiPhat.ToString().StartsWith("+-*/abcdefgh")).OrderBy(x => x.TenLoaiPhat);
-                            return View("Index", loaiPhats.ToList().ToPagedList(page ?? 1, 10));
+                            return View("Index", loaiPhats.ToList().ToPagedList(pageNumber, pageSize));
                         }
                         else
                         {

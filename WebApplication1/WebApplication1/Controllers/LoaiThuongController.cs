@@ -32,7 +32,7 @@ namespace WebApplication1.Controllers
                         {
                             this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã loại thưởng!", NotificationType.WARNING);
                             loaiThuongs = db.LoaiThuongs.Where(x => x.MaLoaiThuong.ToString().StartsWith("+-*/abcdefgh")).OrderBy(x => x.TenLoaiThuong);
-                            return View("Index", loaiThuongs.ToList().ToPagedList(page ?? 1, 10));
+                            return View("Index", loaiThuongs.ToList().ToPagedList(pageNumber, pageSize));
                         }
                         else
                         {
@@ -104,7 +104,7 @@ namespace WebApplication1.Controllers
                         {
                             this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã loại thưởng!", NotificationType.WARNING);
                             loaiThuongs = db.LoaiThuongs.Where(x => x.TrangThai != true && x.MaLoaiThuong.ToString().StartsWith("+-*/abcdefgh")).OrderBy(x => x.TenLoaiThuong);
-                            return View("Index", loaiThuongs.ToList().ToPagedList(page ?? 1, 10));
+                            return View("Index", loaiThuongs.ToList().ToPagedList(pageNumber, pageSize));
                         }
                         else
                         {

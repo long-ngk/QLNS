@@ -31,6 +31,11 @@ namespace WebApplication1.Controllers
                 chamCongs = db.ChamCongs.Where(x => x.MaNhanVien.ToString().Equals(maNhanVien) &&  x.Ngay.Year == year);
                 return View(chamCongs.ToList().ToPagedList(pageNumber, pageSize));
             }
+            else if (month != null && year == null)
+            {
+                chamCongs = db.ChamCongs.Where(x => x.MaNhanVien.ToString().Equals(maNhanVien) && x.Ngay.Month == month);
+                return View(chamCongs.ToList().ToPagedList(pageNumber, pageSize));
+            }
             chamCongs = db.ChamCongs.Where(x => x.MaNhanVien.ToString().Equals(maNhanVien) && x.Ngay.Month == DateTime.Now.Month && x.Ngay.Year == DateTime.Now.Year);
             return View(chamCongs.ToList().ToPagedList(pageNumber, pageSize));
         }

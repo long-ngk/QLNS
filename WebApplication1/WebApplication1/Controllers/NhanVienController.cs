@@ -186,8 +186,8 @@ namespace WebApplication1.Controllers
             }
             catch
             {
-                this.AddNotification("Không tìm thấy từ khóa yêu cầu. Vui lòng thực hiện tìm kiếm lại!", NotificationType.ERROR);
-                return View("Index", db.NhanViens.Include(c => c.ChucVu).OrderBy(x => x.HoTen).OrderBy(x => x.HoTen).ToList().ToPagedList(page ?? 1, 10));
+                this.AddNotification("Có lỗi xảy ra. Vui lòng thực hiện tìm kiếm lại!", NotificationType.ERROR);
+                return View("Index", db.NhanViens.Where(x=>x.MaNhanVien.ToString().Equals("+-*/*-+-*/*-+")).Include(c => c.ChucVu).OrderBy(x => x.HoTen).OrderBy(x => x.HoTen).ToList().ToPagedList(page ?? 1, 10));
             }
         }
 

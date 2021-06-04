@@ -356,6 +356,8 @@
     <Content Include="Views\LuongCoBan\Details.cshtml" />
     <Content Include="Views\LuongCoBan\Edit.cshtml" />
     <Content Include="Views\LuongCoBan\Index.cshtml" />
+    <Content Include="Views\ThongTin\XemBangLuong.cshtml" />
+    <Content Include="Views\ThongTin\Details.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

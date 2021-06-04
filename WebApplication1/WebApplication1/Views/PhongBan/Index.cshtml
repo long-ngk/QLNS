@@ -1,4 +1,7 @@
-﻿@model List<WebApplication1.Models.PhongBan>
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<WebApplication1.Models.PhongBan>
 
 @{
     ViewBag.Title = "Index";
@@ -10,12 +13,12 @@
     <div class="list-employee">
         <h1>PHÒNG BAN</h1>
         <div class="list-detail">
-            @using (Html.BeginForm("Search", "PhongBan", FormMethod.Get))
+            @using (Html.BeginForm("Index", "PhongBan", FormMethod.Get))
             {
                 <div class="row">
                     <a href='@Url.Action("Create", "PhongBan")' class="btn add-employee"><i class="fas fa-plus"></i> Thêm phòng ban</a>
                     <div class="form-check d-flex">
-               
+
                         <span class="search-title">Tìm kiếm theo : </span>
                         <label class="radio-inline">
                             @Html.RadioButton("loaiTimKiem", "MaPhongBan", true, new { @class = "mr-2" })<span> Mã phòng ban</span>
@@ -70,8 +73,6 @@
                             @Html.HiddenFor(modelItem => Model[i].SoDT)
                         </td>
                         <td>
-                            @*<input class="btn-edit" type="button" value="Sửa" onclick="window.location.href= '@Url.Action("Edit","PhongBan", new { id = Model[i].MaPB })'" /> |
-        <input class="btn-detail" type="button" value="Chi tiết" onclick="window.location.href= '@Url.Action("Details","PhongBan", new { id = Model[i].MaPB })'" />*@
                             <a href='@Url.Action("Details","PhongBan", new { id = Model[i].MaPB })' class="btn-detail" style="color:black"><i class="fas fa-eye"></i></a>
                             <a href='@Url.Action("Edit","PhongBan", new { id = Model[i].MaPB })' class="btn-edit" style="color:black"><i class="fas fa-pen-alt"></i></a>
 
@@ -80,7 +81,14 @@
                 }
             </table>
 
+            @Html.PagedListPager(Model,
+                     page => Url.Action("Index", new { page, loaiTimKiem = Request.QueryString["loaiTimKiem"], tenTimKiem = Request.QueryString["tenTimKiem"] }),
+                     new PagedListRenderOptions()
+                     {
+                         Display = PagedListDisplayMode.IfNeeded,
+                         DisplayPageCountAndCurrentLocation = true,
 
+                     })
 
             <div class="row container button-footer">
                 <div class="left-button">

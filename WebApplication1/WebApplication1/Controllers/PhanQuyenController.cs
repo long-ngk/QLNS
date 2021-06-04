@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -18,13 +19,40 @@ namespace WebApplication1.Controllers
         private QLNhanSuEntities db = new QLNhanSuEntities();
 
         // GET: PhanQuyen
-        public ActionResult Index()
+        public ActionResult Index(int? page, string loaiTimKiem, string tenTimKiem)
         {
-            return View(db.PhanQuyens.OrderByDescending(x=>x.TenQuyen).ToList());
-
-            //PhanQuyenViewModel phanQuyenModel = new PhanQuyenViewModel();
-            //phanQuyenModel.phanQuyens = db.PhanQuyens.ToList();
-            //return View(phanQuyenModel.phanQuyens);
+            IQueryable<PhanQuyen> phanQuyens;
+            int pageNumber = (page ?? 1);
+            int pageSize = 10;
+            try
+            {
+                if (loaiTimKiem == "MaQuyen")
+                {
+                    if (tenTimKiem == null || tenTimKiem == "")
+                    {
+                        this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã quyền!", NotificationType.WARNING);
+                    }
+                    phanQuyens = db.PhanQuyens.Where(x => x.MaQuyen.ToString().Contains(tenTimKiem.ToString())).OrderByDescending(x => x.TenQuyen);
+                    return View("Index", phanQuyens.ToList().ToPagedList(pageNumber, pageSize));
+                }
+                else if (loaiTimKiem == "TenQuyen")
+                {
+                    if (tenTimKiem == null || tenTimKiem == "")
+                    {
+                        this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên quyền!", NotificationType.WARNING);
+                    }
+                    phanQuyens = db.PhanQuyens.Where(x => x.TenQuyen.Contains(tenTimKiem.ToString())).OrderByDescending(x => x.TenQuyen);
+                    return View("Index", phanQuyens.ToList().ToPagedList(pageNumber, pageSize));
+                }
+                phanQuyens = db.PhanQuyens.OrderByDescending(x => x.TenQuyen);
+                return View("Index", phanQuyens.ToList().ToPagedList(pageNumber, pageSize));
+            }
+            catch
+            {
+                this.AddNotification("Có lỗi xảy ra. Vui lòng thực hiện tìm kiếm lại!", NotificationType.ERROR);
+                phanQuyens = db.PhanQuyens.Where(x => x.MaQuyen.ToString().Contains("+-*/*-+-*/-+"));
+                return View("Index", phanQuyens.ToList().ToPagedList(pageNumber, pageSize));
+            }
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -63,22 +91,7 @@ namespace WebApplication1.Controllers
             }
         }
 
-        public ActionResult Search(string loaiTimKiem, string tenTimKiem)
-        {
-            QLNhanSuEntities db = new QLNhanSuEntities();
-            List<PhanQuyen> phanQuyens = db.PhanQuyens.ToList();
-            if (loaiTimKiem == "MaQuyen")
-            {
-                int tenTimKiem_int;
-                int.TryParse(tenTimKiem, out tenTimKiem_int);
-                return View("Index", db.PhanQuyens.Where(x => x.MaQuyen == tenTimKiem_int || tenTimKiem == null).ToList());
-            }
-            else
-            {
-                
-                return View("Index", db.PhanQuyens.Where(x => x.TenQuyen.Contains(tenTimKiem.ToString()) || tenTimKiem == null).ToList());
-            }
-        }
+
         // GET: PhanQuyen/Details/5
         public ActionResult Details(int? id)
         {
@@ -148,8 +161,8 @@ namespace WebApplication1.Controllers
             return View(phanQuyen);
         }
 
-  
-        
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

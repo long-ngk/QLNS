@@ -141,7 +141,7 @@
                     @if (checkInTime == null)
                     {
                         DateTime dayOfW = DateTime.Today;
-                        if (dayOfW.DayOfWeek != DayOfWeek.Saturday || dayOfW.DayOfWeek != DayOfWeek.Sunday)
+                        if (dayOfW.DayOfWeek != DayOfWeek.Saturday && dayOfW.DayOfWeek != DayOfWeek.Sunday)
                         {
                             //trước 10h sáng mới hiện button check in.
                             if (DateTime.Now.TimeOfDay < thoiGianKhongChoVao)

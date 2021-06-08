@@ -177,7 +177,7 @@ namespace WebApplication1.Controllers
             {
                 //kiểm tra tên loại thưởng được nhập từ ô textbox có trùng với bất kỳ tên loại thưởng nào trong database bảng LoaiThuong không 
                 var tenLoaiThuongList = db.LoaiThuongs.Where(x => x.TenLoaiThuong.Equals(loaiThuong.TenLoaiThuong.Trim(), StringComparison.OrdinalIgnoreCase)).ToList();
-
+                string oldTenLoaiThuong = "";
                 if (tenLoaiThuongList.Count > 0)
                 {
                     foreach (var item in tenLoaiThuongList)
@@ -187,10 +187,11 @@ namespace WebApplication1.Controllers
                             item.TrangThai = false;
                             item.NguoiSua = "Hệ thống - " + loaiThuong.NguoiSua;
                             item.NgaySua = DateTime.Now;
-
+                            oldTenLoaiThuong = item.TenLoaiThuong;
                         }
                     }
-                    loaiThuong.TenLoaiThuong = loaiThuong.TenLoaiThuong.Trim();
+                    loaiThuong.TenLoaiThuong = oldTenLoaiThuong;
+                    loaiThuong.TrangThai = true;
                     db.LoaiThuongs.Add(loaiThuong);
                 }
                 else
@@ -228,7 +229,7 @@ namespace WebApplication1.Controllers
             if (ModelState.IsValid)
             {
                 var tenLoaiThuongList = db.LoaiThuongs.Where(x => x.TenLoaiThuong.Equals(loaiThuong.TenLoaiThuong, StringComparison.OrdinalIgnoreCase)).ToList();
-
+                string oldTenLoaiThuong = "";
                 if (tenLoaiThuongList.Count > 0)
                 {
                     foreach (var item in tenLoaiThuongList)
@@ -238,9 +239,11 @@ namespace WebApplication1.Controllers
                             item.TrangThai = false;
                             item.NguoiSua = "Hệ thống - " + loaiThuong.NguoiSua;
                             item.NgaySua = DateTime.Now;
-
+                            oldTenLoaiThuong = item.TenLoaiThuong;
                         }
                     }
+                    loaiThuong.TenLoaiThuong = oldTenLoaiThuong;
+                    loaiThuong.TrangThai = true;
                     db.LoaiThuongs.Add(loaiThuong);
                 }
                 else

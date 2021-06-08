@@ -41,6 +41,12 @@
                 <input class="input-search" type="text" placeholder="Nhập từ khóa tìm kiếm..." name="tenTimKiem" />
                 <button class="btn btn-search" type="submit"><i class="fas fa-search"></i> Tìm kiếm</button>
                 <a href='@Url.Action("TheoNhanVien", "ThongKeLuong")' class="btn btn-reload" style="color:black"><i class="fas fa-sync-alt"></i> Tải lại</a>
+                @{
+                    if (@ViewBag.month != null || @ViewBag.year != null)
+                    {
+                        <a href="/ThongKeLuong/PrintLuongTheoNhanVien/?month=@ViewBag.month&year=@ViewBag.year&loaiTimKiem=@ViewBag.loaiTimKiem&tenTimKiem=@ViewBag.tenTimKiem" class="btn btn-print-all" style="color:black" target="_blank"><i class="fas fa-print"></i> Xuất danh sách</a>
+                    }
+                }
             </div>
         }
     </div>
@@ -100,10 +106,12 @@
 
                 <td>
                     @{
-                        double tienLamViecMotGio = (double)((Model[i].LuongCoBan.TienLuongCoBan * Model[i].HeSoLuong + Model[i].PhuCap) / 208);
+                        double tienLamViecMotGio = (double)((Model[i].LuongCoBan.TienLuongCoBan * Model[i].HeSoLuong + Model[i].PhuCap) / 176);
                         double tienLamViecTangCaMotGio = tienLamViecMotGio * 150 / 100;
-
-                        double tongLuong = Math.Round(tienLamViecMotGio) * Model[i].TongGioLamViec + Math.Round(tienLamViecTangCaMotGio) * Model[i].TongGioTangCa;
+                        int tienThuong = Model[i].TongThuong;
+                        int tienPhat = Model[i].TongPhat;
+                        double tongTienLamViec = Math.Round(tienLamViecMotGio) * Model[i].TongGioLamViec + Math.Round(tienLamViecTangCaMotGio) * Model[i].TongGioTangCa;
+                        double tongLuong = tongTienLamViec + tienThuong - tienPhat;
                     }
                     @*@Html.DisplayFor(modelItem => Model[i].ThoiGianTangCa)*@
                     @tongLuong

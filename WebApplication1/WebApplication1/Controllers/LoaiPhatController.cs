@@ -181,7 +181,7 @@ namespace WebApplication1.Controllers
             {
                 //kiểm tra tên loại phạt được nhập từ ô textbox có trùng với bất kỳ tên loại thưởng nào trong database bảng LoaiPhat không 
                 var tenLoaiPhatList = db.LoaiPhats.Where(x => x.TenLoaiPhat.Equals(loaiPhat.TenLoaiPhat.Trim(), StringComparison.OrdinalIgnoreCase)).ToList();
-
+                string oldTenLoaiPhat = "";
                 if (tenLoaiPhatList.Count > 0)
                 {
                     foreach (var item in tenLoaiPhatList)
@@ -191,10 +191,11 @@ namespace WebApplication1.Controllers
                             item.TrangThai = false;
                             item.NguoiSua = "Hệ thống - " + loaiPhat.NguoiSua;
                             item.NgaySua = DateTime.Now;
-
+                            oldTenLoaiPhat = item.TenLoaiPhat;
                         }
                     }
-                    loaiPhat.TenLoaiPhat = loaiPhat.TenLoaiPhat.Trim();
+                    loaiPhat.TenLoaiPhat = oldTenLoaiPhat;
+                    loaiPhat.TrangThai = true;
                     db.LoaiPhats.Add(loaiPhat);
                 }
                 else
@@ -233,7 +234,7 @@ namespace WebApplication1.Controllers
             if (ModelState.IsValid)
             {
                 var tenLoaiPhatList = db.LoaiPhats.Where(x => x.TenLoaiPhat.Equals(loaiPhat.TenLoaiPhat, StringComparison.OrdinalIgnoreCase)).ToList();
-
+                string oldTenLoaiPhat = "";
                 if (tenLoaiPhatList.Count != 0)
                 {
                     foreach (var item in tenLoaiPhatList)
@@ -243,9 +244,11 @@ namespace WebApplication1.Controllers
                             item.TrangThai = false;
                             item.NguoiSua = "Hệ thống - " + loaiPhat.NguoiSua;
                             item.NgaySua = DateTime.Now;
-
+                            oldTenLoaiPhat = item.TenLoaiPhat;
                         }
                     }
+                    loaiPhat.TenLoaiPhat = oldTenLoaiPhat;
+                    loaiPhat.TrangThai = true;
                     db.LoaiPhats.Add(loaiPhat);
                 }
                 else

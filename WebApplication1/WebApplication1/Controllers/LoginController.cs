@@ -92,7 +92,7 @@ namespace WebApplication1.Controllers
         public ActionResult CheckForgotPassword(CheckTenTK_Email check, string command)
         {
             var checkTenTK = database.TaiKhoans.Where(s => s.TenTK == check.TenTK).SingleOrDefault();
-            var checkEmail = database.NhanViens.Where(s => s.Email == check.Email).SingleOrDefault();
+            var checkEmail = database.NhanViens.Where(s => s.Email == check.Email && s.TaiKhoan.TenTK == check.TenTK).SingleOrDefault();
             if (command.Equals("Gửi mail"))
             {
                 if (check.TenTK == null || check.Email == null || check.TenTK == "" || check.Email == "")

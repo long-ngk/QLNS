@@ -350,7 +350,7 @@ namespace WebApplication1.Controllers
                         }
                         else
                         {
-                            ct_T = db.Ct_Thuong.Include(c => c.NhanVien).Include(c => c.LoaiThuong).OrderByDescending(x => x.NgaySua);
+                            ct_T = db.Ct_Thuong.Include(c => c.NhanVien).Include(c => c.LoaiThuong).OrderByDescending(x => x.NgayThuong);
                             return View("Index", ct_T.ToList().ToPagedList(page ?? 1, 10));
                         }
                     }

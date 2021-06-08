@@ -26,6 +26,7 @@ namespace WebApplication1.Models
             this.Nghis = new HashSet<Nghi>();
         }
 
+
         [DisplayName("Mã nhân viên")]
         public int MaNhanVien { get; set; }
         [DisplayName("Họ tên")]

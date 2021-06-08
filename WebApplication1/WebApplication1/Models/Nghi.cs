@@ -31,8 +31,7 @@ namespace WebApplication1.Models
 
         public bool IsChecked { get; set; }
 
-        public Nullable<System.DateTime> fromDate { get; set; }
-        public Nullable<System.DateTime> toDate { get; set; }
+
         public virtual NhanVien NhanVien { get; set; }
     }
 }

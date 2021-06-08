@@ -14,7 +14,6 @@ namespace WebApplication1.Models
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
-
     public partial class LuongCoBan
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -37,7 +36,8 @@ namespace WebApplication1.Models
         public string NguoiSua { get; set; }
         [DisplayName("Ngày sửa")]
         public System.DateTime NgaySua { get; set; }
-    
+
+
         public virtual NhanVien NhanVien { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LuongThang> LuongThangs { get; set; }

@@ -1,4 +1,5 @@
 ﻿using PagedList;
+using Rotativa;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,26 +45,26 @@ namespace WebApplication1.Controllers
             {
                 if (year != null && month != null)
                 {
-                    luongThangs = db.LuongThangs.Where(x => x.ThangNam.Year == year && x.ThangNam.Month == month && x.LuongCoBan.MaNhanVien.ToString().Equals(maNV)).OrderBy(x => x.LuongCoBan.NhanVien.HoTen);
+                    luongThangs = db.LuongThangs.Where(x => x.ThangNam.Year == year && x.ThangNam.Month == month && x.LuongCoBan.MaNhanVien.ToString().Equals(maNV)).OrderBy(x => x.ThangNam);
                     return View(luongThangs.ToList().ToPagedList(pageNumber, pageSize));
                 }
                 else if (year != null && month == null)
                 {
-                    luongThangs = db.LuongThangs.Where(x => x.ThangNam.Year == year && x.LuongCoBan.MaNhanVien.ToString().Equals(maNV)).OrderBy(x => x.LuongCoBan.NhanVien.HoTen);
+                    luongThangs = db.LuongThangs.Where(x => x.ThangNam.Year == year && x.LuongCoBan.MaNhanVien.ToString().Equals(maNV)).OrderBy(x => x.ThangNam);
                     return View(luongThangs.ToList().ToPagedList(pageNumber, pageSize));
                 }
                 else if (year == null && month != null)
                 {
-                    luongThangs = db.LuongThangs.Where(x => x.ThangNam.Month == month && x.LuongCoBan.MaNhanVien.ToString().Equals(maNV)).OrderBy(x => x.LuongCoBan.NhanVien.HoTen);
+                    luongThangs = db.LuongThangs.Where(x => x.ThangNam.Month == month && x.LuongCoBan.MaNhanVien.ToString().Equals(maNV)).OrderBy(x => x.ThangNam);
                     return View(luongThangs.ToList().ToPagedList(pageNumber, pageSize));
                 }
-                luongThangs = db.LuongThangs.Where(x => x.LuongCoBan.MaNhanVien.ToString().Equals(maNV)).OrderBy(x => x.LuongCoBan.NhanVien.HoTen);
+                luongThangs = db.LuongThangs.Where(x => x.LuongCoBan.MaNhanVien.ToString().Equals(maNV)).OrderBy(x => x.ThangNam);
                 return View(luongThangs.ToList().ToPagedList(pageNumber, pageSize));
             }
             catch
             {
                 this.AddNotification("Có lỗi xảy ra. Vui lòng thực hiện lại!", NotificationType.ERROR);
-                luongThangs = db.LuongThangs.Where(x => x.MaLuong_Thang.ToString().Contains("+-*/*-+-*/-+")).OrderBy(x => x.LuongCoBan.NhanVien.HoTen);
+                luongThangs = db.LuongThangs.Where(x => x.MaLuong_Thang.ToString().Contains("+-*/*-+-*/-+")).OrderBy(x => x.ThangNam);
                 return View(luongThangs.ToList().ToPagedList(pageNumber, pageSize));
             }
 
@@ -119,7 +120,5 @@ namespace WebApplication1.Controllers
             }
             return RedirectToAction("ThongTinTaiKhoan");
         }
-
-
     }
 }

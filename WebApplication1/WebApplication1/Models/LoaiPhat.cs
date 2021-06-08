@@ -37,7 +37,6 @@ namespace WebApplication1.Models
         public bool IsChecked { get; set; }
 
 
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ct_Phat> Ct_Phat { get; set; }
     }

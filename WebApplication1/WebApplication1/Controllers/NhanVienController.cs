@@ -223,7 +223,7 @@ namespace WebApplication1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaNhanVien,HoTen,NgaySinh,GioiTinh,QueQuan,DiaChi,CMND,Email,SDT,HinhAnh,MaChucVu,MaPB,TrangThai,NguoiSua,NgaySua")] NhanVien nhanVien, FormCollection form)
+        public ActionResult Create([Bind(Include = "MaNhanVien,HoTen,NgaySinh,GioiTinh,QueQuan,DiaChi,CMND,Email,SDT,HinhAnh,MaChucVu,MaPB,TrangThai,NguoiSua,NgaySua,NguoiTao,NgayTao")] NhanVien nhanVien, FormCollection form)
         {
             if (ModelState.IsValid)
             {
@@ -404,27 +404,28 @@ namespace WebApplication1.Controllers
                         //}
 
                         List<NhanVien> listNV = new List<NhanVien>();
-                        var checkIsChecked = nhanViens.Where(x => x.IsChecked == true).ToList();
+                        var checkIsChecked = nhanViens.Where(x => x.IsChecked == true);
                         var checkTrangThai = checkIsChecked.Where(x => x.TrangThai == false).FirstOrDefault();
-                        if(checkIsChecked == null)
+                        if(checkIsChecked.Count() == 0)
                         {
                             this.AddNotification("Vui lòng chọn nhân viên để thêm thưởng!", NotificationType.ERROR);
                             return RedirectToAction("Index");
                         }
                         else
                         {
-                            foreach(var item in checkIsChecked)
+                            if (checkTrangThai != null)
+                            {
+                                this.AddNotification("Không thể thêm thưởng cho nhân viên nghỉ việc!", NotificationType.ERROR);
+                                return RedirectToAction("Index");
+                            }
+                            foreach (var item in checkIsChecked)
                             {
                                 if(item.TrangThai == true)
                                 {
                                     listNV.Add(item);
                                 }
                             }
-                            if(checkTrangThai != null)
-                            {
-                                this.AddNotification("Không thể thêm thưởng cho nhân viên nghỉ việc!", NotificationType.ERROR);
-                                return RedirectToAction("Index");
-                            }
+                            
                         }
                         TempData["listNhanVien"] = listNV;
                         return RedirectToAction("ThemThuongNhanVien");
@@ -455,7 +456,7 @@ namespace WebApplication1.Controllers
                         List<NhanVien> listNV = new List<NhanVien>();
                         var checkIsChecked = nhanViens.Where(x => x.IsChecked == true).ToList();
                         var checkTrangThai = checkIsChecked.Where(x => x.TrangThai == false).FirstOrDefault();
-                        if (checkIsChecked == null)
+                        if (checkIsChecked.Count == 0)
                         {
                             this.AddNotification("Vui lòng chọn nhân viên để thêm phạt!", NotificationType.ERROR);
                             return RedirectToAction("Index");

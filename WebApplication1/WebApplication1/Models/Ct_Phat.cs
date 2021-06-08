@@ -22,6 +22,11 @@ namespace WebApplication1.Models
         public int MaNhanVien { get; set; }
         [DisplayName("Mã loại phạt")]
         public int MaLoaiPhat { get; set; }
+
+        [DisplayName("Người phạt")]
+        public string NguoiPhat { get; set; }
+        [DisplayName("Ngày phạt")]
+        public System.DateTime NgayPhat { get; set; }
         [DisplayName("Trạng thái")]
         public bool TrangThai { get; set; }
         [DisplayName("Người sửa")]
@@ -29,10 +34,7 @@ namespace WebApplication1.Models
         [DisplayName("Ngày sửa")]
         public System.DateTime NgaySua { get; set; }
         public bool IsChecked { get; set; }
-        [DisplayName("Người phạt")]
-        public string NguoiPhat { get; set; }
-        [DisplayName("Ngày phạt")]
-        public System.DateTime NgayPhat { get; set; }
+
 
 
         public virtual LoaiPhat LoaiPhat { get; set; }

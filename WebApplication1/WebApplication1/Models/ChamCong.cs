@@ -27,7 +27,8 @@ namespace WebApplication1.Models
         public Nullable<int> ThoiGianLamViec { get; set; }
         public Nullable<int> ThoiGianTangCa { get; set; }
         public string TrangThai { get; set; }
-    
+
+
         public virtual NhanVien NhanVien { get; set; }
     }
 }

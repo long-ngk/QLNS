@@ -14,7 +14,6 @@ namespace WebApplication1.Models
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
-
     public partial class Ct_Thuong
     {
         [DisplayName("Mã chi tiết thưởng")]
@@ -23,18 +22,19 @@ namespace WebApplication1.Models
         public int MaNhanVien { get; set; }
         [DisplayName("Mã loại thưởng")]
         public int MaLoaiThuong { get; set; }
+
+
+        [DisplayName("Người thưởng")]
+        public string NguoiThuong { get; set; }
+        [DisplayName("Ngày thưởng")]
+        public System.DateTime NgayThuong { get; set; }
         [DisplayName("Trạng thái")]
         public bool TrangThai { get; set; }
         [DisplayName("Người sửa")]
         public string NguoiSua { get; set; }
         [DisplayName("Ngày sửa")]
         public System.DateTime NgaySua { get; set; }
-
         public bool IsChecked { get; set; }
-        [DisplayName("Người thưởng")]
-        public string NguoiThuong { get; set; }
-        [DisplayName("Ngày thưởng")]
-        public System.DateTime NgayThuong { get; set; }
 
 
 

@@ -102,10 +102,12 @@
 
                     <td>
                         @{
-                            double tienLamViecMotGio = (double)((Model[i].LuongCoBan.TienLuongCoBan * Model[i].HeSoLuong + Model[i].PhuCap) / 208);
+                            double tienLamViecMotGio = (double)((Model[i].LuongCoBan.TienLuongCoBan * Model[i].HeSoLuong + Model[i].PhuCap) / 176);
                             double tienLamViecTangCaMotGio = tienLamViecMotGio * 150 / 100;
-
-                            double tongLuong = Math.Round(tienLamViecMotGio) * Model[i].TongGioLamViec + Math.Round(tienLamViecTangCaMotGio) * Model[i].TongGioTangCa;
+                            int tienThuong = Model[i].TongThuong;
+                            int tienPhat = Model[i].TongPhat;
+                            double tongTienLamViec = Math.Round(tienLamViecMotGio) * Model[i].TongGioLamViec + Math.Round(tienLamViecTangCaMotGio) * Model[i].TongGioTangCa;
+                            double tongLuong = tongTienLamViec + tienThuong - tienPhat;
                         }
                         @*@Html.DisplayFor(modelItem => Model[i].ThoiGianTangCa)*@
                         @tongLuong

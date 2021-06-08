@@ -26,7 +26,7 @@
           <Property Name="TenChucVu" Type="nvarchar(max)" Nullable="false" />
           <Property Name="HeSoChucVu" Type="float" Nullable="false" />
           <Property Name="PhuCap" Type="int" />
-          <Property Name="TrangThai" Type="bit" />
+          <Property Name="TrangThai" Type="bit" Nullable="false" />
           <Property Name="NguoiSua" Type="nvarchar" MaxLength="500" />
           <Property Name="NgaySua" Type="datetime" Nullable="false" />
         </EntityType>
@@ -110,9 +110,9 @@
           </Key>
           <Property Name="MaNhanVien" Type="int" Nullable="false" />
           <Property Name="NgayNghi" Type="date" Nullable="false" />
-          <Property Name="Phep" Type="bit" />
+          <Property Name="Phep" Type="bit" Nullable="false" />
           <Property Name="NguoiDuyet" Type="nvarchar(max)" />
-          <Property Name="NgaySua" Type="datetime" Nullable="false" />
+          <Property Name="NgaySua" Type="datetime" />
           <Property Name="GhiChu" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="NhanVien">
@@ -410,7 +410,7 @@
           <Property Name="TenChucVu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="HeSoChucVu" Type="Double" Nullable="false" />
           <Property Name="PhuCap" Type="Int32" />
-          <Property Name="TrangThai" Type="Boolean" />
+          <Property Name="TrangThai" Type="Boolean" Nullable="false" />
           <Property Name="NguoiSua" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="NgaySua" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="NhanViens" Relationship="Self.FK_NhanVien_ChucVu" FromRole="ChucVu" ToRole="NhanVien" />
@@ -504,9 +504,9 @@
           </Key>
           <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
           <Property Name="NgayNghi" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Phep" Type="Boolean" />
+          <Property Name="Phep" Type="Boolean" Nullable="false" />
           <Property Name="NguoiDuyet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="NgaySua" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NgaySua" Type="DateTime" Precision="3" />
           <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="NhanVien" Relationship="Self.FK_Nghi_NhanVien" FromRole="Nghi" ToRole="NhanVien" />
         </EntityType>

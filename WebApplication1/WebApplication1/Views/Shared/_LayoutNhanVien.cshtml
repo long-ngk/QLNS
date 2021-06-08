@@ -19,7 +19,7 @@
         </ul>
     </nav>
     <div class="body d-flex">
-        <nav id="sidebar">
+        <nav class="sidebar">
             <div class="sidebar-header">
                 <img src="~/images/hrm.png" style="width: 70px; height:70px; color:white; display: block;margin: 0 auto;" />
                 <br />
@@ -36,12 +36,12 @@
             </div>
 
             <ul class="list-unstyled components">
-                <li>
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="fas fa-user-tie mr-3"></span>Chấm công</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li class="nav-item has-submenu">
+                    <a href="#" class="nav-link"><span class="fas fa-user-tie mr-3"></span>Chấm công</a>
+                    <ul class="submenu collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            @Html.ActionLink("Chấm công theo ngày", "ChamCongNgay", "CCRaVao")
-                            @*<a href="~/Views/Home/ListEmployee.cshtml">Danh sách nhân viên</a>*@
+                            <a href="/CCRaVao/ChamCongNgay" class="nav-link">Chấm công theo ngày</a>
+                           
                         </li>
 
                     </ul>
@@ -61,7 +61,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    <script src="~/Style/ScriptCustom/SideMenu.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
@@ -78,8 +78,8 @@
         function SessionEnd() {
             alert("Phiên làm việc đã hết hạn. Vui lòng đăng nhập lại!");
         window.location = "/Login/Logout";
-    }
-    </script>
+        };
 
+    </script>
 </body>
 </html>

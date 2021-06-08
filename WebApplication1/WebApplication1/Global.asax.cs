@@ -22,7 +22,7 @@ namespace WebApplication1
             DateTime dayOfW = DateTime.Today;
             JobManager.Initialize(new MyRegistry());
             QLNhanSuEntities ql = new QLNhanSuEntities();
-            if(dayOfW.DayOfWeek != DayOfWeek.Saturday || dayOfW.DayOfWeek != DayOfWeek.Sunday)
+            if(dayOfW.DayOfWeek != DayOfWeek.Saturday && dayOfW.DayOfWeek != DayOfWeek.Sunday)
             {
                 var chamcong = ql.ChamCongs.Where(s => s.Ngay == B.Date).FirstOrDefault();
                 if (chamcong == null)

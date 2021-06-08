@@ -123,7 +123,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label class = "control-label col-md-2">Lương cơ bản</label>
+        <label class="control-label col-md-2">Lương cơ bản</label>
         <div class="col-md-10">
             <div class="checkbox">
                 @Html.TextBox("LuongCoBan", null, new { @type = "number", onkeypress = "return isNumber(event)", onblur = "checkTextField(this);" })
@@ -132,6 +132,18 @@
         </div>
     </div>
 
+    @{
+        if (Session["TenNhanVien"] == null)
+        {
+            <input type="hidden" value="Ẩn danh" name="NguoiTao" id="NguoiTao" />
+            <input type="hidden" value="@DateTime.Now" name="NgayTao" id="NgayTao" />
+        }
+        else
+        {
+            <input type="hidden" value="@Session["TenNhanVien"]" name="NguoiTao" id="NguoiTao" />
+            <input type="hidden" value="@DateTime.Now" name="NgayTao" id="NgayTao" />
+        }
+    }
     <div class="form-group">
         <div class="col-md-10">
             @{
@@ -151,7 +163,7 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Thêm" class="btn btn-success" id="submit"/>
+            <input type="submit" value="Thêm" class="btn btn-success" id="submit" />
         </div>
     </div>
 </div>

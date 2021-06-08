@@ -34,7 +34,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.TienLuongCoBan, null, htmlAttributes: new { @class = "control-label col-md-2", style = "max-width:25%" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.TienLuongCoBan, null, new { @class = "form-control" })
+            @Html.EditorFor(model => model.TienLuongCoBan,null, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.TienLuongCoBan, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -71,3 +71,9 @@
 <div class="footer-function">
     @Html.ActionLink("Quay lại danh sách", "Index")
 </div>
+
+<style>
+    .text-box{
+        min-width:100%
+    }
+</style>

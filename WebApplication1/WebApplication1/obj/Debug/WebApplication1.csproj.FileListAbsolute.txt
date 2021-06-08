@@ -492,3 +492,4 @@ D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\xunit.execution.desktop.dll
 D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\xunit.execution.desktop.xml
 D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\FluentScheduler.dll
 D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\FluentScheduler.xml
+D:\GitHub\QLNS\WebApplication1\WebApplication1\bin\Rotativa.dll

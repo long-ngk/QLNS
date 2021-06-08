@@ -21,7 +21,7 @@
     <Property Name="TenChucVu" Type="nvarchar(max)" Nullable="false" />
     <Property Name="HeSoChucVu" Type="float" Nullable="false" />
     <Property Name="PhuCap" Type="int" />
-    <Property Name="TrangThai" Type="bit" />
+    <Property Name="TrangThai" Type="bit" Nullable="false" />
     <Property Name="NguoiSua" Type="nvarchar" MaxLength="500" />
     <Property Name="NgaySua" Type="datetime" Nullable="false" />
   </EntityType>
@@ -105,9 +105,9 @@
     </Key>
     <Property Name="MaNhanVien" Type="int" Nullable="false" />
     <Property Name="NgayNghi" Type="date" Nullable="false" />
-    <Property Name="Phep" Type="bit" />
+    <Property Name="Phep" Type="bit" Nullable="false" />
     <Property Name="NguoiDuyet" Type="nvarchar(max)" />
-    <Property Name="NgaySua" Type="datetime" Nullable="false" />
+    <Property Name="NgaySua" Type="datetime" />
     <Property Name="GhiChu" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="NhanVien">

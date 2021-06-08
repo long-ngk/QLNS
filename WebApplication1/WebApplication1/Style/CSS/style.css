@@ -30,7 +30,7 @@ body {
     flex-wrap: wrap;
 }
 
-#sidebar {
+.sidebar {
     min-width: 20%;
     max-width: 20%;
     background-color: black;
@@ -43,34 +43,34 @@ body {
         margin-left: 10%;
     }
 
-    #sidebar .sidebar-header {
+    .sidebar .sidebar-header {
         padding: 20px;
         background-color: black;
     }
 
-        #sidebar .sidebar-header h3 {
+        .sidebar .sidebar-header h3 {
             font-size: 2rem;
             text-align: center;
             text-transform: uppercase;
         }
 
-        #sidebar .sidebar-header label {
+        .sidebar .sidebar-header label {
             display: inline-block;
             font-size: 1.5rem;
             margin-left: 5%;
         }
 
-    #sidebar ul.components {
+    .sidebar ul.components {
         padding: 20px 0;
         border-bottom: 1px solid #47748b;
     }
 
-    #sidebar ul p {
+    .sidebar ul p {
         color: #fff;
         padding: 10px;
     }
 
-    #sidebar ul li a {
+    .sidebar ul li a {
         padding: 10px;
         font-size: 1.1em;
         display: block;
@@ -78,13 +78,12 @@ body {
         text-decoration: none;
     }
 
-        #sidebar ul li a:hover {
+        .sidebar ul li a:hover {
             color: #7386D5;
             background: #fff;
         }
 
-        #sidebar ul li a.click,
-        a[aria-expanded="true"] {
+        .sidebar ul li a.active {
             color: #fff;
             background: #00b116;
             font-weight: bold;
@@ -169,8 +168,13 @@ dl.dl-horizontal {
 
 .list-detail .btn-reload {
     background-color: #90ADF8;
+    border-radius: 5px;
+    margin-right: 2rem;
 }
 
+.list-detail .btn-print-all{
+    background-color:#00fffc
+}
 .form-group {
     margin-left: 15%;
 }

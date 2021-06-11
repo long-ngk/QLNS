@@ -1,0 +1,62 @@
+﻿@model WebApplication1.Models.TaiKhoan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutQuanTri.cshtml";
+}
+
+<div>
+    <h1 class="function-page-title">CHI TIẾT NGƯỜI DÙNG</h1>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.HiddenFor(model => model.TenTK)
+            <label>Tên tài khoản</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTK)
+        </dd>
+
+        <dt>
+            @Html.HiddenFor(model => model.MatKhau)
+            <label>Mật khẩu</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatKhau)
+        </dd>
+
+        <dt>
+            @Html.HiddenFor(model => model.MaNhanVien)
+            <label>Mã nhân viên</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaNhanVien)
+        </dd>
+
+        <dt>
+            @Html.HiddenFor(model => model.NhanVien.HoTen)
+            <label>Họ tên</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhanVien.HoTen)
+        </dd>
+
+        <dt>
+            @Html.HiddenFor(model => model.PhanQuyen.TenQuyen)
+            <label>Tên quyền</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhanQuyen.TenQuyen)
+        </dd>
+
+    </dl>
+</div>
+<p class="footer-function">
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.MaNhanVien }) |
+    @Html.ActionLink("Quay lại danh sách", "Index")
+</p>

@@ -1,0 +1,195 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<WebApplication1.Models.Ct_Phat>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<html>
+<body>
+    <div class="list-employee">
+        <h1>DANH SÁCH KỈ LUẬT NHÂN VIÊN</h1>
+        <div class="list-detail">
+            @using (Html.BeginForm("Index", "Ct_Phat", FormMethod.Get))
+            {
+                <div class="row">
+
+                    <div class="form-check d-flex">
+                        <span class="search-title">Trạng thái : </span>
+                        <label class="radio-inline">
+                            @Html.RadioButton("trangThai", "TatCa", true, new { @class = "mr-2" })
+                            <span> Tất cả</span>
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButton("trangThai", "HoatDong", false, new { @class = "mr-2" })
+                            <span> Hoạt động</span>
+
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButton("trangThai", "VoHieuHoa", false, new { @class = "mr-2" })
+                            <span> Vô hiệu hóa</span>
+
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="form-check d-flex">
+
+                        <span class="search-title">Tìm kiếm theo : </span>
+                        <label class="radio-inline">
+                            @Html.RadioButton("loaiTimKiem", "MaNhanVien", false, new { @class = "mr-2" })<span> Mã nhân viên</span>
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButton("loaiTimKiem", "TenNhanVien", false, new { @class = "mr-2" })<span> Tên nhân viên</span>
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButton("loaiTimKiem", "PhongBan", false, new { @class = "mr-2" })<span> Phòng ban</span>
+                        </label>
+
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <button class="btn btn-recently-add" type="submit" name="submit" value="dsGanDay"><i class="fas fa-arrow-circle-down"></i> Danh sách gần đây</button>
+                    <input class="input-search" type="text" placeholder="Nhập từ khóa tìm kiếm..." name="tenTimKiem" />
+                    <button class="btn btn-search" type="submit" name="submit" value="timKiem"><i class="fas fa-search"></i> Tìm kiếm</button>
+                    <a href='@Url.Action("Index", "Ct_Phat")' class="btn btn-reload" style="color:black"><i class="fas fa-sync-alt"></i> Tải lại</a>
+                </div>
+            }
+        </div>
+        <br />
+        @Html.Partial("_Notifications")
+
+        @using (Html.BeginForm("Delete", "Ct_Phat", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <table class="table">
+                <tr class="table-title">
+                    <th><input type="checkbox" id="checkAll" /></th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.First().MaNhanVien)
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.NhanVien.HoTen)*@<label>Họ tên</label>
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.NhanVien.PhongBan.TenPB)*@<label>Phòng ban</label>
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.LoaiPhat.TenLoaiPhat)*@<label>Tên phạt</label>
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.LoaiPhat.GiaTri)*@<label>Tiền phạt</label>
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.LoaiPhat.NgaySua)*@<label>Ngày phạt</label>
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.LoaiPhat.NgaySua)*@<label>Trạng thái</label>
+                    </th>
+                    <th>Chức năng</th>
+                </tr>
+
+                @for (int i = 0; i < Model.Count(); i++)
+                {
+                    <tr>
+                        <td>@Html.CheckBoxFor(modelItem => Model[i].IsChecked, new { @class = "checkItem" })</td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model[i].NhanVien.MaNhanVien)
+                            @Html.HiddenFor(modelItem => Model[i].NhanVien.MaNhanVien)
+                            @Html.HiddenFor(modelItem => Model[i].MaCTPhat)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model[i].NhanVien.HoTen)
+                            @Html.HiddenFor(modelItem => Model[i].NhanVien.HoTen)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model[i].NhanVien.PhongBan.TenPB)
+                            @Html.HiddenFor(modelItem => Model[i].NhanVien.PhongBan.TenPB)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model[i].LoaiPhat.TenLoaiPhat)
+                            @Html.HiddenFor(modelItem => Model[i].LoaiPhat.TenLoaiPhat)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model[i].LoaiPhat.GiaTri)
+                            @Html.HiddenFor(modelItem => Model[i].LoaiPhat.GiaTri)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model[i].NgayPhat)
+                            @Html.HiddenFor(modelItem => Model[i].NgayPhat)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model[i].TrangThai)
+                            @Html.HiddenFor(modelItem => Model[i].TrangThai)
+                        </td>
+                        <td>
+                            @*<input class="btn-edit" type="button" value="Sửa" onclick="window.location.href= '@Url.Action("Edit","Ct_Phat", new { id = Model[i].MaCTPhat })'" /> |
+                                <input class="btn-detail" type="button" value="Chi tiết" onclick="window.location.href= '@Url.Action("Details","Ct_Phat", new { id = Model[i].MaCTPhat })'" />*@
+                            <a href='@Url.Action("Details","Ct_Phat", new { id = Model[i].MaCTPhat })' class="btn-detail" style="color:black"><i class="fas fa-eye"></i></a>
+                            <a href='@Url.Action("Edit","Ct_Phat", new { id = Model[i].MaCTPhat })' class="btn-edit" style="color:black"><i class="fas fa-pen-alt"></i></a>
+
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+            @Html.PagedListPager(Model,
+             page => Url.Action("Index", new { page, submit = Request.QueryString["submit"], trangThai = Request.QueryString["trangThai"], loaiTimKiem = Request.QueryString["loaiTimKiem"], tenTimKiem = Request.QueryString["tenTimKiem"] }),
+             new PagedListRenderOptions()
+             {
+                 Display = PagedListDisplayMode.IfNeeded,
+                 DisplayPageCountAndCurrentLocation = true,
+
+             })
+
+
+
+            var enableDelete = false;
+            for (int i = 0; i < Model.Count(); i++)
+            {
+                if (Model[i].TrangThai == true)
+                {
+                    enableDelete = true;
+                    break;
+                }
+            }
+
+            if (enableDelete == true)
+            {
+                <div class="row container button-footer">
+                    <div class="left-button">
+                        <button type="submit" class="btn btn-delete_employee mr-2" onclick="return confirm('Bạn chắc chắn xóa chứ?')"><i class="fas fa-user-minus"></i> Xóa phạt</button>
+                    </div>
+                </div>
+            }
+
+        }
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        $("#checkAll").change(function () {
+            $(".checkItem").prop("checked", $(this).prop("checked"))
+        })
+        $(".checkItem").change(function () {
+            if ($(this).prop("checked") == false) {
+                $("#checkAll").prop("checked", false)
+            }
+            if ($(".checkItem:checked").length == $(".checkItem").length) {
+                $("#checkAll").prop("checked", true)
+            }
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<WebApplication1.Models.LuongThang>
+
+@{
+    ViewBag.Title = "XemBangLuong";
+    if (Convert.ToInt32(Session["MaQuyen"]) == 4)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutNhanVien.cshtml";
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>XemBangLuong</title>
+</head>
+<body>
+    <h1 class="function-page-title">BẢNG LƯƠNG THÁNG</h1>
+    <div class="list-employee">
+        <div class="list-detail">
+            @using (Html.BeginForm("XemBangLuong", "ThongTin", FormMethod.Get))
+            {
+
+                <div class="row">
+                    <div class="form-check d-flex">
+                        <span class="search-title">Tháng: </span>
+                        @Html.TextBox("month", null, new { placeholder = "MM", type = "number", min = "1", max = "12" })
+                        <span class="search-title" style="margin-left:20px">Năm: </span>
+                        @Html.TextBox("year", null, new { placeholder = "YYYY", type = "number", min = "1100", max = "9999" })
+                    </div>
+                </div>
+                <div id="message" style="color:red"></div>
+
+                <div class="row mt-3">
+
+                    <button class="btn btn-search" type="submit"><i class="fas fa-search"></i> Tìm kiếm</button>
+                    <a href='@Url.Action("XemBangLuong", "ThongTin")' class="btn btn-reload" style="color:black"><i class="fas fa-sync-alt"></i> Tải lại</a>
+                </div>
+            }
+        </div>
+
+        @Html.Partial("_Notifications")
+        <br />
+        <table class="table">
+            <tr class="table-title">
+                <th>
+                    @*@Html.DisplayNameFor(model => model.MaNhanVien)*@<label>Mã NV</label>
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.NhanVien.HoTen)*@<label>Họ tên</label>
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Ngay)*@<label>Tháng Năm</label>
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Ngay)*@<label>HSL</label>
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.ThoiGianVao)*@<label>Giờ công</label>
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.ThoiGianRa)*@<label>Giờ TC</label>
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.ThoiGianLamViec)*@<label>Tổng lương</label>
+                </th>
+
+                <th>
+                    @*@Html.DisplayNameFor(model => model.TrangThai)*@<label></label>
+                </th>
+            </tr>
+
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model[i].LuongCoBan.MaNhanVien)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model[i].LuongCoBan.NhanVien.HoTen)
+                    </td>
+                    <td>
+                        @Html.FormatValue("MM-yyyy", Model[i].ThangNam.ToString("MM-yyyy"))
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model[i].HeSoLuong)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model[i].TongGioLamViec)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model[i].TongGioTangCa)
+                    </td>
+
+                    <td>
+                        @{
+                            double tienLamViecMotGio = (double)((Model[i].LuongCoBan.TienLuongCoBan * Model[i].HeSoLuong + Model[i].PhuCap) / 176);
+                            double tienLamViecTangCaMotGio = tienLamViecMotGio * 150 / 100;
+                            int tienThuong = Model[i].TongThuong;
+                            int tienPhat = Model[i].TongPhat;
+                            double tongTienLamViec = Math.Round(tienLamViecMotGio) * Model[i].TongGioLamViec + Math.Round(tienLamViecTangCaMotGio) * Model[i].TongGioTangCa;
+                            double tongLuong = tongTienLamViec + tienThuong - tienPhat;
+                        }
+                        @*@Html.DisplayFor(modelItem => Model[i].ThoiGianTangCa)*@
+                        @tongLuong
+                    </td>
+
+                    <td>
+                        <a href='@Url.Action("Details", "ThongTin", new { id = Model[i].MaLuong_Thang })' class="btn-detail" style="color:black"><i class="fas fa-eye"></i></a>
+                    </td>
+
+
+                </tr>
+            }
+
+        </table>
+        @Html.PagedListPager(Model,
+                     page => Url.Action("TheoPhongBan", new { page, month = Request.QueryString["month"], year = Request.QueryString["year"] }),
+                     new PagedListRenderOptions()
+                     {
+                         Display = PagedListDisplayMode.IfNeeded,
+                         DisplayPageCountAndCurrentLocation = true,
+
+                     })
+    </div>
+</body>
+</html>

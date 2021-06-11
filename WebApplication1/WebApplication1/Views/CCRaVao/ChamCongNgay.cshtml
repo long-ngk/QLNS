@@ -1,0 +1,349 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@using WebApplication1.Models;
+
+@model IPagedList<WebApplication1.Models.ChamCong>
+@{
+    ViewBag.Title = "ChamCongNgay";
+    if (Convert.ToInt32(Session["MaQuyen"]) == 4)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else if (Convert.ToInt32(Session["MaQuyen"]) == 3)
+    {
+        Layout = "~/Views/Shared/_LayoutQuanTri.cshtml";
+    }
+    else if (Convert.ToInt32(Session["MaQuyen"]) == 2)
+    {
+        Layout = "~/Views/Shared/_LayoutTaiChinh.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutNhanVien.cshtml";
+    }
+}
+
+<script type="text/javascript">
+    window.onload = function (event) {
+        var d = new Date();
+        var ngay = ["Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy"];
+        var thang = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+        document.getElementById("today").innerHTML = "Hôm nay, " + ngay[d.getDay()] + " ngày " + d.getDate() + " tháng " + thang[d.getMonth()] + " năm " + d.getFullYear();
+    };
+</script>
+<h1 class="function-page-title">CHẤM CÔNG THEO NGÀY</h1>
+
+<style>
+    .row-table {
+        align-content: center
+    }
+
+    .col-right {
+        padding-left: 20px;
+        padding-top: 10px
+    }
+
+    #checkInTime {
+        margin-bottom: 24px;
+        padding-left: 15px;
+        padding-top: 20px;
+        font-weight: bold;
+        font-size: 22px
+    }
+
+    #checkOutTime {
+        margin-bottom: 24px;
+        padding-left: 15px;
+        padding-top: 20px;
+        font-weight: bold;
+        font-size: 22px
+    }
+</style>
+<div class="column-1 left" style="padding-left:10%;">
+    <br />
+    <table style=" background-color:#aff8ff">
+        <tr class="row-table">
+            <td style="text-align:right"><strong>Mã nhân viên: </strong></td>
+            <td class="col-right"><label>@Session["MaNhanVien"]</label></td>
+        </tr>
+        <tr>
+            <td style="text-align:right"><strong>Họ tên: </strong></td>
+            <td class="col-right"><label>@Session["TenNhanVien"]</label></td>
+        </tr>
+        <tr>
+            <td style="text-align:right"><strong>Phòng ban: </strong></td>
+            <td class="col-right"><label>@Session["TenPB"]</label></td>
+        </tr>
+        <tr>
+            <td style="text-align:right"><strong>Chức vụ: </strong></td>
+            <td class="col-right"><label>@Session["TenChucVu"]</label></td>
+        </tr>
+        <tr>
+            <td style="text-align:right"><strong>Tổng số giờ công: </strong></td>
+            @{ int? tongGioCong = 0;
+                if (Model.Count > 0)
+                {
+                    foreach (var item in Model)
+                    {
+                        if (item.ThoiGianLamViec != null)
+                        {
+                            tongGioCong += item.ThoiGianLamViec;
+                        }
+                    }
+                }
+            }
+            <td class="col-right"><label>@tongGioCong.ToString()</label></td>
+        </tr>
+        <tr>
+            <td style="text-align:right"><strong>Tổng số giờ tăng ca: </strong></td>
+            @{ int? tongGioTangCa = 0;
+                if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        if (item.ThoiGianTangCa != null)
+                        {
+                            tongGioTangCa += item.ThoiGianTangCa;
+                        }
+                    }
+                }
+            }
+            <td class="col-right"><label>@tongGioTangCa.ToString()</label></td>
+        </tr>
+    </table>
+</div>
+
+<div class="column-1 right">
+    <br />
+    <div id="today"></div>
+    <br />
+    @Html.Partial("_Notifications")
+    @{
+
+    }
+    <table style="align-items:center; justify-content:center">
+        <tr style="margin-bottom: 20px">
+            @using (Html.BeginForm("CheckIn", "CCRaVao", FormMethod.Post))
+            {
+                QLNhanSuEntities db = new QLNhanSuEntities();
+                var maNhanVien = Session["MaNhanVien"].ToString();
+                TimeSpan? checkInTime = DateTime.Now.TimeOfDay;
+                for (int i = 0; i < Model.Count; i++)
+                {
+                    if (Model[i].MaNhanVien.ToString().Equals(maNhanVien) && Model[i].Ngay == DateTime.Today)
+                    {
+                        checkInTime = Model[i].ThoiGianVao;
+                    }
+                }
+                TimeSpan thoiGianKhongChoVao = DateTime.Parse("10:00 AM").TimeOfDay;
+                <td>
+                    @*Nếu chưa check in thì mới hiện button check in*@
+                    @if (checkInTime == null)
+                    {
+                        DateTime dayOfW = DateTime.Today;
+                        if (dayOfW.DayOfWeek != DayOfWeek.Saturday && dayOfW.DayOfWeek != DayOfWeek.Sunday)
+                        {
+                            //trước 10h sáng mới hiện button check in.
+                            if (DateTime.Now.TimeOfDay < thoiGianKhongChoVao)
+                            {
+                                <button class="btn btn-check-in" type="submit">Check in</button>
+                            }
+                        }
+                    }
+                </td>
+                <td> <div style="padding-left: 20px; text-align: right">Giờ vào: </div></td>
+
+                <td>
+                    <p id="checkInTime">
+                        @{
+                            @*if (checkInTime != DateTime.Now.TimeOfDay)
+                                {
+                                    checkInTime.ToString();
+                                }*@
+
+                            foreach (var item in db.ChamCongs)
+                            {
+                                if (item.MaNhanVien.ToString().Equals(maNhanVien) && item.Ngay == DateTime.Today)
+                                {
+                                    checkInTime = item.ThoiGianVao;
+                                }
+                            }
+                            string inTime = checkInTime.HasValue ? checkInTime.Value.ToString("hh\\:mm\\:ss") : "";
+                        }
+                        @inTime
+                    </p>
+
+                </td>
+            }
+        </tr>
+        <tr>
+            @using (Html.BeginForm("CheckOut", "CCRaVao", FormMethod.Post))
+            {
+                QLNhanSuEntities db = new QLNhanSuEntities();
+                var maNhanVien = Session["MaNhanVien"].ToString();
+                TimeSpan? checkInTime = DateTime.Now.TimeOfDay;
+                TimeSpan? checkOutTime = DateTime.Now.TimeOfDay;
+                for (int i = 0; i < Model.Count; i++)
+                {
+                    if (Model[i].MaNhanVien.ToString().Equals(maNhanVien) && Model[i].Ngay == DateTime.Today)
+                    {
+                        checkInTime = Model[i].ThoiGianVao;
+                        checkOutTime = Model[i].ThoiGianRa/*.ToString(@"hh\:mm\:ss")*/;
+                    }
+                }
+
+                <td>
+                    @if (checkOutTime == null)
+                    {
+                        if (checkInTime != null)
+                        {
+                            <button class="btn btn-check-out">Check out</button>
+                        }
+                    }
+                </td>
+                <td> <div style="padding-left: 20px; text-align: right">Giờ ra: </div></td>
+                <td>
+                    <p id="checkOutTime">
+                        @{
+                            foreach (var item in db.ChamCongs)
+                            {
+                                if (item.MaNhanVien.ToString().Equals(maNhanVien) && item.Ngay == DateTime.Today)
+                                {
+                                    checkOutTime = item.ThoiGianRa;
+                                }
+                            }
+                            string outTime = checkOutTime.HasValue ? checkOutTime.Value.ToString("hh\\:mm\\:ss") : "";
+                        }
+                        @outTime
+                    </p>
+                </td>
+            }
+        </tr>
+    </table>
+</div>
+
+<p class="footer-function" style="bottom:0;float:none;clear: both;position: relative;">
+    <div class="list-employee">
+        <div class="list-detail">
+            @using (Html.BeginForm("ChamCongNgay", "CCRaVao", FormMethod.Get))
+            {
+
+                <div class="row">
+                    <div class="form-check d-flex">
+                        <span class="search-title">Tháng: </span>
+                        @Html.TextBox("month", null, new { placeholder = "MM", type = "number", min = "1", max = "12" })
+                        <span class="search-title" style="margin-left:20px">Năm: </span>
+                        @Html.TextBox("year", null, new { placeholder = "YYYY", type = "number", min = "1100", max = "9999" })
+
+                    </div>
+                </div>
+                <div id="message" style="color:red"></div>
+
+                <div class="row mt-3">
+
+                    <button class="btn btn-search" type="submit"><i class="fas fa-search"></i> Tìm kiếm</button>
+                    <a href='@Url.Action("ChamCongNgay", "CCRaVao")' class="btn btn-reload" style="color:black"><i class="fas fa-sync-alt"></i> Tải lại</a>
+                </div>
+            }
+        </div>
+        <br />
+        @Html.Partial("_Notifications")
+
+        <table class="table">
+            <tr class="table-title">
+                <th>
+                    @*@Html.DisplayNameFor(model => model.MaNhanVien)*@<label>Thứ</label>
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Ngay)*@<label>Ngày</label>
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.ThoiGianVao)*@<label>Thời gian vào</label>
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.ThoiGianRa)*@<label>Thời gian ra</label>
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.ThoiGianLamViec)*@<label>TG làm việc</label>
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.ThoiGianTangCa)*@<label>Tăng ca</label>
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.TrangThai)*@<label>Trạng thái</label>
+                </th>
+            </tr>
+
+            @{ if (Model != null)
+                {
+                    for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            @{ if (Model[i].Ngay.DayOfWeek.ToString() == "Monday")
+                                {
+                                    <td>Thứ hai</td>
+                                }
+                                else if (Model[i].Ngay.DayOfWeek.ToString() == "Tuesday")
+                                {
+                                    <td>Thứ ba</td>
+                                }
+                                else if (Model[i].Ngay.DayOfWeek.ToString() == "Wednesday")
+                                {
+                                    <td>Thứ tư</td>
+                                }
+                                else if (Model[i].Ngay.DayOfWeek.ToString() == "Thursday")
+                                {
+                                    <td>Thứ năm</td>
+                                }
+                                else if (Model[i].Ngay.DayOfWeek.ToString() == "Friday")
+                                {
+                                    <td>Thứ sáu</td>
+                                }
+                            }
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => Model[i].Ngay.DayOfWeek)
+                                </td>*@
+                            <td>
+                                @*@Html.DisplayFor(modelItem => Model[i].Ngay)*@
+                                @Html.FormatValue("MM-dd-yyyy", Model[i].Ngay.ToString("MM-dd-yyyy"))
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => Model[i].ThoiGianVao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => Model[i].ThoiGianRa)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => Model[i].ThoiGianLamViec)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => Model[i].ThoiGianTangCa)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => Model[i].TrangThai)
+                            </td>
+
+
+                        </tr>
+                    }
+                }
+            }
+
+        </table>
+        @{
+            if (Model != null)
+            {
+                @Html.PagedListPager(Model,
+                      page => Url.Action("Index", new { page, month = Request.QueryString["month"], year = Request.QueryString["year"] }),
+                      new PagedListRenderOptions()
+                      {
+                          Display = PagedListDisplayMode.IfNeeded,
+                          DisplayPageCountAndCurrentLocation = true,
+
+                      })
+            }
+        }
+
+    </div>
+</p>
+

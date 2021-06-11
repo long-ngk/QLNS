@@ -1,0 +1,85 @@
+﻿@model WebApplication1.Models.Ct_Thuong
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="function-page-title">SỬA KHEN THƯỞNG NHÂN VIÊN</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.MaCTThuong)
+    @Html.HiddenFor(model => model.MaNhanVien)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaNhanVien, "Mã nhân viên", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.MaNhanVien, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.MaNhanVien, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.NhanVien.HoTen, "Họ tên", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.NhanVien.HoTen, null, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.NhanVien.PhongBan.TenPB, "Phòng ban", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.NhanVien.PhongBan.TenPB, null, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaLoaiThuong, "Tên khen thưởng", htmlAttributes: new { @class = "control-label col-md-2" , style="max-width:25%"})
+        <div class="col-md-10">
+            @Html.DropDownList("MaLoaiThuong", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.MaLoaiThuong, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TrangThai, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.CheckBoxFor(model => model.TrangThai, new { @checked = "checked" })
+                @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    @{
+        if (Session["TenNhanVien"] == null)
+        {
+            <input type="hidden" value="Ẩn danh" name="NguoiSua" id="NguoiSua" />
+            <input type="hidden" value="@DateTime.Now" name="NgaySua" id="NgaySua" />
+        }
+        else
+        {
+            <input type="hidden" value="@Session["TenNhanVien"]" name="NguoiSua" id="NguoiSua" />
+            <input type="hidden" value="@DateTime.Now" name="NgaySua" id="NgaySua" />
+        }
+    }
+
+    @Html.HiddenFor(model => model.NguoiThuong, new { @checked = "checked" })
+
+
+    @Html.HiddenFor(model => model.NgayThuong, new { @checked = "checked" })
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Sửa" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+}
+
+<div class="footer-function">
+    @Html.ActionLink("Quay lại danh sách", "Index")
+</div>

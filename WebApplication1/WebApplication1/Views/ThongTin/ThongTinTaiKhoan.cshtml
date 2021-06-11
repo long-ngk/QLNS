@@ -1,0 +1,53 @@
+﻿
+@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<WebApplication1.Models.LuongThang>
+
+@{
+    ViewBag.Title = "ThongTinTaiKhoan";
+    if (Convert.ToInt32(Session["MaQuyen"]) == 4)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else if (Convert.ToInt32(Session["MaQuyen"]) == 3)
+    {
+        Layout = "~/Views/Shared/_LayoutQuanTri.cshtml";
+    }
+    else if (Convert.ToInt32(Session["MaQuyen"]) == 2)
+    {
+        Layout = "~/Views/Shared/_LayoutTaiChinh.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutNhanVien.cshtml";
+    }
+}
+
+<h1 class="function-page-title">THÔNG TIN TÀI KHOẢN</h1>
+<br />
+<div class="form-group">
+    <p style="font-size:27px">Tên tài khoản: <strong>@Session["TenTK"]</strong></p>
+    <p style="font-size:27px">Vai trò: <strong>@Session["TenQuyen"]</strong></p>
+
+</div>
+<br />
+<div class="footer-function">
+    <a href="/ThongTin/DoiMatKhau" class="btn btn-change-password">Đổi mật khẩu</a>
+    <a href="/ThongTin/XemThongTinCaNhan" class="btn btn-view-info">Xem thông tin cá nhân</a>
+    @if (Convert.ToInt32(Session["MaQuyen"]) != 2 && Convert.ToInt32(Session["MaQuyen"]) != 3)
+    {
+
+        <a href="/ThongTin/XemBangLuong" class="btn btn-salary">Xem bảng lương tháng</a>
+
+    }
+</div>
+
+<style>
+    .btn-salary {
+        margin-left: 10%;
+        background-color: #00ffb1;
+        color: black;
+        padding: 0.5rem 1rem;
+    }
+</style>

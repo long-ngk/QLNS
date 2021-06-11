@@ -14,61 +14,78 @@
     <nav class="navbar navbar-expand-sm navbar-left">
         <ul class="navbar-nav">
             <li class="nav-item text-right">
-                <a class="nav-link text-white" href="#"><span class="fas fa-sign-out-alt"></span> Thoát</a>
+                <a class="nav-link text-white" href="@Url.Action("Logout","Login")"><span class="fas fa-sign-out-alt"></span> Thoát</a>
             </li>
         </ul>
     </nav>
     <div class="body d-flex">
-        <nav id="sidebar">
+        <nav class="sidebar">
             <div class="sidebar-header">
-                <h3>Quản lý nhân sự</h3>
-                <label>Chào : </label><input type="text" name="name" value="" />
+                <img src="~/images/hrm.png" style="width: 70px; height:70px; color:white; display: block;margin: 0 auto;" />
+                <br />
+                <div style="text-align:center">
+                    @if (Session["TenNhanVien"] == null)
+                    {
+                        @:Chào:
+                    }
+                    else
+                    {
+                        @:Chào: <a href="/ThongTin/ThongTinTaiKhoan">@Session["TenNhanVien"]</a>
+                    }
+                </div>
             </div>
 
             <ul class="list-unstyled components">
-                <li>
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="fas fa-user-tie mr-3"></span>Quản lý nhân viên</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li class="nav-item has-submenu">
+                    <a href="#" class="nav-link"><span class="fas fa-user-tie mr-3"></span>Quản lý nhân viên</a>
+                    <ul class="submenu collapse list-unstyled"  id="homeSubmenu">
                         <li>
-                            @Html.ActionLink("Danh sách nhân viên","ListEmployee","Home")
-                            @*<a href="~/Views/Home/ListEmployee.cshtml">Danh sách nhân viên</a>*@
+                            <a href='@Url.Action("Index", "NhanVien")' class="nav-link">Danh sách nhân viên</a>
                         </li>
                         <li>
-                            <a href="#">Danh sách khen thưởng nhân viên</a>
+                            <a href='@Url.Action("Index", "Ct_Thuong")' class="nav-link">Danh sách khen thưởng nhân viên</a>
                         </li>
                         <li>
-                            <a href="#">Danh mục khen thưởng</a>
+                            <a href='@Url.Action("Index", "LoaiThuong")' class="nav-link">Danh mục khen thưởng</a>
                         </li>
                         <li>
-                            <a href="#">Danh sách kỷ luật nhân viên</a>
+                            <a href='@Url.Action("Index", "Ct_Phat")' class="nav-link">Danh sách kỷ luật nhân viên</a>
                         </li>
                         <li>
-                            <a href="#">Danh mục kỷ luật</a>
+                            <a href='@Url.Action("Index", "LoaiPhat")' class="nav-link">Danh mục kỷ luật</a>
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <li class="nav-item has-submenu">
+                    <a href="#" class="nav-link">
                         <span class="far fa-edit mr-3"></span>Quản lý chấm công
                     </a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <ul class="submenu collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="#">Danh sách chấm công</a>
+                            <a href="/ChamCong/Index" class="nav-link">Danh sách chấm công</a>
                         </li>
                         <li>
-                            <a href="#">Danh sách nhân viên nghỉ việc</a>
+                            <a href="/Nghi/Index" class="nav-link">Danh sách nhân viên nghỉ việc</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><span class="fab fa-buromobelexperte mr-3"></span> Quản lý phòng ban</a>
+                    <a href="@Url.Action("Index", "PhongBan")"><span class="fab fa-buromobelexperte mr-3"></span>Quản lý phòng ban</a>
                 </li>
                 <li>
-                    <a href="#"><span class="far fa-id-card mr-3"></span>Quảm lý chức vụ</a>
+                    <a href="@Url.Action("Index", "ChucVu")"><span class="far fa-id-card mr-3"></span>Quản lý chức vụ</a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link"><span class="fas fa-calendar-check mr-3"></span>Chấm công</a>
+                    <ul class="submenu collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="@Url.Action("ChamCongNgay", "CCRaVao")" class="nav-link">Chấm công theo ngày</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
-        </nav>
 
+        </nav>
         <div class="right-navbar">
             @RenderBody()
         </div>
@@ -81,14 +98,111 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    <script src="~/Style/ScriptCustom/SideMenu.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
             });
         });
-    </script>
 
+            //session end
+    var sessionTimeoutWarning = @Session.Timeout- 1;
+
+    var sTimeout = parseInt(sessionTimeoutWarning) * 60 * 1000;
+    setTimeout('SessionEnd()', sTimeout);
+
+        function SessionEnd() {
+            alert("Phiên làm việc đã hết hạn. Vui lòng đăng nhập lại!");
+        window.location = "/Login/Logout";
+        };
+
+       
+    </script>
+    @*<style>
+        .navbar {
+            background-color: #06cc28;
+            border: none;
+            margin-bottom: 0 !important;
+            border-radius: 0 !important;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .wrapper {
+            display: flex;
+            width: 100%;
+            align-items: stretch;
+        }
+
+        .right-navbar {
+            min-width: 80%;
+            flex-wrap: wrap;
+        }
+
+        .sidebar {
+            min-width: 20%;
+            max-width: 20%;
+            background-color: black;
+            padding-bottom: 50%;
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+            .sidebar.active {
+                margin-left: 10%;
+            }
+
+            .sidebar .sidebar-header {
+                padding: 20px;
+                background-color: black;
+            }
+
+                .sidebar .sidebar-header h3 {
+                    font-size: 2rem;
+                    text-align: center;
+                    text-transform: uppercase;
+                }
+
+                .sidebar .sidebar-header label {
+                    display: inline-block;
+                    font-size: 1.5rem;
+                    margin-left: 5%;
+                }
+
+            .sidebar ul.components {
+                padding: 20px 0;
+                border-bottom: 1px solid #47748b;
+            }
+
+            .sidebar ul p {
+                color: #fff;
+                padding: 10px;
+            }
+
+            .sidebar ul li a {
+                padding: 10px;
+                font-size: 1.1em;
+                display: block;
+                color: white;
+                text-decoration: none;
+            }
+
+                .sidebar ul li a:hover {
+                    color: #7386D5;
+                    background: #fff;
+                }
+
+                .sidebar ul li a.active {
+                    color: #fff;
+                    background: #00b116;
+                    font-weight: bold;
+                }
+
+    </style>*@
 </body>
 </html>

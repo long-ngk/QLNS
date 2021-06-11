@@ -1,0 +1,166 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<WebApplication1.Models.LoaiPhat>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<body>
+    <div class="list-employee">
+        <h1>DANH MỤC KỈ LUẬT</h1>
+        <div class="list-detail">
+            @using (Html.BeginForm("Index", "LoaiPhat", FormMethod.Get))
+            {
+                <div class="row">
+                    <a href='@Url.Action("Create", "LoaiPhat")' class="btn add-employee"><i class="fas fa-plus"></i> Thêm loại phạt</a>
+                    <div class="form-check d-flex">
+
+                        <span class="search-title">Trạng thái : </span>
+                        <label class="radio-inline">
+                            @Html.RadioButton("trangThai", "TatCa", true, new { @class = "mr-2" })<span > Tất cả</span>
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButton("trangThai", "HoatDong", false, new { @class = "mr-2" })<span> Hoạt động</span>
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButton("trangThai", "VoHieuHoa", false, new { @class = "mr-2" })<span> Vô hiệu hóa</span>
+                        </label>
+
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="form-check d-flex">
+
+                        <span class="search-title">Tìm kiếm theo : </span>
+                        <label class="radio-inline">
+                            @Html.RadioButton("loaiTimKiem", "MaLoaiPhat", false, new { @class = "mr-2" })<span> Mã loại phạt</span>
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButton("loaiTimKiem", "TenLoaiPhat", false, new { @class = "mr-2" })<span> Tên loại phạt</span>
+                        </label>
+
+
+                    </div>
+                </div>
+                <div class="row mt-3">
+
+                    <input class="input-search" type="text" placeholder="Nhập từ khóa tìm kiếm..." name="tenTimKiem" />
+                    <button class="btn btn-search" type="submit"><i class="fas fa-search"></i> Tìm kiếm</button>
+                    <a href='@Url.Action("Index", "LoaiPhat")' class="btn btn-reload" style="color:black"><i class="fas fa-sync-alt"></i> Tải lại</a>
+                </div>
+            }
+
+        </div>
+        <br />
+        @Html.Partial("_Notifications")
+
+        @using (Html.BeginForm("Delete", "LoaiPhat", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <table class="table">
+                <tr class="table-title">
+                    <th><input type="checkbox" id="checkAll" /></th>
+                    <th>
+                        <label>Mã loại phạt</label>
+                    </th>
+                    <th>
+                        <label>Tên loại phạt</label>
+                    </th>
+                    <th>
+                        <label>Giá trị</label>
+                    </th>
+                    <th>
+                        <label>Trạng thái</label>
+                    </th>
+                    <th>Chức năng</th>
+                </tr>
+
+                @for (int i = 0; i < Model.Count(); i++)
+                {
+                    <tr>
+                        <td>@Html.CheckBoxFor(modelItem => Model[i].IsChecked, new { @class = "checkItem" })</td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model[i].MaLoaiPhat)
+                            @Html.HiddenFor(modelItem => Model[i].MaLoaiPhat)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model[i].TenLoaiPhat)
+                            @Html.HiddenFor(modelItem => Model[i].TenLoaiPhat)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model[i].GiaTri)
+                            @Html.HiddenFor(modelItem => Model[i].GiaTri)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model[i].TrangThai)
+                            @Html.HiddenFor(modelItem => Model[i].TrangThai)
+                        </td>
+
+                        <td>
+                            @*<input class="btn-edit" type="button" value="Sửa" onclick="window.location.href= '@Url.Action("Edit","LoaiPhat", new { id = Model[i].MaLoaiPhat })'" /> |
+        <input class="btn-detail" type="button" value="Chi tiết" onclick="window.location.href= '@Url.Action("Details","LoaiPhat", new { id = Model[i].MaLoaiPhat })'" />*@
+                            <a href='@Url.Action("Details","LoaiPhat", new { id = Model[i].MaLoaiPhat })' class="btn-detail" style="color:black"><i class="fas fa-eye"></i></a>
+                            <a href='@Url.Action("Edit","LoaiPhat", new { id = Model[i].MaLoaiPhat })' class="btn-edit" style="color:black"><i class="fas fa-pen-alt"></i></a>
+
+                        </td>
+                    </tr>
+                }
+            </table>
+
+            @Html.PagedListPager(Model,
+            page => Url.Action("Index", new { page, trangThai = Request.QueryString["trangThai"], loaiTimKiem = Request.QueryString["loaiTimKiem"], tenTimKiem = Request.QueryString["tenTimKiem"] }),
+            new PagedListRenderOptions()
+            {
+                Display = PagedListDisplayMode.IfNeeded,
+                DisplayPageCountAndCurrentLocation = true,
+
+            })
+
+
+
+            var enableDelete = false;
+            for (int i = 0; i < Model.Count(); i++)
+            {
+                if (Model[i].TrangThai == true)
+                {
+                    enableDelete = true;
+                    break;
+                }
+            }
+
+            if (enableDelete == true)
+            {
+                <div class="row container button-footer">
+                    <div class="left-button">
+                        <button type="submit" class="btn btn-delete_employee mr-2" onclick="return confirm('Bạn chắc chắn xóa chứ?')"><i class="fas fa-user-minus"></i> Xóa loại phạt</button>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        $("#checkAll").change(function () {
+            $(".checkItem").prop("checked", $(this).prop("checked"))
+        })
+        $(".checkItem").change(function () {
+            if ($(this).prop("checked") == false) {
+                $("#checkAll").prop("checked", false)
+            }
+            if ($(".checkItem:checked").length == $(".checkItem").length) {
+                $("#checkAll").prop("checked", true)
+            }
+        })
+    </script>
+
+</body>
+
+</html>

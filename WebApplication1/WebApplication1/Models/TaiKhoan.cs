@@ -13,19 +13,24 @@ namespace WebApplication1.Models
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class TaiKhoan
     {
+        [DisplayName("Mã nhân viên")]
         public int MaNhanVien { get; set; }
-        [Display(Name = "Tên tài khoản")]
-        [Required(ErrorMessage = "Tài khoản không được để trống...")]
+        [DisplayName("Tên tài khoản")]
+        [Required(ErrorMessage = "Tên tài khoản không được trống...")]
         public string TenTK { get; set; }
-        [Display(Name = "Mật khẩu")]
-        [Required(ErrorMessage = "Mật khẩu không được để trống...")]
+        [DisplayName("Mật khẩu")]
+
+        [Required(ErrorMessage = "Mật khẩu không được trống...")]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*\d).{5,25}$", ErrorMessage = "Mật khẩu bao gồm chữ và số, từ 5 đến 25 kí tự")]
         public string MatKhau { get; set; }
+        [DisplayName("Mã quyền")]
         public int MaQuyen { get; set; }
-    
+        public string ResetPasswordCode { get; set; }
+
+
         public virtual NhanVien NhanVien { get; set; }
         public virtual PhanQuyen PhanQuyen { get; set; }
     }

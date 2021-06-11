@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>@ViewBag.Title</title>
+    <link href="~/Style/CSS/style.css" rel="stylesheet" />
+    @*<link href="~/Content/Site.css" rel="stylesheet" />*@
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-left">
+        <ul class="navbar-nav">
+            <li class="nav-item text-right">
+                <a class="nav-link text-white" href="@Url.Action("Logout","Login")"><span class="fas fa-sign-out-alt"></span> Thoát</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="body d-flex">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <img src="~/images/hrm.png" style="width: 70px; height:70px; color:white; display: block;margin: 0 auto;" />
+                <br />
+                <div style="text-align:center">
+                    @if (Session["TenNhanVien"] == null)
+                    {
+                        @:Chào:
+                    }
+                    else
+                    {
+                        @:Chào: <a href="/ThongTin/ThongTinTaiKhoan">@Session["TenNhanVien"]</a>
+                    }
+                </div>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="nav-item has-submenu">
+                    <a href="#" class="nav-link"><span class="fas fa-user-tie mr-3"></span>Chấm công</a>
+                    <ul class="submenu collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="/CCRaVao/ChamCongNgay" class="nav-link">Chấm công theo ngày</a>
+                           
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="right-navbar">
+            @RenderBody()
+        </div>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="~/Style/ScriptCustom/SideMenu.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+
+            //session end
+    var sessionTimeoutWarning = @Session.Timeout- 1;
+
+    var sTimeout = parseInt(sessionTimeoutWarning) * 60 * 1000;
+    setTimeout('SessionEnd()', sTimeout);
+
+        function SessionEnd() {
+            alert("Phiên làm việc đã hết hạn. Vui lòng đăng nhập lại!");
+        window.location = "/Login/Logout";
+        };
+
+    </script>
+</body>
+</html>

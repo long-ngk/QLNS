@@ -1,0 +1,116 @@
+﻿@model IEnumerable<WebApplication1.Models.LuongThang>
+
+@{
+    ViewBag.Title = "DSLuongTheoNhanVien";
+    Layout = "~/Views/Shared/_LayoutPrint.cshtml";
+}
+
+<h1 class="function-page-title">LƯƠNG THEO NHÂN VIÊN</h1>
+
+<div class="list-employee">
+    <div class="list-detail">
+        @using (Html.BeginForm("TheoNhanVien", "ThongKeLuong", FormMethod.Get))
+        {
+
+            <div class="row">
+                <div class="form-check d-flex">
+                    <span class="search-title">Tháng: @ViewBag.month</span>
+
+                    <span class="search-title" style="margin-left:20px">Năm: @ViewBag.year</span>
+
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="form-check d-flex">
+                    <span class="search-title">Tìm kiếm theo: @ViewBag.loaiTimKiem</span>
+                    <br />
+                    <span class="search-title">Tên tìm kiếm: @ViewBag.tenTimKiem</span>
+                </div>
+            </div>
+        }
+    </div>
+
+    @Html.Partial("_Notifications")
+    <br />
+    <table class="table">
+        <tr class="table-title">
+            <th class="inner-body-title">
+                @*@Html.DisplayNameFor(model => model.MaNhanVien)*@<label>Mã NV</label>
+            </th>
+            <th class="inner-body-title">
+                @*@Html.DisplayNameFor(model => model.NhanVien.HoTen)*@<label>Họ tên</label>
+            </th>
+            <th class="inner-body-title">
+                @*@Html.DisplayNameFor(model => model.Ngay)*@<label>Tháng Năm</label>
+            </th>
+            <th class="inner-body-title">
+                @*@Html.DisplayNameFor(model => model.Ngay)*@<label>HSL</label>
+            </th>
+            <th class="inner-body-title">
+                @*@Html.DisplayNameFor(model => model.ThoiGianVao)*@<label>Giờ công</label>
+            </th>
+            <th class="inner-body-title">
+                @*@Html.DisplayNameFor(model => model.ThoiGianRa)*@<label>Giờ TC</label>
+            </th>
+            <th class="inner-body-title">
+                @*@Html.DisplayNameFor(model => model.ThoiGianVao)*@<label>Thưởng</label>
+            </th>
+            <th class="inner-body-title">
+                @*@Html.DisplayNameFor(model => model.ThoiGianRa)*@<label>Phạt</label>
+            </th>
+            <th class="inner-body-title">
+                @*@Html.DisplayNameFor(model => model.ThoiGianLamViec)*@<label>Tổng lương</label>
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="inner-body-content">
+                    @Html.DisplayFor(modelItem => item.LuongCoBan.MaNhanVien)
+                </td>
+                <td class="inner-body-content">
+                    @Html.DisplayFor(modelItem => item.LuongCoBan.NhanVien.HoTen)
+                </td>
+                <td class="inner-body-content">
+                    @Html.FormatValue("MM-yyyy", item.ThangNam.ToString("MM-yyyy"))
+                </td>
+                <td class="inner-body-content">
+                    @Html.DisplayFor(modelItem => item.HeSoLuong)
+                </td>
+                <td class="inner-body-content">
+                    @Html.DisplayFor(modelItem => item.TongGioLamViec)
+                </td>
+                <td class="inner-body-content">
+                    @Html.DisplayFor(modelItem => item.TongGioTangCa)
+                </td>
+                <td class="inner-body-content">
+                    @Html.DisplayFor(modelItem => item.TongThuong)
+                </td>
+                <td class="inner-body-content">
+                    @Html.DisplayFor(modelItem => item.TongPhat)
+                </td>
+                <td class="inner-body-content">
+                    @{
+                        double tienLamViecMotGio = (double)((item.LuongCoBan.TienLuongCoBan * item.HeSoLuong + item.PhuCap) / 176);
+                        double tienLamViecTangCaMotGio = tienLamViecMotGio * 150 / 100;
+                        int tienThuong = item.TongThuong;
+                        int tienPhat = item.TongPhat;
+                        double tongTienLamViec = Math.Round(tienLamViecMotGio) * item.TongGioLamViec + Math.Round(tienLamViecTangCaMotGio) * item.TongGioTangCa;
+                        double tongLuong = tongTienLamViec + tienThuong - tienPhat;
+                    }
+                    @tongLuong
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<style>
+    .inner-body-title, .inner-body-content{
+        text-align:center;
+    }
+</style>
+
+

@@ -1,6 +1,5 @@
 ﻿* {
     margin: 0;
-    font-size: 14px;
 }
 
 body {
@@ -31,7 +30,7 @@ body {
     flex-wrap: wrap;
 }
 
-#sidebar {
+.sidebar {
     min-width: 20%;
     max-width: 20%;
     background-color: black;
@@ -44,34 +43,34 @@ body {
         margin-left: 10%;
     }
 
-    #sidebar .sidebar-header {
+    .sidebar .sidebar-header {
         padding: 20px;
         background-color: black;
     }
 
-        #sidebar .sidebar-header h3 {
+        .sidebar .sidebar-header h3 {
             font-size: 2rem;
             text-align: center;
             text-transform: uppercase;
         }
 
-        #sidebar .sidebar-header label {
+        .sidebar .sidebar-header label {
             display: inline-block;
             font-size: 1.5rem;
             margin-left: 5%;
         }
 
-    #sidebar ul.components {
+    .sidebar ul.components {
         padding: 20px 0;
         border-bottom: 1px solid #47748b;
     }
 
-    #sidebar ul p {
+    .sidebar ul p {
         color: #fff;
         padding: 10px;
     }
 
-    #sidebar ul li a {
+    .sidebar ul li a {
         padding: 10px;
         font-size: 1.1em;
         display: block;
@@ -79,13 +78,12 @@ body {
         text-decoration: none;
     }
 
-        #sidebar ul li a:hover {
+        .sidebar ul li a:hover {
             color: #7386D5;
             background: #fff;
         }
 
-        #sidebar ul li a.click,
-        a[aria-expanded="true"] {
+        .sidebar ul li a.active {
             color: #fff;
             background: #00b116;
             font-weight: bold;
@@ -121,7 +119,7 @@ a[data-toggle="collapse"] {
 }
 
 .list-employee > h1 {
-    font-size: 3rem;
+    font-size: 2.2rem;
     font-weight: 400;
     background-color: #8080808c;
     text-align: center;
@@ -129,15 +127,30 @@ a[data-toggle="collapse"] {
     background: linear-gradient(to bottom, #71f3f9, #2193d6);
 }
 
-.list-employee .all-choose {
-    background-color: #90ADF8;
-    border-radius: 5px;
+h1.function-page-title {
+    font-size: 2.2rem;
+    font-weight: 400;
+    background-color: #8080808c;
+    text-align: center;
+    padding: 1.5rem 0;
+    background: linear-gradient(to bottom, #71f3f9, #2193d6);
 }
 
-.list-employee .unchoose {
-    background-color: #4BE275;
+dl.dl-horizontal {
+    margin-left: 2rem;
+    font-size: 19px
+}
+
+.footer-function {
+    margin-left: 20%;
+}
+
+
+.list-employee .btn-recently-add {
+    background-color: #c23bee;
     border-radius: 5px;
     margin-left: 2rem;
+    color: white
 }
 
 .list-detail .input-search {
@@ -155,11 +168,21 @@ a[data-toggle="collapse"] {
 
 .list-detail .btn-reload {
     background-color: #90ADF8;
-    padding: 0 2rem;
+    border-radius: 5px;
+    margin-right: 2rem;
+}
+
+.list-detail .btn-print-all{
+    background-color:#00fffc
+}
+.form-group {
+    margin-left: 15%;
 }
 
 .list-detail .form-check {
+    justify-content: center;
     align-items: center;
+    min-width: 100%;
 }
 
     .list-detail .form-check input {
@@ -174,34 +197,187 @@ a[data-toggle="collapse"] {
     margin-left: .5%;
     margin-top: 3%;
 }
+
 .list-employee .radio-inline {
     margin: .5rem 1rem;
 }
+
 .list-employee .left-button
 .btn-delete_employee {
     background-color: #F91414;
     color: white;
     padding: 0.5rem 1rem;
 }
+
 .list-employee .button-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin:auto;
-    margin:2rem;
+    margin: auto;
+    margin: 2rem;
 }
+
 .list-employee .left-button .btn-add_award {
     background-color: #5884F6;
     color: white;
     padding: 0.5rem 1rem;
 }
+
 .list-employee .left-button .btn-add_discipline {
     background-color: #AE7E02;
     color: white;
     padding: 0.5rem 1rem;
 }
+
 .list-employee .right-button .btn-adsent {
     background-color: #e717ad;
     color: white;
     padding: 0.5rem 1.5rem;
+}
+
+table.table {
+    text-align: center;
+}
+
+/*.btn-edit {
+    background-color: #fdba36;
+    color: black;
+
+}*/
+/*.btn-detail {
+    background-color: aquamarine;
+    color: black
+}*/
+i.fas.fa-pen-alt::before {
+    font-size: 25px;
+    color: #FF7700;
+ 
+    
+}
+
+i.fas.fa-eye::before {
+    font-size: 25px;
+    color: #0015FF;
+    margin-right: 0.6rem
+}
+
+
+
+.table-title {
+    background-color: rgb(0 255 33 / 0.55);
+}
+
+.control-label {
+    font-weight: bold;
+}
+
+.row.mt-3 {
+    justify-content: center;
+}
+
+.list-unstyled {
+    font-size: 15px;
+}
+
+input[type='checkbox'] {
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    border: 2px solid #555;
+}
+
+.search-title {
+    font-weight: bold
+}
+
+input[type="radio"] {
+    margin-right: 6px;
+    width: 17px;
+    height: 17px;
+    border-radius: 100%;
+    background: blue;
+}
+/*input[type="radio"]:checked{
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background: blue;
+}*/
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+
+.pagination li.active {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+.column-1 {
+    float: left;
+}
+
+    /* Cột bên trái */
+    .column-1.left {
+        width: 60%;
+    }
+
+    /* Cột phải */
+    .column-1.right {
+        width: 40%;
+    }
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.body-content{
+    display:block;
+}
+/* Bố cục linh hoạt: ba cột xếp chồng lên nhau thay vì cạnh nhau khi màn hình
+có chiều rộng dưới 600px */
+@media screen and (max-width: 600px) {
+    .column.left, .column.right {
+        width: 100%;
+    }
+}
+
+.btn-change-password {
+    background-color: #28b3ff;
+    color: black;
+    padding: 0.5rem 1rem;
+}
+
+.btn-view-info {
+    margin-left: 10%;
+    background-color: #fbf000;
+    color: black;
+    padding: 0.5rem 1rem;
+}
+
+
+.btn-check-in {
+    margin-right: 5%;
+    background-color: #06cc28;
+    color: black;
+    width: 120.64px;
+}
+
+
+.btn-check-out {
+    margin-right: 5%;
+    background-color: #ff3685;
+    color: black;
 }

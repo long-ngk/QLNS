@@ -1,0 +1,79 @@
+﻿@model WebApplication1.Models.LuongCoBan
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutTaiChinh.cshtml";
+}
+
+<h1 class="function-page-title">SỬA LƯƠNG CƠ BẢN</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.MaLuongCoBan)
+    @Html.HiddenFor(model => model.MaNhanVien)
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaNhanVien, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.MaNhanVien)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.NhanVien.HoTen, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.NhanVien.HoTen)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.TienLuongCoBan, null, htmlAttributes: new { @class = "control-label col-md-2", style = "max-width:25%" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TienLuongCoBan,null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.TienLuongCoBan, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.TrangThai, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.TrangThai)
+                @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="hidden" value="@Session["TenNhanVien"]" name="NguoiSua" id="NguoiSua" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.HiddenFor(model => model.NgaySua, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Sửa" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+}
+
+<div class="footer-function">
+    @Html.ActionLink("Quay lại danh sách", "Index")
+</div>
+
+<style>
+    .text-box{
+        min-width:100%
+    }
+</style>

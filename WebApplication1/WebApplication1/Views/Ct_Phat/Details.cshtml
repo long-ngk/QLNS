@@ -1,0 +1,89 @@
+﻿@model WebApplication1.Models.Ct_Phat
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="function-page-title">CHI TIẾT KỈ LUẬT NHÂN VIÊN</h1>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaNhanVien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaNhanVien)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NhanVien.HoTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhanVien.HoTen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NhanVien.PhongBan.TenPB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhanVien.PhongBan.TenPB)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiPhat.TenLoaiPhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiPhat.TenLoaiPhat)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NguoiPhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NguoiPhat)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayPhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayPhat)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrangThai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NguoiSua)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NguoiSua)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgaySua)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgaySua)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p class="footer-function">
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.MaCTPhat }) |
+    @Html.ActionLink("Quay lại danh sách", "Index")
+</p>

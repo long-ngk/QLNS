@@ -1,0 +1,72 @@
+﻿@model WebApplication1.Models.LoaiPhat
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="function-page-title">SỬA MỤC KỈ LUẬT</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaLoaiPhat)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenLoaiPhat, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenLoaiPhat, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenLoaiPhat, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GiaTri, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GiaTri, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GiaTri, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TrangThai, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.CheckBoxFor(model => model.TrangThai, new { @checked = "checked" })
+                    @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @{
+                    if (Session["TenNhanVien"] == null)
+                    {
+                        <input type="hidden" value="Ẩn danh" name="NguoiSua" id="NguoiSua" />
+                        <input type="hidden" value="@DateTime.Now" name="NgaySua" id="NgaySua" />
+                    }
+                    else
+                    {
+                        <input type="hidden" value="@Session["TenNhanVien"]" name="NguoiSua" id="NguoiSua" />
+                        <input type="hidden" value="@DateTime.Now" name="NgaySua" id="NgaySua" />
+                    }
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Sửa" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="footer-function">
+    @Html.ActionLink("Quay lại danh sách", "Index")
+</div>

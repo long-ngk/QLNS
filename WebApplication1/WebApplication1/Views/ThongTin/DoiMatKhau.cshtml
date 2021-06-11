@@ -1,0 +1,60 @@
+﻿@model WebApplication1.Models.ChangePassword
+
+@{
+    ViewBag.Title = "DoiMatKhau";
+    if (Convert.ToInt32(Session["MaQuyen"]) == 4)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else if (Convert.ToInt32(Session["MaQuyen"]) == 3)
+    {
+        Layout = "~/Views/Shared/_LayoutQuanTri.cshtml";
+    }
+    else if (Convert.ToInt32(Session["MaQuyen"]) == 2)
+    {
+        Layout = "~/Views/Shared/_LayoutTaiChinh.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutNhanVien.cshtml";
+    }
+}
+
+<h1 class="function-page-title">ĐỔI MẬT KHẨU</h1>
+<hr />
+@Html.Partial("_Notifications")
+@using (Html.BeginForm("DoiMatKhau", "ThongTin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-md-2">Mật khẩu cũ</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MatKhauCu, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MatKhauCu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" style="width:35%">Mật khẩu mới</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MatKhauMoi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MatKhauMoi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" style="width:35%; padding-left:15px">Xác nhận mật khẩu</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.XacNhanMatKhau, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.XacNhanMatKhau, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-function" style="margin-left:39%">
+        <input type="submit" value="Xác nhận" class="btn btn-success" />
+        <a class="btn btn-danger" href="/ThongTin/ThongTinTaiKhoan" style="margin-left:8%; min-width:12.176%">Hủy</a>
+    </div>
+}
+
+
+

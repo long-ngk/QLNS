@@ -1,0 +1,169 @@
+﻿@model WebApplication1.Models.NhanVien
+@{
+    ViewBag.Title = "XemThongTinCaNhan";
+    if (Convert.ToInt32(Session["MaQuyen"]) == 4)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else if (Convert.ToInt32(Session["MaQuyen"]) == 3)
+    {
+        Layout = "~/Views/Shared/_LayoutQuanTri.cshtml";
+    }
+    else if (Convert.ToInt32(Session["MaQuyen"]) == 2)
+    {
+        Layout = "~/Views/Shared/_LayoutTaiChinh.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutNhanVien.cshtml";
+    }
+}
+
+<h1 class="function-page-title">THÔNG TIN CÁ NHÂN</h1>
+
+<div class="body-content">
+    <hr />
+    <div class="column-1 left">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MaNhanVien)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MaNhanVien)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.HoTen)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HoTen)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NgaySinh)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NgaySinh)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GioiTinh)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GioiTinh)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.QueQuan)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.QueQuan)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DiaChi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DiaChi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CMND)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CMND)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SDT)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SDT)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ChucVu.TenChucVu)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ChucVu.TenChucVu)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PhongBan.TenPB)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PhongBan.TenPB)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TaiKhoan.TenTK)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TaiKhoan.TenTK)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.NguoiTao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NguoiTao)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.NgayTao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NgayTao)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TrangThai)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TrangThai)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.NguoiSua)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NguoiSua)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NgaySua)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NgaySua)
+            </dd>
+        </dl>
+    </div>
+
+    <div class="column-1 right">
+        <img src="@Url.Content(Model.HinhAnh)" alt="Hình nhân viên" height="370" width="370" style="margin-left:30px" />
+    </div>
+
+</div>
+
+<p class="footer-function" style="bottom:0;float:none;clear: both;position: relative;">
+    <a class="btn btn-warning" href="/ThongTin/ThongTinTaiKhoan" style="margin-left:10%">Quay lại</a>
+</p>

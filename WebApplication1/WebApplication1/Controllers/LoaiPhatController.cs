@@ -191,8 +191,9 @@ namespace WebApplication1.Controllers
                             item.TrangThai = false;
                             item.NguoiSua = "Hệ thống - " + loaiPhat.NguoiSua;
                             item.NgaySua = DateTime.Now;
-                            oldTenLoaiPhat = item.TenLoaiPhat;
+                           
                         }
+                        oldTenLoaiPhat = item.TenLoaiPhat;
                     }
                     loaiPhat.TenLoaiPhat = oldTenLoaiPhat;
                     loaiPhat.TrangThai = true;
@@ -233,7 +234,7 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
-                var tenLoaiPhatList = db.LoaiPhats.Where(x => x.TenLoaiPhat.Equals(loaiPhat.TenLoaiPhat, StringComparison.OrdinalIgnoreCase)).ToList();
+                var tenLoaiPhatList = db.LoaiPhats.Where(x => x.TenLoaiPhat.Equals(loaiPhat.TenLoaiPhat.Trim(), StringComparison.OrdinalIgnoreCase)).ToList();
                 string oldTenLoaiPhat = "";
                 if (tenLoaiPhatList.Count != 0)
                 {
@@ -244,8 +245,9 @@ namespace WebApplication1.Controllers
                             item.TrangThai = false;
                             item.NguoiSua = "Hệ thống - " + loaiPhat.NguoiSua;
                             item.NgaySua = DateTime.Now;
-                            oldTenLoaiPhat = item.TenLoaiPhat;
+                       
                         }
+                        oldTenLoaiPhat = item.TenLoaiPhat;
                     }
                     loaiPhat.TenLoaiPhat = oldTenLoaiPhat;
                     loaiPhat.TrangThai = true;
@@ -272,13 +274,18 @@ namespace WebApplication1.Controllers
                 var checkIsChecked = loaiPhats.Where(x => x.IsChecked == true).FirstOrDefault();
                 if (checkIsChecked == null)
                 {
-                    this.AddNotification("Vui lòng chọn loại thưởng để xóa!", NotificationType.ERROR);
+                    this.AddNotification("Vui lòng chọn loại phạt để xóa!", NotificationType.ERROR);
                     return RedirectToAction("Index");
                 }
                 foreach (var item in loaiPhats)
                 {
                     if (item.IsChecked == true)
                     {
+                        if(item.TenLoaiPhat == "Nghỉ" || item.TenLoaiPhat == "Đi trễ")
+                        {
+                            this.AddNotification("Không thể xóa vì loại phạt Đi trễ hoặc Nghỉ là loại phạt mặc định!", NotificationType.WARNING);
+                            return RedirectToAction("Index");
+                        }
                         int maLoaiPhat = item.MaLoaiPhat;
                         LoaiPhat loaiPhat = db.LoaiPhats.Where(x => x.MaLoaiPhat == maLoaiPhat).SingleOrDefault();
                         if (loaiPhat != null)
@@ -293,7 +300,7 @@ namespace WebApplication1.Controllers
             }
             catch
             {
-                this.AddNotification("Không thể xóa vì loại thưởng này đã và đang được sử dụng!", NotificationType.ERROR);
+                this.AddNotification("Không thể xóa vì loại phạt này đã và đang được sử dụng!", NotificationType.ERROR);
                 return RedirectToAction("Index");
             }
         }

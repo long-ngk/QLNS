@@ -200,8 +200,9 @@ namespace WebApplication1.Controllers
                             item.TrangThai = false;
                             item.NguoiSua = "Hệ thống - " + chucVu.NguoiSua;
                             item.NgaySua = DateTime.Now;
-                            oldTenChucVu = item.TenChucVu;
+                           
                         }
+                        oldTenChucVu = item.TenChucVu;
                     }
                     chucVu.TenChucVu = oldTenChucVu;
                     chucVu.TrangThai = true;
@@ -265,8 +266,9 @@ namespace WebApplication1.Controllers
                             item.TrangThai = false;
                             item.NguoiSua = "Hệ thống - " + chucVu.NguoiSua;
                             item.NgaySua = DateTime.Now;
-                            oldTenChucVu = item.TenChucVu;
+                           
                         }
+                        oldTenChucVu = item.TenChucVu;
                     }
                     chucVu.TenChucVu = oldTenChucVu;
                     chucVu.TrangThai = true;

@@ -187,8 +187,9 @@ namespace WebApplication1.Controllers
                             item.TrangThai = false;
                             item.NguoiSua = "Hệ thống - " + loaiThuong.NguoiSua;
                             item.NgaySua = DateTime.Now;
-                            oldTenLoaiThuong = item.TenLoaiThuong;
+                            
                         }
+                        oldTenLoaiThuong = item.TenLoaiThuong;
                     }
                     loaiThuong.TenLoaiThuong = oldTenLoaiThuong;
                     loaiThuong.TrangThai = true;
@@ -228,7 +229,7 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
-                var tenLoaiThuongList = db.LoaiThuongs.Where(x => x.TenLoaiThuong.Equals(loaiThuong.TenLoaiThuong, StringComparison.OrdinalIgnoreCase)).ToList();
+                var tenLoaiThuongList = db.LoaiThuongs.Where(x => x.TenLoaiThuong.Equals(loaiThuong.TenLoaiThuong.Trim(), StringComparison.OrdinalIgnoreCase)).ToList();
                 string oldTenLoaiThuong = "";
                 if (tenLoaiThuongList.Count > 0)
                 {
@@ -239,8 +240,9 @@ namespace WebApplication1.Controllers
                             item.TrangThai = false;
                             item.NguoiSua = "Hệ thống - " + loaiThuong.NguoiSua;
                             item.NgaySua = DateTime.Now;
-                            oldTenLoaiThuong = item.TenLoaiThuong;
+                           
                         }
+                        oldTenLoaiThuong = item.TenLoaiThuong;
                     }
                     loaiThuong.TenLoaiThuong = oldTenLoaiThuong;
                     loaiThuong.TrangThai = true;

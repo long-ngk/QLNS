@@ -25,8 +25,11 @@ namespace WebApplication1.Models
         [DisplayName("Mã loại phạt")]
         public int MaLoaiPhat { get; set; }
         [DisplayName("Tên loại phạt")]
+        [Required(ErrorMessage = "Tên loại phạt không được trống...")]
         public string TenLoaiPhat { get; set; }
         [DisplayName("Giá trị")]
+        [RegularExpression("([1-9][0-9]*)", ErrorMessage = "Vui lòng nhập số nguyên...")]
+        [Required(ErrorMessage = "Giá trị không được trống...")]
         public int GiaTri { get; set; }
         [DisplayName("Trạng thái")]
         public bool TrangThai { get; set; }

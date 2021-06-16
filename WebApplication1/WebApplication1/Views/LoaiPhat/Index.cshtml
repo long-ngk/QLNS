@@ -38,10 +38,10 @@
 
                         <span class="search-title">Tìm kiếm theo : </span>
                         <label class="radio-inline">
-                            @Html.RadioButton("loaiTimKiem", "MaLoaiPhat", false, new { @class = "mr-2" })<span> Mã loại phạt</span>
+                            @*@Html.RadioButton("loaiTimKiem", "MaLoaiPhat", false, new { @class = "mr-2" })*@<input class="mr-2" id="MaLoaiPhat" name="loaiTimKiem" type="radio" value="MaLoaiPhat"><span> Mã loại phạt</span>
                         </label>
                         <label class="radio-inline">
-                            @Html.RadioButton("loaiTimKiem", "TenLoaiPhat", false, new { @class = "mr-2" })<span> Tên loại phạt</span>
+                            @*@Html.RadioButton("loaiTimKiem", "TenLoaiPhat", false, new { @class = "mr-2" })*@<input class="mr-2" id="TenLoaiPhat" name="loaiTimKiem" type="radio" value="TenLoaiPhat"><span> Tên loại phạt</span>
                         </label>
 
 
@@ -49,7 +49,7 @@
                 </div>
                 <div class="row mt-3">
 
-                    <input class="input-search" type="text" placeholder="Nhập từ khóa tìm kiếm..." name="tenTimKiem" />
+                    <input class="input-search" id="input-search" disabled type="text" placeholder="Nhập từ khóa tìm kiếm..." name="tenTimKiem" />
                     <button class="btn btn-search" type="submit"><i class="fas fa-search"></i> Tìm kiếm</button>
                     <a href='@Url.Action("Index", "LoaiPhat")' class="btn btn-reload" style="color:black"><i class="fas fa-sync-alt"></i> Tải lại</a>
                 </div>
@@ -159,6 +159,23 @@
                 $("#checkAll").prop("checked", true)
             }
         })
+    
+        document.getElementById('MaLoaiPhat').onchange = displayTextBox;
+        document.getElementById('TenLoaiPhat').onchange = displayTextBox;
+        var textBox = document.getElementById("input-search");
+
+        function displayTextBox(evt) {
+            console.log(evt.target.value)
+            if (evt.target.value == "MaLoaiPhat") {
+                textBox.disabled = false;
+            }
+            else if (evt.target.value == "TenLoaiPhat") {
+                textBox.disabled = false;
+            }
+            else {
+                textBox.disabled = true;
+            }
+        }
     </script>
 
 </body>

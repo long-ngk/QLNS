@@ -43,20 +43,23 @@
 
                         <span class="search-title">Tìm kiếm theo : </span>
                         <label class="radio-inline">
-                            @Html.RadioButton("loaiTimKiem", "MaNhanVien", false, new { @class = "mr-2" })<span> Mã nhân viên</span>
+                            @*@Html.RadioButton("loaiTimKiem", "MaNhanVien", false, new { @class = "mr-2" })*@
+                            <input class="mr-2" id="MaNhanVien" name="loaiTimKiem" type="radio" value="MaNhanVien"><span> Mã nhân viên</span>
                         </label>
                         <label class="radio-inline">
-                            @Html.RadioButton("loaiTimKiem", "TenNhanVien", false, new { @class = "mr-2" })<span> Tên nhân viên</span>
+                            @*@Html.RadioButton("loaiTimKiem", "TenNhanVien", false, new { @class = "mr-2" })*@
+                            <input class="mr-2" id="TenNhanVien" name="loaiTimKiem" type="radio" value="TenNhanVien"><span> Tên nhân viên</span>
                         </label>
                         <label class="radio-inline">
-                            @Html.RadioButton("loaiTimKiem", "PhongBan", false, new { @class = "mr-2" })<span> Phòng ban</span>
+                            @*@Html.RadioButton("loaiTimKiem", "PhongBan", false, new { @class = "mr-2" })*@
+                            <input class="mr-2" id="PhongBan" name="loaiTimKiem" type="radio" value="PhongBan"><span> Phòng ban</span>
                         </label>
 
                     </div>
                 </div>
                 <div class="row mt-3">
                     <button class="btn btn-recently-add" type="submit" name="submit" value="dsGanDay"><i class="fas fa-arrow-circle-down"></i> Danh sách gần đây</button>
-                    <input class="input-search" type="text" placeholder="Nhập từ khóa tìm kiếm..." name="tenTimKiem" />
+                    <input class="input-search" id="input-search" disabled type="text" placeholder="Nhập từ khóa tìm kiếm..." name="tenTimKiem" />
                     <button class="btn btn-search" type="submit" name="submit" value="timKiem"><i class="fas fa-search"></i> Tìm kiếm</button>
                     <a class="btn btn-reload" href='@Url.Action("Index", "Ct_Thuong")'  style="color:black"><i class="fas fa-sync-alt"></i> Tải lại</a>
                 </div>
@@ -192,6 +195,27 @@
                 $("#checkAll").prop("checked", true)
             }
         })
+
+        document.getElementById('MaNhanVien').onchange = displayTextBox;
+        document.getElementById('TenNhanVien').onchange = displayTextBox;
+        document.getElementById('PhongBan').onchange = displayTextBox;
+        var textBox = document.getElementById('input-search');
+
+        function displayTextBox(evt) {
+            console.log(evt.target.value)
+            if (evt.target.value == "MaNhanVien") {
+                textBox.disabled = false;
+            }
+            else if (evt.target.value == "TenNhanVien") {
+                textBox.disabled = false;
+            }
+            else if (evt.target.value == "PhongBan") {
+                textBox.disabled = false;
+            }
+            else {
+                textBox.disabled = true;
+            }
+        }
     </script>
 
 </body>

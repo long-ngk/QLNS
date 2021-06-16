@@ -32,6 +32,10 @@ namespace WebApplication1.Controllers
                     {
                         this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã quyền!", NotificationType.WARNING);
                     }
+                    else
+                    {
+                        this.AddNotification("Tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
+                    }
                     phanQuyens = db.PhanQuyens.Where(x => x.MaQuyen.ToString().Contains(tenTimKiem.ToString())).OrderByDescending(x => x.TenQuyen);
                     return View("Index", phanQuyens.ToList().ToPagedList(pageNumber, pageSize));
                 }
@@ -40,6 +44,10 @@ namespace WebApplication1.Controllers
                     if (tenTimKiem == null || tenTimKiem == "")
                     {
                         this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên quyền!", NotificationType.WARNING);
+                    }
+                    else
+                    {
+                        this.AddNotification("Tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
                     }
                     phanQuyens = db.PhanQuyens.Where(x => x.TenQuyen.Contains(tenTimKiem.ToString())).OrderByDescending(x => x.TenQuyen);
                     return View("Index", phanQuyens.ToList().ToPagedList(pageNumber, pageSize));

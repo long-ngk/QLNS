@@ -32,17 +32,19 @@
                 <div class="form-check d-flex">
                     <span class="search-title">Tìm kiếm theo : </span>
                     <label class="radio-inline">
-                        @Html.RadioButton("loaiTimKiem", "MaNhanVien")<span> Mã nhân viên</span>
+                        @*@Html.RadioButton("loaiTimKiem", "MaNhanVien")*@
+                        <input id="MaNhanVien" name="loaiTimKiem" type="radio" value="MaNhanVien"><span> Mã nhân viên</span>
                     </label>
                     <label class="radio-inline">
-                        @Html.RadioButton("loaiTimKiem", "TenNhanVien")<span> Tên nhân viên</span>
+                        @*@Html.RadioButton("loaiTimKiem", "TenNhanVien")*@
+                        <input id="TenNhanVien" name="loaiTimKiem" type="radio" value="TenNhanVien"><span> Tên nhân viên</span>
                     </label>
                 </div>
             </div>
 
             <div class="row mt-3">
-                <input class="input-search" type="text" placeholder="Nhập từ khóa tìm kiếm..." name="tenTimKiem" />
-                <button class="btn btn-search" type="submit"><i class="fas fa-search"></i> Tìm kiếm</button>
+                <input class="input-search" id="input-search" disabled type="text" placeholder="Nhập từ khóa tìm kiếm..." name="tenTimKiem" />
+                <button class="btn btn-search"  type="submit"><i class="fas fa-search"></i> Tìm kiếm</button>
                 <a href='@Url.Action("Index", "ChamCong")' class="btn btn-reload" style="color:black"><i class="fas fa-sync-alt"></i> Tải lại</a>
             </div>
         }
@@ -121,3 +123,24 @@
 
                       })
 </div>
+
+<script>
+    document.getElementById('MaNhanVien').onchange = displayTextBox;
+    document.getElementById('TenNhanVien').onchange = displayTextBox;
+    var textBox = document.getElementById('input-search');
+
+    function displayTextBox(evt) {
+        console.log(evt.target.value)
+        if (evt.target.value == "MaNhanVien") {
+            textBox.disabled = false;
+        }
+        else if (evt.target.value == "TenNhanVien") {
+            textBox.disabled = false;
+        }
+      
+        else {
+            textBox.disabled = true;
+        }
+    }
+</script>
+</script>

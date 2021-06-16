@@ -24,183 +24,292 @@ namespace WebApplication1.Controllers
             int pageNumber = (page ?? 1);
             int pageSize = 10;
             IQueryable<LuongCoBan> luongCoBans;
-            try
+            //try
+            //{
+            if (trangThai == "TatCa")
             {
-                if (trangThai == "TatCa")
+                if (MaPB == "12")
                 {
-                    if (MaPB == "12")
+                    if (loaiTimKiem == "MaNhanVien")
                     {
-                        if (loaiTimKiem == "MaNhanVien")
+                        if (tenTimKiem == null || tenTimKiem == "")
                         {
-                            if (tenTimKiem == null || tenTimKiem == "")
-                            {
-                                this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã nhân viên!", NotificationType.WARNING);
-                            }
-                            luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.MaNhanVien.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
-                            return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
-                        }
-                        else if (loaiTimKiem == "TenNhanVien")
-                        {
-                            if (tenTimKiem == null || tenTimKiem == "")
-                            {
-                                this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên nhân viên!", NotificationType.WARNING);
-                            }
-                            luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.NhanVien.HoTen.Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
-                            return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã nhân viên!", NotificationType.WARNING);
                         }
                         else
                         {
-                            luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).OrderBy(x => x.NhanVien.HoTen);
-                            return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                            this.AddNotification("Trạng thái: " + trangThai + ", phòng ban: Tất cả, tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
                         }
+                        luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.MaNhanVien.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
+                        return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                    }
+                    else if (loaiTimKiem == "TenNhanVien")
+                    {
+                        if (tenTimKiem == null || tenTimKiem == "")
+                        {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên nhân viên!", NotificationType.WARNING);
+                        }
+                        else
+                        {
+                            this.AddNotification("Trạng thái: " + trangThai + ", phòng ban: Tất cả, tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
+                        }
+                        luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.NhanVien.HoTen.Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
+                        return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
                     }
                     else
                     {
-                        if (loaiTimKiem == "MaNhanVien")
-                        {
-                            if (tenTimKiem == null || tenTimKiem == "")
-                            {
-                                this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã nhân viên!", NotificationType.WARNING);
-                            }
-                            luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.NhanVien.PhongBan.MaPB.ToString().Equals(MaPB.ToString()) && x.MaNhanVien.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
-                            return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
-                        }
-                        else if (loaiTimKiem == "TenNhanVien")
-                        {
-                            if (tenTimKiem == null || tenTimKiem == "")
-                            {
-                                this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên nhân viên!", NotificationType.WARNING);
-                            }
-                            luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.NhanVien.PhongBan.MaPB.ToString().Equals(MaPB.ToString()) && x.NhanVien.HoTen.Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
-                            return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
-                        }
-                        else
-                        {
-                            luongCoBans = db.LuongCoBans.Where(x => x.NhanVien.PhongBan.MaPB.ToString().Equals(MaPB.ToString())).Include(l => l.NhanVien).OrderBy(x => x.NhanVien.HoTen);
-                            return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
-                        }
+                        this.AddNotification("Trạng thái: " + trangThai + ", phòng ban: Tất cả", NotificationType.INFO);
+                        luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).OrderBy(x => x.NhanVien.HoTen);
+                        return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
                     }
                 }
-                else if (trangThai == "HoatDong")
+                else
                 {
-                    if (MaPB == "12")
+                    if (loaiTimKiem == "MaNhanVien")
                     {
-                        if (loaiTimKiem == "MaNhanVien")
+                        if (tenTimKiem == null || tenTimKiem == "")
                         {
-                            if (tenTimKiem == null || tenTimKiem == "")
-                            {
-                                this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã nhân viên!", NotificationType.WARNING);
-                            }
-                            luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.TrangThai == true && x.MaNhanVien.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
-                            return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
-                        }
-                        else if (loaiTimKiem == "TenNhanVien")
-                        {
-                            if (tenTimKiem == null || tenTimKiem == "")
-                            {
-                                this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên nhân viên!", NotificationType.WARNING);
-                            }
-                            luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.TrangThai == true && x.NhanVien.HoTen.Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
-                            return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã nhân viên!", NotificationType.WARNING);
                         }
                         else
                         {
-                            luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.TrangThai == true).OrderBy(x => x.NhanVien.HoTen);
-                            return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                            var listTenPB = db.PhongBans.Where(x => x.MaPB.ToString().Equals(MaPB.ToString()));
+                            string tenPB = "";
+                            foreach (var item in listTenPB)
+                            {
+                                tenPB = item.TenPB;
+                            }
+                            this.AddNotification("Trạng thái: " + trangThai + ", phòng ban: " + tenPB + ", tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
                         }
+                        luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.NhanVien.PhongBan.MaPB.ToString().Equals(MaPB.ToString()) && x.MaNhanVien.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
+                        return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                    }
+                    else if (loaiTimKiem == "TenNhanVien")
+                    {
+                        if (tenTimKiem == null || tenTimKiem == "")
+                        {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên nhân viên!", NotificationType.WARNING);
+                        }
+                        else
+                        {
+                            var listTenPB = db.PhongBans.Where(x => x.MaPB.ToString().Equals(MaPB.ToString()));
+                            string tenPB = "";
+                            foreach (var item in listTenPB)
+                            {
+                                tenPB = item.TenPB;
+                            }
+                            this.AddNotification("Trạng thái: " + trangThai + ", phòng ban: " + tenPB + ", tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
+                        }
+                        luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.NhanVien.PhongBan.MaPB.ToString().Equals(MaPB.ToString()) && x.NhanVien.HoTen.Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
+                        return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
                     }
                     else
                     {
-                        if (loaiTimKiem == "MaNhanVien")
+                        var listTenPB = db.PhongBans.Where(x => x.MaPB.ToString().Equals(MaPB.ToString()));
+                        string tenPB = "";
+                        foreach (var item in listTenPB)
                         {
-                            if (tenTimKiem == null || tenTimKiem == "")
-                            {
-                                this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã nhân viên!", NotificationType.WARNING);
-                            }
-                            luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.NhanVien.PhongBan.MaPB.ToString().Equals(MaPB.ToString()) && x.TrangThai == true && x.MaNhanVien.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
-                            return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                            tenPB = item.TenPB;
                         }
-                        else if (loaiTimKiem == "TenNhanVien")
-                        {
-                            if (tenTimKiem == null || tenTimKiem == "")
-                            {
-                                this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên nhân viên!", NotificationType.WARNING);
-                            }
-                            luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.NhanVien.PhongBan.MaPB.ToString().Equals(MaPB.ToString()) && x.TrangThai == true && x.NhanVien.HoTen.Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
-                            return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
-                        }
-                        else
-                        {
-                            luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.NhanVien.PhongBan.MaPB.ToString().Equals(MaPB.ToString()) && x.TrangThai == true).OrderBy(x => x.NhanVien.HoTen);
-                            return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
-                        }
+                        this.AddNotification("Trạng thái: " + trangThai + ", phòng ban: " + tenPB, NotificationType.INFO);
+                        luongCoBans = db.LuongCoBans.Where(x => x.NhanVien.PhongBan.MaPB.ToString().Equals(MaPB.ToString())).Include(l => l.NhanVien).OrderBy(x => x.NhanVien.HoTen);
+                        return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
                     }
                 }
-                else if (trangThai == "VoHieuHoa")
+            }
+            else if (trangThai == "HoatDong")
+            {
+                if (MaPB == "12")
                 {
-                    if (MaPB == "12")
+                    if (loaiTimKiem == "MaNhanVien")
                     {
-                        if (loaiTimKiem == "MaNhanVien")
+                        if (tenTimKiem == null || tenTimKiem == "")
                         {
-                            if (tenTimKiem == null || tenTimKiem == "")
-                            {
-                                this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã nhân viên!", NotificationType.WARNING);
-                            }
-                            luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.TrangThai != true && x.MaNhanVien.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
-                            return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
-                        }
-                        else if (loaiTimKiem == "TenNhanVien")
-                        {
-                            if (tenTimKiem == null || tenTimKiem == "")
-                            {
-                                this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên nhân viên!", NotificationType.WARNING);
-                            }
-                            luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.TrangThai != true && x.NhanVien.HoTen.Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
-                            return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã nhân viên!", NotificationType.WARNING);
                         }
                         else
                         {
-                            luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.TrangThai != true).OrderBy(x => x.NhanVien.HoTen);
-                            return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                            this.AddNotification("Trạng thái: " + trangThai + ", phòng ban: Tất cả, tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
                         }
+                        luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.TrangThai == true && x.MaNhanVien.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
+                        return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                    }
+                    else if (loaiTimKiem == "TenNhanVien")
+                    {
+                        if (tenTimKiem == null || tenTimKiem == "")
+                        {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên nhân viên!", NotificationType.WARNING);
+                        }
+                        else
+                        {
+                            this.AddNotification("Trạng thái: " + trangThai + ", phòng ban: Tất cả, tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
+                        }
+                        luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.TrangThai == true && x.NhanVien.HoTen.Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
+                        return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
                     }
                     else
                     {
-                        if (loaiTimKiem == "MaNhanVien")
+                        this.AddNotification("Trạng thái: " + trangThai + ", phòng ban: Tất cả", NotificationType.INFO);
+                        luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.TrangThai == true).OrderBy(x => x.NhanVien.HoTen);
+                        return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                    }
+                }
+                else
+                {
+                    if (loaiTimKiem == "MaNhanVien")
+                    {
+                        if (tenTimKiem == null || tenTimKiem == "")
                         {
-                            if (tenTimKiem == null || tenTimKiem == "")
-                            {
-                                this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã nhân viên!", NotificationType.WARNING);
-                            }
-                            luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.NhanVien.PhongBan.MaPB.ToString().Equals(MaPB.ToString()) && x.TrangThai != true && x.MaNhanVien.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
-                            return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
-                        }
-                        else if (loaiTimKiem == "TenNhanVien")
-                        {
-                            if (tenTimKiem == null || tenTimKiem == "")
-                            {
-                                this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên nhân viên!", NotificationType.WARNING);
-                            }
-                            luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.NhanVien.PhongBan.MaPB.ToString().Equals(MaPB.ToString()) && x.TrangThai != true && x.NhanVien.HoTen.Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
-                            return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã nhân viên!", NotificationType.WARNING);
                         }
                         else
                         {
-                            luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.NhanVien.PhongBan.MaPB.ToString().Equals(MaPB.ToString()) && x.TrangThai != true).OrderBy(x => x.NhanVien.HoTen);
-                            return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                            var listTenPB = db.PhongBans.Where(x => x.MaPB.ToString().Equals(MaPB.ToString()));
+                            string tenPB = "";
+                            foreach (var item in listTenPB)
+                            {
+                                tenPB = item.TenPB;
+                            }
+                            this.AddNotification("Trạng thái: " + trangThai + ", phòng ban: " + tenPB + ", tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
                         }
+                        luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.NhanVien.PhongBan.MaPB.ToString().Equals(MaPB.ToString()) && x.TrangThai == true && x.MaNhanVien.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
+                        return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
                     }
-                }
+                    else if (loaiTimKiem == "TenNhanVien")
+                    {
+                        if (tenTimKiem == null || tenTimKiem == "")
+                        {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên nhân viên!", NotificationType.WARNING);
+                        }
+                        else
+                        {
+                            var listTenPB = db.PhongBans.Where(x => x.MaPB.ToString().Equals(MaPB.ToString()));
+                            string tenPB = "";
+                            foreach (var item in listTenPB)
+                            {
+                                tenPB = item.TenPB;
+                            }
+                            this.AddNotification("Trạng thái: " + trangThai + ", phòng ban: " + tenPB + ", tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
+                        }
+                        luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.NhanVien.PhongBan.MaPB.ToString().Equals(MaPB.ToString()) && x.TrangThai == true && x.NhanVien.HoTen.Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
+                        return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                    }
+                    else
+                    {
+                        var listTenPB = db.PhongBans.Where(x => x.MaPB.ToString().Equals(MaPB.ToString()));
+                        string tenPB = "";
+                        foreach (var item in listTenPB)
+                        {
+                            tenPB = item.TenPB;
+                        }
 
-                luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).OrderBy(x => x.NhanVien.HoTen);
-                return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                        this.AddNotification("Trạng thái: " + trangThai + ", phòng ban: " + tenPB, NotificationType.INFO);
+                        luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.NhanVien.PhongBan.MaPB.ToString().Equals(MaPB.ToString()) && x.TrangThai == true).OrderBy(x => x.NhanVien.HoTen);
+                        return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                    }
+                }
             }
-            catch
+            else if (trangThai == "VoHieuHoa")
             {
-                this.AddNotification("Có lỗi xảy ra. Vui lòng thực hiện tìm kiếm lại!", NotificationType.ERROR);
-                luongCoBans = db.LuongCoBans.Where(x => x.NhanVien.PhongBan.MaPB.ToString().Equals("*/-+-*/-+*/")).Include(l => l.NhanVien).OrderBy(x => x.NhanVien.HoTen);
-                return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                if (MaPB == "12")
+                {
+                    if (loaiTimKiem == "MaNhanVien")
+                    {
+                        if (tenTimKiem == null || tenTimKiem == "")
+                        {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã nhân viên!", NotificationType.WARNING);
+                        }
+                        else
+                        {
+                            this.AddNotification("Trạng thái: " + trangThai + ", phòng ban: Tất cả, tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
+                        }
+                        luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.TrangThai != true && x.MaNhanVien.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
+                        return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                    }
+                    else if (loaiTimKiem == "TenNhanVien")
+                    {
+                        if (tenTimKiem == null || tenTimKiem == "")
+                        {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên nhân viên!", NotificationType.WARNING);
+                        }
+                        else
+                        {
+                            this.AddNotification("Trạng thái: " + trangThai + ", phòng ban: Tất cả, tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
+                        }
+                        luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.TrangThai != true && x.NhanVien.HoTen.Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
+                        return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                    }
+                    else
+                    {
+                        this.AddNotification("Trạng thái: " + trangThai + ", phòng ban: Tất cả", NotificationType.INFO);
+                        luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.TrangThai != true).OrderBy(x => x.NhanVien.HoTen);
+                        return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                    }
+                }
+                else
+                {
+                    if (loaiTimKiem == "MaNhanVien")
+                    {
+                        if (tenTimKiem == null || tenTimKiem == "")
+                        {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã nhân viên!", NotificationType.WARNING);
+                        }
+                        else
+                        {
+                            var listTenPB = db.PhongBans.Where(x => x.MaPB.ToString().Equals(MaPB.ToString()));
+                            string tenPB = "";
+                            foreach (var item in listTenPB)
+                            {
+                                tenPB = item.TenPB;
+                            }
+                            this.AddNotification("Trạng thái: " + trangThai + ", phòng ban: " + tenPB + ", tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
+                        }
+                        luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.NhanVien.PhongBan.MaPB.ToString().Equals(MaPB.ToString()) && x.TrangThai != true && x.MaNhanVien.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
+                        return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                    }
+                    else if (loaiTimKiem == "TenNhanVien")
+                    {
+                        if (tenTimKiem == null || tenTimKiem == "")
+                        {
+                            this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên nhân viên!", NotificationType.WARNING);
+                        }
+                        else
+                        {
+                            var listTenPB = db.PhongBans.Where(x => x.MaPB.ToString().Equals(MaPB.ToString()));
+                            string tenPB = "";
+                            foreach (var item in listTenPB)
+                            {
+                                tenPB = item.TenPB;
+                            }
+                            this.AddNotification("Trạng thái: " + trangThai + ", phòng ban: " + tenPB + ", tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
+                        }
+                        luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.NhanVien.PhongBan.MaPB.ToString().Equals(MaPB.ToString()) && x.TrangThai != true && x.NhanVien.HoTen.Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
+                        return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                    }
+                    else
+                    {
+                        var listTenPB = db.PhongBans.Where(x => x.MaPB.ToString().Equals(MaPB.ToString()));
+                        string tenPB = "";
+                        foreach (var item in listTenPB)
+                        {
+                            tenPB = item.TenPB;
+                        }
+                        this.AddNotification("Trạng thái: " + trangThai + ", phòng ban: " + tenPB, NotificationType.INFO);
+                        luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).Where(x => x.NhanVien.PhongBan.MaPB.ToString().Equals(MaPB.ToString()) && x.TrangThai != true).OrderBy(x => x.NhanVien.HoTen);
+                        return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+                    }
+                }
             }
+
+            luongCoBans = db.LuongCoBans.Include(l => l.NhanVien).OrderBy(x => x.NhanVien.HoTen);
+            return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+            //}
+            //catch
+            //{
+            //    this.AddNotification("Có lỗi xảy ra. Vui lòng thực hiện tìm kiếm lại!", NotificationType.ERROR);
+            //    luongCoBans = db.LuongCoBans.Where(x => x.NhanVien.PhongBan.MaPB.ToString().Equals("*/-+-*/-+*/")).Include(l => l.NhanVien).OrderBy(x => x.NhanVien.HoTen);
+            //    return View(luongCoBans.ToList().ToPagedList(pageNumber, pageSize));
+            //}
         }
 
         // GET: LuongCoBan/Details/5
@@ -270,7 +379,7 @@ namespace WebApplication1.Controllers
             {
                 //db.Entry(luongCoBan).State = EntityState.Modified;
                 var luongCoBanList = db.LuongCoBans.Where(x => x.MaNhanVien == luongCoBan.MaNhanVien);
-                foreach(var item in luongCoBanList)
+                foreach (var item in luongCoBanList)
                 {
                     item.TrangThai = false;
                 }

@@ -31,15 +31,22 @@ namespace WebApplication1.Controllers
                     {
                         this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên tài khoản!", NotificationType.WARNING);
                     }
+                    else
+                    {
+                        this.AddNotification("Tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
+                    }
                     taiKhoans = db.TaiKhoans.Where(x => x.TenTK.Contains(tenTimKiem.ToString())).Include(t => t.NhanVien).Include(t => t.PhanQuyen).OrderBy(t => t.NhanVien.HoTen);
                     return View("Index", taiKhoans.ToList().ToPagedList(pageNumber, pageSize));
-
                 }
                 else if (loaiTimKiem == "MaNhanVien")
                 {
                     if (tenTimKiem == "" || tenTimKiem == null)
                     {
                         this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã nhân viên!", NotificationType.WARNING);
+                    }
+                    else
+                    {
+                        this.AddNotification("Tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
                     }
                     taiKhoans = db.TaiKhoans.Where(x => x.MaNhanVien.ToString().Contains(tenTimKiem.ToString())).Include(t => t.NhanVien).Include(t => t.PhanQuyen).OrderBy(t => t.NhanVien.HoTen);
                     return View("Index", taiKhoans.ToList().ToPagedList(pageNumber, pageSize));
@@ -50,6 +57,10 @@ namespace WebApplication1.Controllers
                     if (tenTimKiem == "" || tenTimKiem == null)
                     {
                         this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên quyền!", NotificationType.WARNING);
+                    }
+                    else
+                    {
+                        this.AddNotification("Tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
                     }
                     taiKhoans = db.TaiKhoans.Where(x => x.PhanQuyen.TenQuyen.Contains(tenTimKiem.ToString())).OrderBy(x => x.NhanVien.HoTen);
                     return View("Index", taiKhoans.ToList().ToPagedList(pageNumber, pageSize));

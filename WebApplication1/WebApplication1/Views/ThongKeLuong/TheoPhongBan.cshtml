@@ -33,18 +33,7 @@
 
                 <a href='@Url.Action("TheoPhongBan", "ThongKeLuong")' class="btn btn-reload" style="color:black"><i class="fas fa-sync-alt"></i> Tải lại</a>
                 @{
-                    //int month = 1;
-                    //int year = 2021;
-                    //int maPB = 12;
-                    //for (int i = 0; i < Model.Count; i++)
-                    //{
-                    //    month = Model[i].ThangNam.Month;
-                    //    year = Model[i].ThangNam.Year;
-                    //    maPB = Model[i].LuongCoBan.NhanVien.PhongBan.MaPB;
-                    //}
-                    @*/?month=@month&year=@year&maPB=@maPB*@
-                    if (@ViewBag.month != null || @ViewBag.year != null)
-                    {
+                if (@ViewBag.PB != null) { 
                         <a href="/ThongKeLuong/PrintLuongTheoPhongBan/?month=@ViewBag.month&year=@ViewBag.year&MaPB=@ViewBag.PB" class="btn btn-print-all" style="color:black" target="_blank"><i class="fas fa-print"></i> Xuất danh sách</a>
                     }
                 }

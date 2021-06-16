@@ -32,6 +32,10 @@ namespace WebApplication1.Controllers
                     {
                         this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã phòng ban!", NotificationType.WARNING);
                     }
+                    else
+                    {
+                        this.AddNotification("Tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
+                    }
                     phongBans = db.PhongBans.Where(x => x.MaPB.ToString().Contains(tenTimKiem.ToString()) && x.MaPB != 12).OrderBy(x => x.TenPB);
                     return View("Index", phongBans.ToList().ToPagedList(pageNumber, pageSize));
                 }
@@ -41,9 +45,14 @@ namespace WebApplication1.Controllers
                     {
                         this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên phòng ban!", NotificationType.WARNING);
                     }
+                    else
+                    {
+                        this.AddNotification("Tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
+                    }
                     phongBans = db.PhongBans.Where(x => x.TenPB.Contains(tenTimKiem.ToString()) && x.MaPB != 12).OrderBy(x => x.TenPB);
                     return View("Index", phongBans.ToList().ToPagedList(pageNumber, pageSize));
                 }
+
                 phongBans = db.PhongBans.Where(x => x.MaPB != 12).OrderBy(x => x.TenPB);
                 return View("Index", phongBans.ToList().ToPagedList(pageNumber, pageSize));
             }
@@ -159,7 +168,7 @@ namespace WebApplication1.Controllers
             return View(phongBan);
         }
 
-       
+
 
         protected override void Dispose(bool disposing)
         {

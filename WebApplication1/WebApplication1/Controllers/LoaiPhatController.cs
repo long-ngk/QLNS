@@ -40,6 +40,7 @@ namespace WebApplication1.Controllers
                         }
                         else
                         {
+                            this.AddNotification("Trạng thái: " + trangThai + ", tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
                             loaiPhats = db.LoaiPhats.Where(x => x.MaLoaiPhat.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.TenLoaiPhat);
                             return View("Index", loaiPhats.ToList().ToPagedList(pageNumber, pageSize));
                         }
@@ -54,12 +55,14 @@ namespace WebApplication1.Controllers
                         }
                         else
                         {
+                            this.AddNotification("Trạng thái: " + trangThai + ", tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
                             loaiPhats = db.LoaiPhats.Where(x => x.TenLoaiPhat.Contains(tenTimKiem.ToString())).OrderBy(x => x.TenLoaiPhat);
                             return View("Index", loaiPhats.ToList().ToPagedList(pageNumber, pageSize));
                         }
                     }
                     else
                     {
+                        this.AddNotification("Trạng thái: " + trangThai, NotificationType.INFO);
                         loaiPhats = db.LoaiPhats.OrderBy(x => x.TenLoaiPhat);
                         return View("Index", loaiPhats.ToList().ToPagedList(pageNumber, pageSize));
                     }
@@ -76,6 +79,7 @@ namespace WebApplication1.Controllers
                         }
                         else
                         {
+                            this.AddNotification("Trạng thái: " + trangThai + ", tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
                             loaiPhats = db.LoaiPhats.Where(x => x.TrangThai == true && x.MaLoaiPhat.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.TenLoaiPhat);
                             return View("Index", loaiPhats.ToList().ToPagedList(pageNumber, pageSize));
                         }
@@ -90,12 +94,14 @@ namespace WebApplication1.Controllers
                         }
                         else
                         {
+                            this.AddNotification("Trạng thái: " + trangThai + ", tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
                             loaiPhats = db.LoaiPhats.Where(x => x.TrangThai == true && x.TenLoaiPhat.Contains(tenTimKiem.ToString())).OrderBy(x => x.TenLoaiPhat);
                             return View("Index", loaiPhats.ToList().ToPagedList(pageNumber, pageSize));
                         }
                     }
                     else
                     {
+                        this.AddNotification("Trạng thái: " + trangThai, NotificationType.INFO);
                         loaiPhats = db.LoaiPhats.Where(x => x.TrangThai == true).OrderBy(x => x.TenLoaiPhat);
                         return View("Index", loaiPhats.ToList().ToPagedList(pageNumber, pageSize));
                     }
@@ -112,6 +118,7 @@ namespace WebApplication1.Controllers
                         }
                         else
                         {
+                            this.AddNotification("Trạng thái: " + trangThai + ", tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
                             loaiPhats = db.LoaiPhats.Where(x => x.TrangThai != true && x.MaLoaiPhat.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.TenLoaiPhat);
                             return View("Index", loaiPhats.ToList().ToPagedList(pageNumber, pageSize));
                         }
@@ -126,12 +133,14 @@ namespace WebApplication1.Controllers
                         }
                         else
                         {
+                            this.AddNotification("Trạng thái: " + trangThai + ", tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
                             loaiPhats = db.LoaiPhats.Where(x => x.TrangThai != true && x.TenLoaiPhat.Contains(tenTimKiem.ToString())).OrderBy(x => x.TenLoaiPhat);
                             return View("Index", loaiPhats.ToList().ToPagedList(pageNumber, pageSize));
                         }
                     }
                     else
                     {
+                        this.AddNotification("Trạng thái: " + trangThai, NotificationType.INFO);
                         loaiPhats = db.LoaiPhats.Where(x => x.TrangThai != true).OrderBy(x => x.TenLoaiPhat);
                         return View("Index", loaiPhats.ToList().ToPagedList(pageNumber, pageSize));
                     }

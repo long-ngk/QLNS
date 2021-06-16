@@ -26,7 +26,7 @@ namespace WebApplication1.Models
         public int MaLuongCoBan { get; set; }
         [DisplayName("Tiền lương cơ bản")]
         [Required(ErrorMessage = "Tiền lương không được trống...")]
-        [Range(0, int.MaxValue, ErrorMessage = "Please enter valid integer Number")]
+        [Range(0, int.MaxValue, ErrorMessage = "Vui lòng nhập số nguyên...")]
         public int TienLuongCoBan { get; set; }
         [DisplayName("Mã nhân viên")]
         public int MaNhanVien { get; set; }

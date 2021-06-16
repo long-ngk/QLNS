@@ -29,9 +29,11 @@ namespace WebApplication1.Models
         [Required(ErrorMessage = "Tên chức vụ không được trống...")]
         public string TenChucVu { get; set; }
         [DisplayName("Hệ số chức vụ")]
+        [RegularExpression(@"[0-9]+(\.[0-9][0-9]?)?", ErrorMessage = "Vui lòng nhập số thập phân...")]
         [Required(ErrorMessage = "Hệ số chức vụ không được trống...")]
         public double HeSoChucVu { get; set; }
         [DisplayName("Phụ cấp")]
+        [RegularExpression("([1-9][0-9]*)", ErrorMessage = "Vui lòng nhập số nguyên...")]
         [Required(ErrorMessage = "Phụ cấp không được trống...")]
         public Nullable<int> PhuCap { get; set; }
         [DisplayName("Trạng thái")]

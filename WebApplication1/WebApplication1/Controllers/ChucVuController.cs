@@ -33,6 +33,10 @@ namespace WebApplication1.Controllers
                         {
                             this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã chức vụ!", NotificationType.WARNING);
                         }
+                        else
+                        {
+                            this.AddNotification("Trạng thái: " + trangThai + ", tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
+                        }
                         chucVus = db.ChucVus.Where(x => x.MaChucVu.ToString().Contains(tenTimKiem.ToString())).OrderBy(x => x.TenChucVu);
                         return View("Index", chucVus.ToList().ToPagedList(pageNumber, pageSize));
                     }
@@ -43,11 +47,16 @@ namespace WebApplication1.Controllers
                         {
                             this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên chức vụ!", NotificationType.WARNING);
                         }
+                        else
+                        {
+                            this.AddNotification("Trạng thái: " + trangThai + ", tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
+                        }
                         chucVus = db.ChucVus.Where(x => x.TenChucVu.Contains(tenTimKiem.ToString())).OrderBy(x => x.TenChucVu);
                         return View("Index", chucVus.ToList().ToPagedList(pageNumber, pageSize));
                     }
                     else
                     {
+                        this.AddNotification("Trạng thái: " + trangThai, NotificationType.INFO);
                         chucVus = db.ChucVus.OrderBy(x => x.TenChucVu);
                         return View("Index", chucVus.ToList().ToPagedList(pageNumber, pageSize));
                     }
@@ -60,6 +69,10 @@ namespace WebApplication1.Controllers
                         {
                             this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã chức vụ!", NotificationType.WARNING);
                         }
+                        else
+                        {
+                            this.AddNotification("Trạng thái: " + trangThai + ", tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
+                        }
                         chucVus = db.ChucVus.Where(x => x.MaChucVu.ToString().Contains(tenTimKiem.ToString()) && x.TrangThai == true).OrderBy(x => x.TenChucVu);
                         return View("Index", chucVus.ToList().ToPagedList(pageNumber, pageSize));
                     }
@@ -70,11 +83,16 @@ namespace WebApplication1.Controllers
                         {
                             this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên chức vụ!", NotificationType.WARNING);
                         }
+                        else
+                        {
+                            this.AddNotification("Trạng thái: " + trangThai + ", tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
+                        }
                         chucVus = db.ChucVus.Where(x => x.TenChucVu.Contains(tenTimKiem.ToString()) && x.TrangThai == true).OrderBy(x => x.TenChucVu);
                         return View("Index", chucVus.ToList().ToPagedList(pageNumber, pageSize));
                     }
                     else
                     {
+                        this.AddNotification("Trạng thái: " + trangThai, NotificationType.INFO);
                         chucVus = db.ChucVus.Where(x => x.TrangThai == true).OrderBy(x => x.TenChucVu);
                         return View("Index", chucVus.ToList().ToPagedList(pageNumber, pageSize));
                     }
@@ -87,6 +105,10 @@ namespace WebApplication1.Controllers
                         {
                             this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo mã chức vụ!", NotificationType.WARNING);
                         }
+                        else
+                        {
+                            this.AddNotification("Trạng thái: " + trangThai + ", tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
+                        }
                         chucVus = db.ChucVus.Where(x => x.MaChucVu.ToString().Contains(tenTimKiem.ToString()) && x.TrangThai != true).OrderBy(x => x.TenChucVu);
                         return View("Index", chucVus.ToList().ToPagedList(pageNumber, pageSize));
                     }
@@ -97,11 +119,16 @@ namespace WebApplication1.Controllers
                         {
                             this.AddNotification("Vui lòng nhập từ khóa để tìm kiếm theo tên chức vụ!", NotificationType.WARNING);
                         }
+                        else
+                        {
+                            this.AddNotification("Trạng thái: " + trangThai + ", tìm kiếm theo: " + loaiTimKiem + ", từ khóa tìm kiếm: " + tenTimKiem, NotificationType.INFO);
+                        }
                         chucVus = db.ChucVus.Where(x => x.TenChucVu.Contains(tenTimKiem.ToString()) && x.TrangThai != true).OrderBy(x => x.TenChucVu);
                         return View("Index", chucVus.ToList().ToPagedList(pageNumber, pageSize));
                     }
                     else
                     {
+                        this.AddNotification("Trạng thái: " + trangThai, NotificationType.INFO);
                         chucVus = db.ChucVus.Where(x => x.TrangThai != true).OrderBy(x => x.TenChucVu);
                         return View("Index", chucVus.ToList().ToPagedList(pageNumber, pageSize));
                     }

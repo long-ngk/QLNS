@@ -284,6 +284,20 @@ namespace WebApplication1.Controllers
             }
 
         }
+        public ActionResult DetailsNhanVienTheoPhongBan(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            LuongThang luongThang = db.LuongThangs.Find(id);
+            if (luongThang == null)
+            {
+                return HttpNotFound();
+            }
+            TempData["MaNV"] = luongThang.LuongCoBan.MaNhanVien;
+            return View(luongThang);
+        } 
 
         public ActionResult Details(int? id)
         {

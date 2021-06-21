@@ -21,6 +21,7 @@
     {
         Layout = "~/Views/Shared/_LayoutNhanVien.cshtml";
     }
+
 }
 
 <script type="text/javascript">
@@ -128,13 +129,24 @@
                 QLNhanSuEntities db = new QLNhanSuEntities();
                 var maNhanVien = Session["MaNhanVien"].ToString();
                 TimeSpan? checkInTime = DateTime.Now.TimeOfDay;
-                for (int i = 0; i < Model.Count; i++)
+                string month = DateTime.Now.Month.ToString();
+                string year = DateTime.Now.Year.ToString();
+                List<ChamCong> chamCongs = db.ChamCongs.Where(x => x.MaNhanVien.ToString().Equals(maNhanVien) && x.Ngay.Month.ToString() == month && x.Ngay.Year.ToString() == year).ToList();
+                foreach (var item in chamCongs)
                 {
-                    if (Model[i].MaNhanVien.ToString().Equals(maNhanVien) && Model[i].Ngay == DateTime.Today)
+                    if (item.MaNhanVien.ToString().Equals(maNhanVien) && item.Ngay == DateTime.Today)
                     {
-                        checkInTime = Model[i].ThoiGianVao;
+                        checkInTime = item.ThoiGianVao;
                     }
                 }
+
+                //for (int i = 0; i < Model.Count; i++)
+                //{
+                //    if (Model[i].MaNhanVien.ToString().Equals(maNhanVien) && Model[i].Ngay == DateTime.Today)
+                //    {
+                //        checkInTime = Model[i].ThoiGianVao;
+                //    }
+                //}
                 TimeSpan thoiGianKhongChoVao = DateTime.Parse("10:00 AM").TimeOfDay;
                 <td>
                     @*Nếu chưa check in thì mới hiện button check in*@
@@ -183,15 +195,26 @@
                 var maNhanVien = Session["MaNhanVien"].ToString();
                 TimeSpan? checkInTime = DateTime.Now.TimeOfDay;
                 TimeSpan? checkOutTime = DateTime.Now.TimeOfDay;
-                for (int i = 0; i < Model.Count; i++)
+                //for (int i = 0; i < Model.Count; i++)
+                //{
+                //    if (Model[i].MaNhanVien.ToString().Equals(maNhanVien) && Model[i].Ngay == DateTime.Today)
+                //    {
+                //        checkInTime = Model[i].ThoiGianVao;
+                //        checkOutTime = Model[i].ThoiGianRa/*.ToString(@"hh\:mm\:ss")*/;
+                //    }
+                //}
+
+                string month = DateTime.Now.Month.ToString();
+                string year = DateTime.Now.Year.ToString();
+                List<ChamCong> chamCongs = db.ChamCongs.Where(x => x.MaNhanVien.ToString().Equals(maNhanVien) && x.Ngay.Month.ToString() == month && x.Ngay.Year.ToString() == year).ToList();
+                foreach (var item in chamCongs)
                 {
-                    if (Model[i].MaNhanVien.ToString().Equals(maNhanVien) && Model[i].Ngay == DateTime.Today)
+                    if (item.MaNhanVien.ToString().Equals(maNhanVien) && item.Ngay == DateTime.Today)
                     {
-                        checkInTime = Model[i].ThoiGianVao;
-                        checkOutTime = Model[i].ThoiGianRa/*.ToString(@"hh\:mm\:ss")*/;
+                        checkInTime = item.ThoiGianVao;
+                        checkOutTime = item.ThoiGianRa/*.ToString(@"hh\:mm\:ss")*/;
                     }
                 }
-
                 <td>
                     @if (checkOutTime == null)
                     {
@@ -331,17 +354,16 @@
 
         </table>
         @{
-            if (Model != null)
-            {
-                @Html.PagedListPager(Model,
-                      page => Url.Action("Index", new { page, month = Request.QueryString["month"], year = Request.QueryString["year"] }),
-                      new PagedListRenderOptions()
-                      {
-                          Display = PagedListDisplayMode.IfNeeded,
-                          DisplayPageCountAndCurrentLocation = true,
 
-                      })
-            }
+            @Html.PagedListPager(Model,
+                  page => Url.Action("ChamCongNgay", new { page, month = Request.QueryString["month"], year = Request.QueryString["year"] }),
+                  new PagedListRenderOptions()
+                  {
+                      Display = PagedListDisplayMode.IfNeeded,
+                      DisplayPageCountAndCurrentLocation = true,
+
+                 })
+
         }
 
     </div>

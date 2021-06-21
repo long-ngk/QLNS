@@ -22,7 +22,7 @@ namespace WebApplication1
             DateTime dayOfW = DateTime.Today;
             JobManager.Initialize(new MyRegistry());
             QLNhanSuEntities ql = new QLNhanSuEntities();
-            if(dayOfW.DayOfWeek != DayOfWeek.Saturday && dayOfW.DayOfWeek != DayOfWeek.Sunday)
+            if (dayOfW.DayOfWeek != DayOfWeek.Saturday && dayOfW.DayOfWeek != DayOfWeek.Sunday)
             {
                 var chamcong = ql.ChamCongs.Where(s => s.Ngay == B.Date).FirstOrDefault();
                 if (chamcong == null)
@@ -42,7 +42,7 @@ namespace WebApplication1
                     ql.SaveChanges();
                 }
             }
-            
+
 
             int month, year;
             if (B.Month == 1)
@@ -89,10 +89,11 @@ namespace WebApplication1
                     {
                         foreach (var c in cc)
                         {
-
-                            giolam = (int)(giolam + c.ThoiGianLamViec);
-                            giotangca = (int)(giotangca + c.ThoiGianTangCa);
-
+                            if (c.ThoiGianLamViec != null && c.ThoiGianTangCa != null)
+                            {
+                                giolam = (int)(giolam + c.ThoiGianLamViec);
+                                giotangca = (int)(giotangca + c.ThoiGianTangCa);
+                            }
                         }
                     }
                     var luongcoban = ql.LuongCoBans.Where(s => s.MaNhanVien == nv.MaNhanVien && s.TrangThai == true).SingleOrDefault();
@@ -121,20 +122,24 @@ namespace WebApplication1
                 var nvList = ql.ChamCongs.Where(s => s.TrangThai == null && s.Ngay == DateTime.Today).ToList();
                 if (nvList.Count > 0)
                 {
-                    foreach (var b in nvList)
+                    var nvNghiList = ql.Nghis.Where(x => x.NgayNghi == DateTime.Today).ToList();
+                    if (nvNghiList.Count == 0)
                     {
-                        b.TrangThai = "Nghỉ";
+                        foreach (var b in nvList)
+                        {
+                            b.TrangThai = "Nghỉ";
 
-                        //thêm dữ liệu nhân viên nghỉ vào bảng Nghỉ
-                        Nghi nhanVienNghi = new Nghi();
-                        nhanVienNghi.MaNhanVien = b.MaNhanVien;
-                        nhanVienNghi.NgayNghi = DateTime.Today;
-                        nhanVienNghi.Phep = false;
-                        nhanVienNghi.NgaySua = DateTime.Now;
-                        nhanVienNghi.GhiChu = "Hôm nay nghỉ";
-                        ql.Nghis.Add(nhanVienNghi);
+                            //thêm dữ liệu nhân viên nghỉ vào bảng Nghỉ
+                            Nghi nhanVienNghi = new Nghi();
+                            nhanVienNghi.MaNhanVien = b.MaNhanVien;
+                            nhanVienNghi.NgayNghi = DateTime.Today;
+                            nhanVienNghi.Phep = false;
+                            nhanVienNghi.NgaySua = DateTime.Now;
+                            nhanVienNghi.GhiChu = "Hôm nay nghỉ";
+                            ql.Nghis.Add(nhanVienNghi);
+                        }
+                        ql.SaveChanges();
                     }
-                    ql.SaveChanges();
                 }
             }
 

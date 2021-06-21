@@ -84,6 +84,11 @@ namespace WebApplication1.Controllers
                         PhanQuyen quyen = db.PhanQuyens.Where(x => x.MaQuyen == maQuyen).SingleOrDefault();
                         if (quyen != null)
                         {
+                            if(quyen.MaQuyen == 1 || quyen.MaQuyen == 2 || quyen.MaQuyen == 3 || quyen.MaQuyen == 4)
+                            {
+                                this.AddNotification("Không thể xóa quyền mặc định!", NotificationType.ERROR);
+                                return RedirectToAction("Index");
+                            }
                             db.PhanQuyens.Remove(quyen);
                             db.SaveChanges();
                         }

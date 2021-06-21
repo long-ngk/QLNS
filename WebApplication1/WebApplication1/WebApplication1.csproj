@@ -371,6 +371,7 @@
     <Content Include="Views\Shared\_LayoutPrint.cshtml" />
     <Content Include="Views\ThongKeLuong\DSLuongTheoPhongBan.cshtml" />
     <Content Include="Views\ThongKeLuong\DSLuongTheoNhanVien.cshtml" />
+    <Content Include="Views\ThongKeLuong\DetailsNhanVienTheoPhongBan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Reports\" />

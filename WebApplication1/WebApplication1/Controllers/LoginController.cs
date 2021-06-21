@@ -197,7 +197,7 @@ namespace WebApplication1.Controllers
             }
             else
             {
-                this.AddNotification("Có gì đó sai sai...", NotificationType.ERROR);
+                this.AddNotification("Vui lòng kiểm tra lại...", NotificationType.ERROR);
             }
             ViewBag.Message = message;
             return View(model);
